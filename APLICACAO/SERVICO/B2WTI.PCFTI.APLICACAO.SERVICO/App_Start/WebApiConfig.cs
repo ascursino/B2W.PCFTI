@@ -16,8 +16,8 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO
             ODataModelBuilder builder = new ODataConventionModelBuilder();
 
             #region Entidades Mapeadas ODATA
-            
-            builder.EntitySet<Fornecedor>("MinhaEntidade");
+
+            builder.EntitySet<Fornecedor>("Fornecedor");
             //...
 
             #endregion
