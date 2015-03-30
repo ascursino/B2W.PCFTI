@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Routing;
-
+﻿
 namespace B2WTI.PCFTI.APLICACAO.SERVICO
 {
+    using B2WTI.PCFTI.DOMINIO.Model.Global;
+    using System.Web.Http;
+    using System.Web.Http.OData.Builder;
+    using System.Web.Http.OData.Extensions;
+
     public class WebApiApplication : System.Web.HttpApplication
     {
-        protected void Application_Start()
+        public static void Register(HttpConfiguration config)
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+
+            #region Entidades Mapeadas ODATA
+
+            builder.EntitySet<Fornecedor>("MinhaEntidade");
+            //...
+
+            #endregion
+
+            config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }
     }
 }
