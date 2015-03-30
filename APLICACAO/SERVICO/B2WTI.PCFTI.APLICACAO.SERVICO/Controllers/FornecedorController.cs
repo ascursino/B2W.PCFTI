@@ -1,8 +1,8 @@
 ﻿
 namespace B2WTI.PCFTI.APLICACAO.SERVICO.Controllers
 {
-    using B2WTI.PCFTI.DOMINIO.Model.Global;
-    using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL;
+    using DOMINIO.Model.Global;
+    using INFRAESTRUTURA.HORIZONTAL;
     using System;
     using System.Collections.Generic;
     using System.Data;

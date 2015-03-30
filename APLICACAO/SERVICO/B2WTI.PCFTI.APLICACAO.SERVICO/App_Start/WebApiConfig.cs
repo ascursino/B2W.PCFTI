@@ -26,7 +26,7 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO
                 routeName: "ODataRoute",
                 routePrefix: "odata",
                 model: builder.GetEdmModel());
-            
+
         }
     }
 }
