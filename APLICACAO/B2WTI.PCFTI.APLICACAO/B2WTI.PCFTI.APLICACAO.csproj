@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6A18487-515F-4530-81EF-9FD89B43AACF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>B2WTI.PCFTI.APLICACAO</RootNamespace>
+    <AssemblyName>B2WTI.PCFTI.APLICACAO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Modulo\Cadastro\FornecedorCommand.cs" />
+    <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
+    <Compile Include="Modulo\Orcamento\Lancamento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DOMINIO\B2WTI.PCFTI.DOMINIO\B2WTI.PCFTI.DOMINIO.csproj">
+      <Project>{30b6fc63-33b2-48a3-acf7-2b09cafbd247}</Project>
+      <Name>B2WTI.PCFTI.DOMINIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\HORIZONTAL\B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.EXTERNO\B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.EXTERNO.csproj">
+      <Project>{06e816c8-6372-487c-bed1-b62e29af9ba8}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.EXTERNO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\HORIZONTAL\B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL\B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.csproj">
+      <Project>{021a5dab-49d9-4cfc-9251-ff750432fb21}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.csproj">
+      <Project>{27cf782c-4178-44b6-9d97-3f87d146c045}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
+      <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modulo\Parametrizacoes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MAIL_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp01.b2wdigital.com</Value>
+    </Setting>
+    <Setting Name="MAIL_PORT" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="MAIL_FROM" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tecnologia.pmo.controle@b2wdigital.com</Value>
+    </Setting>
+    <Setting Name="MAIL_PASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CORPO_DE_ERROS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EMAIL_ERROR" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ASSUNTO_DE_ERROS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
