@@ -13,20 +13,11 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO
     {
         public static void Register(HttpConfiguration config)
         {
-            ODataModelBuilder builder = new ODataConventionModelBuilder();
-
-            #region Entidades Mapeadas ODATA
-            
-            builder.EntitySet<Fornecedor>("MinhaEntidade");
-            //...
-
-            #endregion
-
-            config.MapODataServiceRoute(
-                routeName: "ODataRoute",
-                routePrefix: "odata",
-                model: builder.GetEdmModel());
-            
+            config.Routes.MapHttpRoute( //MapHTTPRoute for controllers inheriting ApiController
+               name: "DefaultApi",
+               routeTemplate: "api/{controller}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }
