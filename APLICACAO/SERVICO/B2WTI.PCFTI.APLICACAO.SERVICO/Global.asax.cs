@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace B2WTI.PCFTI.APLICACAO.SERVICO
@@ -11,7 +12,14 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(config =>
+            {
+                ODataConfig.Register(config);
+                WebApiConfig.Register(config);
+            });
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

@@ -15,27 +15,30 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO.Controllers
     using System.Web.Http;
     using System.Web.Http.ModelBinding;
     using System.Web.Http.OData;
+    using System.Web.Http.OData.Query;
     using System.Web.Http.OData.Routing;
 
+    [Authorize()]
     public class FornecedorController : ODataController
     {
         private PCFTIDataContext db = new PCFTIDataContext();
 
-        // GET: odata/MinhaEntidade
-        [EnableQuery]
+        [HttpGet]
+        // GET: odata/Fornecedor
+        [Queryable(AllowedQueryOptions = AllowedQueryOptions.All)]
         public IQueryable<Fornecedor> GetFornecedor()
         {
             return db.Fornecedor;
         }
 
-        // GET: odata/MinhaEntidade(5)
+        // GET: odata/Fornecedor(5)
         [EnableQuery]
-        public SingleResult<Fornecedor> GetMinhaEntidade([FromODataUri] Guid key)
+        public SingleResult<Fornecedor> GetFornecedor([FromODataUri] Guid key)
         {
             return SingleResult.Create(db.Fornecedor.Where(fornecedor => fornecedor.FornecedorId == key));
         }
 
-        // PUT: odata/MinhaEntidade(5)
+        // PUT: odata/Fornecedor(5)
         public async Task<IHttpActionResult> Put([FromODataUri] Guid key, Delta<Fornecedor> patch)
         {
             Validate(patch.GetEntity());
@@ -72,7 +75,7 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO.Controllers
             return Updated(fornecedor);
         }
 
-        // POST: odata/MinhaEntidade
+        // POST: odata/Fornecedor
         public async Task<IHttpActionResult> Post(Fornecedor fornecedor)
         {
             if (!ModelState.IsValid)
@@ -101,7 +104,7 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO.Controllers
             return Created(fornecedor);
         }
 
-        // PATCH: odata/MinhaEntidade(5)
+        // PATCH: odata/Fornecedor(5)
         [AcceptVerbs("PATCH", "MERGE")]
         public async Task<IHttpActionResult> Patch([FromODataUri] Guid key, Delta<Fornecedor> patch)
         {
@@ -139,7 +142,7 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO.Controllers
             return Updated(fornecedor);
         }
 
-        // DELETE: odata/MinhaEntidade(5)
+        // DELETE: odata/Fornecedor(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] Guid key)
         {
             Fornecedor fornecedor = await db.Fornecedor.FindAsync(key);

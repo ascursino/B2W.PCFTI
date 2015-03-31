@@ -43,7 +43,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(250));
 
-            modelBuilder.Configurations.Add(new FornecedorMap());
+            //modelBuilder.Configurations.Add(new FornecedorMap());
         }
 
     }

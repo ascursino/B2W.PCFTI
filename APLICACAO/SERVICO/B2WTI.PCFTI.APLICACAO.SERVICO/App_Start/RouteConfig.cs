@@ -13,10 +13,10 @@ namespace B2WTI.PCFTI.APLICACAO.SERVICO
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            routes.MapRoute( //MapRoute for controllers inheriting from standard Controller
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
