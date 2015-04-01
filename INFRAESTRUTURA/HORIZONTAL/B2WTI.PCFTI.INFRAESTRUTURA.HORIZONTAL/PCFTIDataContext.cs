@@ -27,20 +27,20 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
         }
 
         public DbSet<Lancamento> Lancamento { get; set; }
-        //public DbSet<Fornecedor> Fornecedor { get; set; }
-        //public DbSet<Responsavel> Responsavel { get; set; }
-        //public DbSet<Propriedade> Propriedade { get; set; }
-        //public DbSet<TipoServico> TipoServico { get; set; }
-        //public DbSet<TipoBloco> TipoBloco { get; set; }
-        //public DbSet<Bloco> Bloco { get; set; }
+        public DbSet<Fornecedor> Fornecedor { get; set; }
+        public DbSet<Responsavel> Responsavel { get; set; }
+        public DbSet<Propriedade> Propriedade { get; set; }
+        public DbSet<TipoServico> TipoServico { get; set; }
+        public DbSet<TipoBloco> TipoBloco { get; set; }
+        public DbSet<Bloco> Bloco { get; set; }
 
-        //public DbSet<Status> Status { get; set; }
-        //public DbSet<TipoDePagamento> TipoDePagamento { get; set; }
-        //public DbSet<Orcado> Orcado { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<TipoDePagamento> TipoDePagamento { get; set; }
+        public DbSet<Orcado> Orcado { get; set; }
         public DbSet<Backlog> Backlog { get; set; }
-        //public DbSet<Caixa> Caixa { get; set; }
-        //public DbSet<Real> Real { get; set; }
-        //public DbSet<Acumulado> Acumulado { get; set; }
+        public DbSet<Caixa> Caixa { get; set; }
+        public DbSet<Real> Real { get; set; }
+        public DbSet<Acumulado> Acumulado { get; set; }
         
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -68,19 +68,19 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
 
             //...........................
 
-            //modelBuilder.Configurations.Add(new AcumuladoMap());
+            modelBuilder.Configurations.Add(new AcumuladoMap());
             modelBuilder.Configurations.Add(new BacklogMap());
-            //modelBuilder.Configurations.Add(new BlocoMap());
-            //modelBuilder.Configurations.Add(new CaixaMap());
-            //modelBuilder.Configurations.Add(new FornecedorMap());
-            //modelBuilder.Configurations.Add(new OrcadoMap());
-            //modelBuilder.Configurations.Add(new PropriedadeMap());
-            //modelBuilder.Configurations.Add(new RealMap());
-            //modelBuilder.Configurations.Add(new ResponsavelMap());
-            //modelBuilder.Configurations.Add(new StatusMap());
-            //modelBuilder.Configurations.Add(new TipoBlocoMap());
-            //modelBuilder.Configurations.Add(new TipoDePagamentoMap());
-            //modelBuilder.Configurations.Add(new TipoServicoMap());
+            modelBuilder.Configurations.Add(new BlocoMap());
+            modelBuilder.Configurations.Add(new CaixaMap());
+            modelBuilder.Configurations.Add(new FornecedorMap());
+            modelBuilder.Configurations.Add(new OrcadoMap());
+            modelBuilder.Configurations.Add(new PropriedadeMap());
+            modelBuilder.Configurations.Add(new RealMap());
+            modelBuilder.Configurations.Add(new ResponsavelMap());
+            modelBuilder.Configurations.Add(new StatusMap());
+            modelBuilder.Configurations.Add(new TipoBlocoMap());
+            modelBuilder.Configurations.Add(new TipoDePagamentoMap());
+            modelBuilder.Configurations.Add(new TipoServicoMap());
             modelBuilder.Configurations.Add(new LancamentoMap());
         }
 

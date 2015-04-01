@@ -1,8 +1,7 @@
 ﻿
-using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
-
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
 {
+    using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
     using B2WTI.PCFTI.DOMINIO.Model.Global;
     using System;
     using System.Collections.Generic;
