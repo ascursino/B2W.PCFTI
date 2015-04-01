@@ -13,6 +13,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Orcamento
         public string DescricaoFornecedor { get; set; }
         public string DescricaoNomeFantasia { get; set; }
         public Guid ResponsavelId { get; set; }
+        public int Ano { get; set; }
         public string DescricaoResponsavel { get; set; }
         public Guid ServicoId { get; set; }
         public string DescricaoServico { get; set; }
