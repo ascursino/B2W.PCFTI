@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Modulo\Cadastro\FornecedorCommand.cs" />
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\Lancamento.cs" />

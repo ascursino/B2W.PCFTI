@@ -39,12 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Global\Bloco.cs" />
     <Compile Include="Model\Global\Fornecedor.cs" />
+    <Compile Include="Model\Global\Propriedade.cs" />
+    <Compile Include="Model\Global\Responsavel.cs" />
+    <Compile Include="Model\Global\Status.cs" />
+    <Compile Include="Model\Global\TipoBloco.cs" />
+    <Compile Include="Model\Global\TipoDePagamento.cs" />
+    <Compile Include="Model\Global\TipoServico.cs" />
+    <Compile Include="Model\Orcamento\Acumulado.cs" />
+    <Compile Include="Model\Orcamento\Backlog.cs" />
+    <Compile Include="Model\Orcamento\Caixa.cs" />
+    <Compile Include="Model\Orcamento\Lancamento.cs" />
+    <Compile Include="Model\Orcamento\Orcado.cs" />
+    <Compile Include="Model\Orcamento\Real.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Orcamento\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
       <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>
