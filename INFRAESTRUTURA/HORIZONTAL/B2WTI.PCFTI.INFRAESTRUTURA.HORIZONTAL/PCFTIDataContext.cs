@@ -59,6 +59,12 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(250));
 
+            modelBuilder.Properties<decimal>()
+                .Configure(c => c.HasPrecision(18, 3));
+
+            modelBuilder.Properties<DateTime>()
+                .Configure(c => c.HasColumnType("datetime"));
+
             modelBuilder.Configurations.Add(new FornecedorMap());
         }
 
