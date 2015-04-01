@@ -9,6 +9,24 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Orcamento
     {
         public Guid LancamentoId { get; set; }
 
+        public Guid FornecedorId { get; set; }
+        public string DescricaoFornecedor { get; set; }
+        public string DescricaoNomeFantasia { get; set; }
+        public Guid ResponsavelId { get; set; }
+        public int Ano { get; set; }
+        public string DescricaoResponsavel { get; set; }
+        public Guid ServicoId { get; set; }
+        public string DescricaoServico { get; set; }
+        public Guid TipoBlocoId { get; set; }
+        public string DescricaoTipoBloco { get; set; }
+        public Guid BlocoId { get; set; }
+        public string DescricaoBloco { get; set; }
+        public Guid StatusId { get; set; }
+        public string DescricaoStatus { get; set; }
+        public Guid TipoDePagamentoId { get; set; }
+        public string DescricaoTipoDePagamento { get; set; }
+        
+
         #region 1º Trimestre
         public decimal orcadojaneiro { get; set; }
         public decimal backlogjaneiro { get; set; }
