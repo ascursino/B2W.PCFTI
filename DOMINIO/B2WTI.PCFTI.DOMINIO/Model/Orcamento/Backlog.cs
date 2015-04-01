@@ -1,10 +1,14 @@
 ﻿namespace B2WTI.PCFTI.DOMINIO.Model.Orcamento
 {
-    public class Backlog
+    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Base;
+    using System;
+
+    public class Backlog : Entity
     {
+        public Guid LancamentoId { get; set; }
         public int PeriodoMes { get; set; }
         public double Valor { get; set; }
-
         public bool Ativo { get; set; }
+        public virtual Lancamento Lancamento { get; set; }
     }
 }

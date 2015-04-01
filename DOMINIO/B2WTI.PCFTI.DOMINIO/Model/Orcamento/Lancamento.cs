@@ -9,6 +9,8 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Orcamento
     public partial class Lancamento : Entity
     {
 
+        public Guid LancamentoId { get; set; }
+
         public virtual Fornecedor Fornecedor { get; set; }
         public virtual Responsavel Responsavel { get; set; }
         public virtual Propriedade Propriedade { get; set; }
