@@ -65,7 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMap\TipoBlocoMap.cs" />
+    <Compile Include="DataMap\BlocoMap.cs" />
+    <Compile Include="DataMap\PropriedadeMap.cs" />
+    <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
+    <Compile Include="Migrations\201503301717356_PCFTI.cs" />
+    <Compile Include="Migrations\201503301717356_PCFTI.Designer.cs">
+      <DependentUpon>201503301717356_PCFTI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FornecedorRep.cs" />
@@ -90,6 +99,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201503301717356_PCFTI.resx">
+      <DependentUpon>201503301717356_PCFTI.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
