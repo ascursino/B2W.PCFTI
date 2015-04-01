@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMap\RealMap.cs" />
+    <Compile Include="DataMap\OrcadoMap.cs" />
+    <Compile Include="DataMap\CaixaMap.cs" />
+    <Compile Include="DataMap\BacklogMap.cs" />
+    <Compile Include="DataMap\AcumuladoMap.cs" />
     <Compile Include="DataMap\TipoServicoMap.cs" />
     <Compile Include="DataMap\StatusMap.cs" />
     <Compile Include="DataMap\TipoBlocoMap.cs" />
