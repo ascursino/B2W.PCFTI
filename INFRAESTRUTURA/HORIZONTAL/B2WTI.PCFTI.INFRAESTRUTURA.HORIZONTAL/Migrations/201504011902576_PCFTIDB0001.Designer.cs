@@ -7,13 +7,13 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PCFTI : IMigrationMetadata
+    public sealed partial class PCFTIDB0001 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PCFTI));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PCFTIDB0001));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503301717356_PCFTI"; }
+            get { return "201504011902576_PCFTIDB0001"; }
         }
         
         string IMigrationMetadata.Source

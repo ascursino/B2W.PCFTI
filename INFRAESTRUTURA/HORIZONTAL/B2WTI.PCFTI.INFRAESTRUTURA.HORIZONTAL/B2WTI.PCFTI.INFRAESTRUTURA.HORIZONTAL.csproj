@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMap\LancamentoMap.cs" />
     <Compile Include="DataMap\AcumuladoMap.cs" />
     <Compile Include="DataMap\BacklogMap.cs" />
     <Compile Include="DataMap\CaixaMap.cs" />
@@ -78,9 +79,9 @@
     <Compile Include="DataMap\PropriedadeMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201503301717356_PCFTI.cs" />
-    <Compile Include="Migrations\201503301717356_PCFTI.Designer.cs">
-      <DependentUpon>201503301717356_PCFTI.cs</DependentUpon>
+    <Compile Include="Migrations\201504011902576_PCFTIDB0001.cs" />
+    <Compile Include="Migrations\201504011902576_PCFTIDB0001.Designer.cs">
+      <DependentUpon>201504011902576_PCFTIDB0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
@@ -109,8 +110,8 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503301717356_PCFTI.resx">
-      <DependentUpon>201503301717356_PCFTI.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504011902576_PCFTIDB0001.resx">
+      <DependentUpon>201504011902576_PCFTIDB0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

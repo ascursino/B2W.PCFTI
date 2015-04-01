@@ -30,9 +30,9 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.Property(t => t.Ativo)
                 .HasColumnName("Ativo");
 
-            this.HasOptional(t => t.Lancamento)
-                .WithMany(t => t.Acumulados)
-                .HasForeignKey(d => new { d.LancamentoId, d.PeriodoMes });
+            //this.HasOptional(t => t.Lancamento)
+            //    .WithMany(t => t.Acumulados)
+            //    .HasForeignKey(d => new { d.LancamentoId, d.PeriodoMes });
         }
 
     }
