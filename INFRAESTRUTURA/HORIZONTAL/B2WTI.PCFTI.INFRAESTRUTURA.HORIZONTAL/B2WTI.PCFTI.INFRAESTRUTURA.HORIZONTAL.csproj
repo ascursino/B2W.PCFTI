@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMap\TipoServicoMap.cs" />
+    <Compile Include="DataMap\StatusMap.cs" />
     <Compile Include="DataMap\TipoBlocoMap.cs" />
     <Compile Include="DataMap\BlocoMap.cs" />
     <Compile Include="DataMap\PropriedadeMap.cs" />
