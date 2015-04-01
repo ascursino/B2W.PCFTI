@@ -79,9 +79,9 @@
     <Compile Include="DataMap\PropriedadeMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201504011902576_PCFTIDB0001.cs" />
-    <Compile Include="Migrations\201504011902576_PCFTIDB0001.Designer.cs">
-      <DependentUpon>201504011902576_PCFTIDB0001.cs</DependentUpon>
+    <Compile Include="Migrations\201504011944465_PCFTIDB0001.cs" />
+    <Compile Include="Migrations\201504011944465_PCFTIDB0001.Designer.cs">
+      <DependentUpon>201504011944465_PCFTIDB0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
@@ -110,8 +110,8 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504011902576_PCFTIDB0001.resx">
-      <DependentUpon>201504011902576_PCFTIDB0001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504011944465_PCFTIDB0001.resx">
+      <DependentUpon>201504011944465_PCFTIDB0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
