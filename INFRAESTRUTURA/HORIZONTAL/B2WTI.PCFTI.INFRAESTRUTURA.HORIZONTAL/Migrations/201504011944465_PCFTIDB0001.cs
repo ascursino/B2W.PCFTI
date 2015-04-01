@@ -17,7 +17,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                         Ativo = c.Boolean(nullable: false),
                         Lancamento_LancamentoId = c.Guid(),
                     })
-                .PrimaryKey(t => new { t.LancamentoId, t.PeriodoMes })
+                .PrimaryKey(t => t.PeriodoMes)
                 .ForeignKey("dbo.Lancamento", t => t.Lancamento_LancamentoId)
                 .ForeignKey("dbo.Lancamento", t => t.LancamentoId)
                 .Index(t => t.LancamentoId)
