@@ -494,5 +494,82 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
+        [TestMethod]
+        public void TesteDoCRUDTipoDePagamento()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
+                    ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
+
+                    #region CREATE
+
+                    var _TipoDePagamento = tipodepagamentoService.NovoTipoDePagamento(
+                        new TipoDePagamento()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (_TipoDePagamento == null)
+                        Assert.Fail("A TipoDePagamento retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var lstTipoDePagamento = tipodepagamentoService.ListarTodosOsTipoDePagamento();
+
+                    if (lstTipoDePagamento == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (lstTipoDePagamento.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in lstTipoDePagamento
+                                where item.TipoDePagamentoId == _TipoDePagamento.TipoDePagamentoId
+                                select item;
+
+
+                    TipoDePagamento temp = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    tipodepagamentoService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in lstTipoDePagamento
+                                      where item.TipoDePagamentoId == temp.TipoDePagamentoId
+                                      select item;
+
+                    TipoDePagamento tempDelete = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    tipodepagamentoService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
+        }
+
     }
 }

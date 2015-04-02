@@ -1,4 +1,5 @@
 ﻿
+
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
 {
     using B2WTI.PCFTI.DOMINIO.Model.Global;
@@ -6,43 +7,43 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    
-    public static class StatusRep
+
+    public static class BlocoRep
     {
 
-        public static Status NovoStatus(this IRepository<Status> repository, Status status)
+        public static Bloco NovoBloco(this IRepository<Bloco> repository, Bloco bloco)
         {
-            status.StatusId = Guid.NewGuid();
-            status.Ativo = true;
-            repository.Insert(status);
-            
-            return status;
+            bloco.BlocoId = Guid.NewGuid();
+            bloco.Ativo = true;
+            repository.Insert(bloco);
+
+            return bloco;
         }
 
-        public static IEnumerable<Status> BuscarStatus(this IRepository<Status> repository, string TextoArgumentoBusca)
+        public static IEnumerable<Bloco> BuscarBloco(this IRepository<Bloco> repository, string TextoArgumentoBusca)
         {
             return from item in repository.Queryable()
                    where item.Ativo.Equals(true)
                    select item;
         }
 
-        public static bool ExcluirStatus(this IRepository<Status> repository, Guid StatusId)
-        { 
+        public static bool ExcluirBloco(this IRepository<Bloco> repository, Guid BlocoId)
+        {
             bool ret = true;
             try
             {
-                Status status = null;
+                Bloco Bloco = null;
 
                 var query = from item in repository.Queryable()
-                            where item.StatusId == StatusId
+                            where item.BlocoId == BlocoId
                             select item;
 
-                status = query.SingleOrDefault<Status>();
+                Bloco = query.SingleOrDefault<Bloco>();
 
-                if (status != null)
-                    throw new Exception("O status não pode ser excluido, pois o mesmo não foi encontrado na base de dados.");
+                if (Bloco != null)
+                    throw new Exception("O Bloco não pode ser excluido, pois o mesmo não foi encontrado na base de dados.");
 
-                repository.Delete(status);
+                repository.Delete(Bloco);
             }
             catch
             {
@@ -54,3 +55,5 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
     }
 
 }
+
+

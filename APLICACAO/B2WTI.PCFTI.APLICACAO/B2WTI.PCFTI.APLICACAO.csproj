@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\TipoDePagamentoCommand.cs" />
     <Compile Include="Modulo\Cadastro\StatusCommand.cs" />
+    <Compile Include="Modulo\Cadastro\TipoDePagamentoService.cs" />
     <Compile Include="Modulo\Cadastro\StatusService.cs" />
     <Compile Include="Modulo\Cadastro\ResponsavelCommand.cs" />
     <Compile Include="Modulo\Cadastro\ResponsavelService.cs" />
