@@ -571,5 +571,82 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
+        [TestMethod]
+        public void TesteDoCRUDTipoServico()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoServico> TipoServicoRepository = new Repository<TipoServico>(context, unitOfWork);
+                    ITipoServicoService TipoServicoService = new TipoServicoService(TipoServicoRepository);
+
+                    #region CREATE
+
+                    var _TipoServico = TipoServicoService.NovoTipoServico(
+                        new TipoServico()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (_TipoServico == null)
+                        Assert.Fail("A TipoServico retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var lstTipoServico = TipoServicoService.ListarTodosOsTiposServicos();
+
+                    if (lstTipoServico == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (lstTipoServico.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in lstTipoServico
+                                where item.TipoServicoId == _TipoServico.TipoServicoId
+                                select item;
+
+
+                    TipoServico temp = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    TipoServicoService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in lstTipoServico
+                                      where item.TipoServicoId == temp.TipoServicoId
+                                      select item;
+
+                    TipoServico tempDelete = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    TipoServicoService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
+        }
+
     }
 }
