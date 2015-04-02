@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -47,6 +51,10 @@
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -56,6 +64,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -63,6 +74,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -197,6 +211,7 @@
     <Content Include="css\stylesheet.datatables\css\dataTables.jqueryui.scss" />
     <Content Include="img\logo.b2w.digital.png" />
     <Content Include="js\jquery.datatables\Portuguese-Brasil.json" />
+    <Content Include="js\jquery.framework\jquery-1.10.2.min.map" />
     <None Include="js\jquery.framework\jquery-1.9.1.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="js\jquery.bootstrap\bootstrap.js" />
@@ -205,9 +220,18 @@
     <Content Include="js\jquery.datatables\swf\copy_csv_xls.swf" />
     <Content Include="js\jquery.datatables\swf\copy_csv_xls_pdf.swf" />
     <Content Include="js\jquery.editable\jquery.editable.js" />
+    <None Include="js\jquery.framework\jquery-1.10.2.intellisense.js" />
+    <Content Include="js\jquery.framework\jquery-1.10.2.js" />
+    <Content Include="js\jquery.framework\jquery-1.10.2.min.js" />
     <Content Include="js\jquery.framework\jquery-1.9.1.js" />
     <Content Include="js\jquery.framework\jquery-1.9.1.min.js" />
     <Content Include="js\jquery.framework\jquery-2.1.3.min.js" />
+    <None Include="js\jquery.framework\jquery.validate-vsdoc.js" />
+    <Content Include="js\jquery.framework\jquery.validate.js" />
+    <Content Include="js\jquery.framework\jquery.validate.min.js" />
+    <Content Include="js\jquery.framework\jquery.validate.unobtrusive.js" />
+    <Content Include="js\jquery.framework\jquery.validate.unobtrusive.min.js" />
+    <Content Include="js\jquery.framework\modernizr-2.6.2.js" />
     <Content Include="js\jquery.framework\npm.js" />
     <Content Include="js\jquery.datatables\dataTables.autoFill.js" />
     <Content Include="js\jquery.datatables\dataTables.autoFill.min.js" />
@@ -232,6 +256,10 @@
     <Content Include="js\jquery.datatables\dataTables.tableTools.min.js" />
     <Content Include="js\jquery.datatables\jquery.dataTables.js" />
     <Content Include="js\jquery.datatables\jquery.dataTables.min.js" />
+    <Content Include="js\jquery.bootstrap\respond.js" />
+    <Content Include="js\jquery.bootstrap\respond.min.js" />
+    <None Include="js\jquery.framework\_references.js" />
+    <Content Include="js\jquery.generic\jquery.generic.inidatatablefixedcolumn.js" />
     <Content Include="js\jquery.metismenu\jquery.metismenu.js" />
     <Content Include="js\jquery.slimscroll\jquery.slimscroll.js" />
     <Content Include="Web.config" />
@@ -241,7 +269,10 @@
     <Content Include="js\jquery.pace\jquery.pace.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LancamentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +282,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
