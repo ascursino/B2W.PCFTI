@@ -1,14 +1,14 @@
 ﻿@using System.Web.Optimization
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Styles.Render("~/Content/css/DataTables")
 <div class="ibox-content">
 
     
     
 
-    <table class="table table-striped table-bordered  dataTables-example" @*id="datatable-column-interactive"*@>
+    <table id="editable" class="table table-striped table-bordered  dataTables-example" @*id="datatable-column-interactive"*@>
         <thead>
             <tr>
                 <th>Browser</th>
@@ -305,15 +305,6 @@
 
 
 </div>
-
-
-
-
-@Scripts.Render("~/bundles/EditTable")
-@Scripts.Render("~/bundles/DataTables")
-@Scripts.Render("~/js/jquery.generic/jquery.generic.inidatatablefixedcolumn.js")
-
-
 
 <style type="text/css">
     table.dataTable {
