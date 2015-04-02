@@ -46,7 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\PropriedadeCommand.cs" />
+    <Compile Include="Modulo\Cadastro\PropriedadeService.cs" />
+    <Compile Include="Modulo\Cadastro\TipoBlocoService.cs" />
+    <Compile Include="Modulo\Cadastro\TipoBlocoCommand.cs" />
+    <Compile Include="Modulo\Cadastro\BlocoCommand.cs" />
     <Compile Include="Modulo\Cadastro\FornecedorCommand.cs" />
+    <Compile Include="Modulo\Cadastro\BlocoService.cs" />
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\Lancamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

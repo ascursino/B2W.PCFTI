@@ -4,6 +4,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
     using B2WTI.PCFTI.DOMINIO.Model.Global;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.ModelConfiguration;
     using System.Linq;
     using System.Text;
@@ -18,7 +19,10 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.HasKey(t => t.Ano);
             
             this.Property(t => t.Ano)
-                .HasColumnName("Ano");
+                .HasColumnName("Ano")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             
             this.Property(t => t.Ativo)
             .HasColumnName("Ativo");
