@@ -79,17 +79,16 @@
     <Compile Include="DataMap\PropriedadeMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201504011944465_PCFTIDB0001.cs" />
-    <Compile Include="Migrations\201504011944465_PCFTIDB0001.Designer.cs">
-      <DependentUpon>201504011944465_PCFTIDB0001.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504012033474_PCFTIDB0002.cs" />
-    <Compile Include="Migrations\201504012033474_PCFTIDB0002.Designer.cs">
-      <DependentUpon>201504012033474_PCFTIDB0002.cs</DependentUpon>
+    <Compile Include="Migrations\201504021947597_PCFTI0001.cs" />
+    <Compile Include="Migrations\201504021947597_PCFTI0001.Designer.cs">
+      <DependentUpon>201504021947597_PCFTI0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PropriedadeRep.cs" />
+    <Compile Include="Repositories\TipoBlocoRep.cs" />
+    <Compile Include="Repositories\BlocoRep.cs" />
     <Compile Include="Repositories\FornecedorRep.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,11 +113,8 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504011944465_PCFTIDB0001.resx">
-      <DependentUpon>201504011944465_PCFTIDB0001.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504012033474_PCFTIDB0002.resx">
-      <DependentUpon>201504012033474_PCFTIDB0002.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504021947597_PCFTI0001.resx">
+      <DependentUpon>201504021947597_PCFTI0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
