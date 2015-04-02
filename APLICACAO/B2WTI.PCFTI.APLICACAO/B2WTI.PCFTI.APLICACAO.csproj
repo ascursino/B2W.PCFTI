@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\StatusCommand.cs" />
+    <Compile Include="Modulo\Cadastro\StatusService.cs" />
+    <Compile Include="Modulo\Cadastro\ResponsavelCommand.cs" />
+    <Compile Include="Modulo\Cadastro\ResponsavelService.cs" />
     <Compile Include="Modulo\Cadastro\PropriedadeCommand.cs" />
     <Compile Include="Modulo\Cadastro\PropriedadeService.cs" />
     <Compile Include="Modulo\Cadastro\TipoBlocoService.cs" />

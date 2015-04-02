@@ -308,7 +308,7 @@ namespace B2WTI.PCFTI.TESTE
 
 
                     Propriedade temp = query.ToList<Propriedade>().FirstOrDefault<Propriedade>();
-                    temp.Ativo = false;
+                    temp.Ativo = true;
 
                     temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                     propriedadeService.Update(temp);
@@ -319,7 +319,7 @@ namespace B2WTI.PCFTI.TESTE
                     #region DELETE
 
                     var queryDelete = from item in propriedades
-                                      where item.Ano == propriedade.Ano
+                                      where item.Ano == temp.Ano
                                       select item;
 
                     Propriedade tempDelete = query.ToList<Propriedade>().FirstOrDefault<Propriedade>();
@@ -338,6 +338,160 @@ namespace B2WTI.PCFTI.TESTE
             }
 
 
+        }
+
+        [TestMethod]
+        public void TesteDoCRUDResponsavel()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Responsavel> responsavelRepository = new Repository<Responsavel>(context, unitOfWork);
+                    IResponsavelService responsavelService = new ResponsavelService(responsavelRepository);
+
+                    #region CREATE
+
+                    var responsavel = responsavelService.NovoResponsavel(
+                        new Responsavel()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (responsavel == null)
+                        Assert.Fail("A Responsavel retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var responsaveis = responsavelService.ListarTodosOsResponsaveis();
+
+                    if (responsaveis == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (responsaveis.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in responsaveis
+                                where item.ResponsavelId == responsavel.ResponsavelId
+                                select item;
+
+
+                    Responsavel temp = query.ToList<Responsavel>().FirstOrDefault<Responsavel>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    responsavelService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in responsaveis
+                                      where item.ResponsavelId == temp.ResponsavelId
+                                      select item;
+
+                    Responsavel tempDelete = query.ToList<Responsavel>().FirstOrDefault<Responsavel>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    responsavelService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void TesteDoCRUDStatus()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Status> statusRepository = new Repository<Status>(context, unitOfWork);
+                    IStatusService statusService = new StatusService(statusRepository);
+
+                    #region CREATE
+
+                    var _status = statusService.NovoStatus(
+                        new Status()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (_status == null)
+                        Assert.Fail("A Status retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var lststatus = statusService.ListarTodosOsStatus();
+
+                    if (lststatus == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (lststatus.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in lststatus
+                                where item.StatusId == _status.StatusId
+                                select item;
+
+
+                    Status temp = query.ToList<Status>().FirstOrDefault<Status>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    statusService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in lststatus
+                                      where item.StatusId == temp.StatusId
+                                      select item;
+
+                    Status tempDelete = query.ToList<Status>().FirstOrDefault<Status>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    statusService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
         }
 
     }

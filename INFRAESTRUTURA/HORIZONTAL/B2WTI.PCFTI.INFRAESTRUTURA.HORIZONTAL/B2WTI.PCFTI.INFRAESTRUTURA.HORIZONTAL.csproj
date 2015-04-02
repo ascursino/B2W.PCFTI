@@ -86,6 +86,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\StatusRep.cs" />
+    <Compile Include="Repositories\ResponsavelRep.cs" />
     <Compile Include="Repositories\PropriedadeRep.cs" />
     <Compile Include="Repositories\TipoBlocoRep.cs" />
     <Compile Include="Repositories\BlocoRep.cs" />

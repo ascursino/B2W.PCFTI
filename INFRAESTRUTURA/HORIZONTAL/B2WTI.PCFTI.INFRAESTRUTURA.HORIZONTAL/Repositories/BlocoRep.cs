@@ -7,42 +7,42 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
     using System.Collections.Generic;
     using System.Linq;
     
-    public static class BlocoRep
+    public static class StatusRep
     {
 
-        public static Bloco NovoBloco(this IRepository<Bloco> repository, Bloco Bloco)
+        public static Status NovoStatus(this IRepository<Status> repository, Status status)
         {
-            Bloco.BlocoId = Guid.NewGuid();
-            Bloco.Ativo = true;
-            repository.Insert(Bloco);
+            status.StatusId = Guid.NewGuid();
+            status.Ativo = true;
+            repository.Insert(status);
             
-            return Bloco;
+            return status;
         }
 
-        public static IEnumerable<Bloco> BuscarBloco(this IRepository<Bloco> repository, string TextoArgumentoBusca)
+        public static IEnumerable<Status> BuscarStatus(this IRepository<Status> repository, string TextoArgumentoBusca)
         {
             return from item in repository.Queryable()
                    where item.Ativo.Equals(true)
                    select item;
         }
 
-        public static bool ExcluirBloco(this IRepository<Bloco> repository, Guid BlocoId)
+        public static bool ExcluirStatus(this IRepository<Status> repository, Guid StatusId)
         { 
             bool ret = true;
             try
             {
-                Bloco Bloco = null;
+                Status status = null;
 
                 var query = from item in repository.Queryable()
-                            where item.BlocoId == BlocoId
+                            where item.StatusId == StatusId
                             select item;
 
-                Bloco = query.SingleOrDefault<Bloco>();
+                status = query.SingleOrDefault<Status>();
 
-                if (Bloco != null)
-                    throw new Exception("O Bloco não pode ser excluido, pois o mesmo não foi encontrado na base de dados.");
+                if (status != null)
+                    throw new Exception("O status não pode ser excluido, pois o mesmo não foi encontrado na base de dados.");
 
-                repository.Delete(Bloco);
+                repository.Delete(status);
             }
             catch
             {
