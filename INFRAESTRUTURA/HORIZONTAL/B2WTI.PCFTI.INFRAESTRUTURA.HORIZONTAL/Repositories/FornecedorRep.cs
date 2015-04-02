@@ -15,7 +15,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
             fornecedor.FornecedorId = Guid.NewGuid();
             fornecedor.Ativo = true;
             repository.Insert(fornecedor);
-
+            
             return fornecedor;
         }
 

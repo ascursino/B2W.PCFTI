@@ -23,6 +23,37 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.Property(t => t.LancamentoId)
                 .HasColumnName("LancamentoId");
 
+            this.HasRequired(t => t.Fornecedor)
+                .WithMany()
+                .HasForeignKey(t => t.FornecedorId);
+
+            this.HasRequired(t => t.Responsavel)
+                .WithMany()
+                .HasForeignKey(t => t.ResponsavelId);
+
+            this.HasRequired(t => t.Propriedade)
+                .WithMany()
+                .HasForeignKey(t => t.Ano);
+
+            this.HasOptional(t => t.TipoServico)
+                .WithMany()
+                .HasForeignKey(t => t.TipoServicoId);
+
+            this.HasOptional(t => t.TipoBloco)
+                .WithMany()
+                .HasForeignKey(t => t.TipoBlocoId);
+            
+            this.HasOptional(t => t.Bloco)
+                .WithMany()
+                .HasForeignKey(t => t.BlocoId);
+
+            this.HasOptional(t => t.Status)
+                .WithMany()
+                .HasForeignKey(t => t.StatusId);
+
+            this.HasOptional(t => t.TipoDePagamento)
+                .WithMany()
+                .HasForeignKey(t => t.TipoDePagamentoId);
 
         }
 

@@ -17,8 +17,6 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
         {
             this.ToTable("Backlog");
 
-            this.HasKey(t => new { t.LancamentoId, t.PeriodoMes });
-
             this.Property(t => t.LancamentoId)
                 .HasColumnOrder(0)
                 .HasColumnName("LancamentoId")

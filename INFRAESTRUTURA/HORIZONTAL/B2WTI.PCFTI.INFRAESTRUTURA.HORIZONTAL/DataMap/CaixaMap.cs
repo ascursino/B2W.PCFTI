@@ -17,8 +17,6 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
         {
             this.ToTable("Caixa");
 
-            this.HasKey(t => new { t.LancamentoId, t.PeriodoMes });
-
             this.Property(t => t.LancamentoId)
                 .HasColumnOrder(0)
                 .HasColumnName("LancamentoId")
@@ -35,7 +33,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
 
             this.Property(t => t.Valor)
                 .HasColumnName("Valor")
-                .HasColumnType("decimal");
+                .HasColumnType("float");
 
             this.Property(t => t.Ativo)
                 .HasColumnName("Ativo");
