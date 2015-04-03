@@ -1,22 +1,21 @@
 ﻿
 namespace B2WTI.PCFTI.TESTE
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
-    using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
-    using INFRAESTRUTURA.TRANSVERSAL.Repositories;
+    using APLICACAO.Modulo.Cadastro;
     using DOMINIO.Model.Global;
     using INFRAESTRUTURA.HORIZONTAL;
-    using B2WTI.PCFTI.APLICACAO.Modulo.Cadastro;
-    using System.Collections.Generic;
+    using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
+    using INFRAESTRUTURA.TRANSVERSAL.Repositories;
+    using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using System.Linq;
 
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void TesteDoCRUDFornecedor()
+        public void TesteDoCRUD_Fornecedor()
         {
 
             try
@@ -99,7 +98,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDBloco()
+        public void TesteDoCRUD_Bloco()
         {
 
             try
@@ -180,7 +179,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDTipoBloco()
+        public void TesteDoCRUD_TipoBloco()
         {
 
             try
@@ -261,7 +260,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDPropriedade()
+        public void TesteDoCRUD_Propriedade()
         {
 
             try
@@ -341,7 +340,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDResponsavel()
+        public void TesteDoCRUD_Responsavel()
         {
 
             try
@@ -418,7 +417,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDStatus()
+        public void TesteDoCRUD_Status()
         {
 
             try
@@ -495,7 +494,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDTipoDePagamento()
+        public void TesteDoCRUD_TipoDePagamento()
         {
 
             try
@@ -572,7 +571,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDTipoServico()
+        public void TesteDoCRUD_TipoServico()
         {
 
             try
