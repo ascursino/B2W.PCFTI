@@ -2,6 +2,7 @@
 namespace B2WTI.PCFTI.TESTE
 {
     using APLICACAO.Modulo.Cadastro;
+    using B2WTI.PCFTI.APLICACAO.Operacao;
     using DOMINIO.Model.Global;
     using INFRAESTRUTURA.HORIZONTAL;
     using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
@@ -9,92 +10,77 @@ namespace B2WTI.PCFTI.TESTE
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     [TestClass]
     public class CRUDCadastroTest
     {
+
+        public Execute Executar = new Execute();
+
         [TestMethod]
         public void CRUD_Cadastro_Fornecedor()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                Fornecedor fornecedorTeste = new Fornecedor()
                 {
-                    IRepositoryAsync<Fornecedor> fornecedorRepository = new Repository<Fornecedor>(context, unitOfWork);
-                    IFornecedorService fornecedorService = new FornecedorService(fornecedorRepository);
+                    FornecedorId = Guid.NewGuid(),
+                    CNPJ = "0000000000",
+                    NomeFantasia = "Nome Fantasia de Teste",
+                    RazaoSocial = "Razão Social de Teste",
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<Fornecedor> fornecedoresTeste = new List<Fornecedor>();
+                Parallel.For(0, 9, i =>
+                {
+                    Fornecedor fornecedorFor = new Fornecedor()
+                    {
+                        FornecedorId = Guid.NewGuid(),
+                        CNPJ = string.Format("000000000{0}", i),
+                        NomeFantasia = string.Format("Nome Fantasia de Teste {0}", i),
+                        RazaoSocial = string.Format("Razão Social de Teste {0}", i),
+                        Ativo = true
+                    };
+                    fornecedoresTeste.Add(fornecedorFor);
+                });
 
-                    var fornecedor = fornecedorService.NovoFornecedor(
-                        new Fornecedor() 
-                        { 
-                            FornecedorId = Guid.NewGuid(), 
-                            CNPJ = "00000000000", 
-                            NomeFantasia = "NomeFantasia de Teste", 
-                            RazaoSocial = "Razão Social de Teste LTDA", 
-                            Ativo = true 
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (fornecedor == null)
-                        Assert.Fail("O fornecedor retornou nulo ao criar um novo.");
+                Guid retCriacao = Executar.Cadastro.Fornecedor.CriarNovoFornecedor(fornecedorTeste);
 
-                    #endregion
+                if (retCriacao == Guid.Empty)
+                    Assert.Fail("Falha ao testar a criação de um novo fornecedor.");
 
-                    #region READ
-                    
-                    var fornecedores = fornecedorService.ListarTodosOsFornecedores();
+                #endregion
 
-                    if (fornecedores == null)
-                        Assert.Fail("A leitura de fornecedores retornou nulo.");
+                #region Teste da Criação em Massa
 
-                    if (fornecedores.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum fornecedor definido.");
+                List<Guid> retCriacaoMassa = Executar.Cadastro.Fornecedor.CriarMuitosNovosFornecedores(fornecedoresTeste);
 
-                    #endregion
+                if (retCriacao == Guid.Empty)
+                    Assert.Fail("Falha ao testar a criação dos novos fornecedores.");
 
-                    #region UPDATE
+                if (retCriacaoMassa.Count != fornecedoresTeste.Count)
+                    Assert.Fail("Falha ao testar a criação dos novos fornecedores. A contagem não confere.");
 
-                    var query = from item in fornecedores
-                                where item.CNPJ == fornecedor.CNPJ
-                                select item;
+                #endregion
 
-
-                    Fornecedor temp = query.ToList<Fornecedor>().FirstOrDefault<Fornecedor>();
-                    temp.CNPJ = "111111111";
-
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    fornecedorService.Update(temp);
-                    unitOfWork.SaveChanges();
-
-                    #endregion
-
-                    #region DELETE
-
-                    var queryDelete = from item in fornecedores
-                                      where item.FornecedorId == fornecedor.FornecedorId
-                                      select item;
-                    
-                    Fornecedor tempDelete = query.ToList<Fornecedor>().FirstOrDefault<Fornecedor>();
-
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    fornecedorService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
-
-                    #endregion
-
-                }
             }
             catch (Exception Ex)
             {
                 Assert.Fail(Ex.Message);
             }
-            
-
         }
 
         [TestMethod]
