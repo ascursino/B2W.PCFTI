@@ -32,15 +32,15 @@ namespace B2WTI.PCFTI.TESTE
                 Fornecedor fornecedorTeste = new Fornecedor()
                 {
                     FornecedorId = Guid.NewGuid(),
-                    CNPJ = "0000000000",
-                    NomeFantasia = "Nome Fantasia de Teste",
-                    RazaoSocial = "Razão Social de Teste",
+                    CNPJ = "0000000010",
+                    NomeFantasia = "Nome Fantasia de Teste 10",
+                    RazaoSocial = "Razão Social de Teste 10",
                     Ativo = true
                 };
 
                 //Coleção
                 List<Fornecedor> fornecedoresTeste = new List<Fornecedor>();
-                Parallel.For(0, 9, i =>
+                Parallel.For(0, 10, i =>
                 {
                     Fornecedor fornecedorFor = new Fornecedor()
                     {
@@ -57,22 +57,76 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Teste da Criação Unitária
 
-                Guid retCriacao = Executar.Cadastro.Fornecedor.CriarNovoFornecedor(fornecedorTeste);
+                fornecedorTeste = Executar.Cadastro.Fornecedor.CriarNovoFornecedor(fornecedorTeste);
 
-                if (retCriacao == Guid.Empty)
+                if (fornecedorTeste == null)
                     Assert.Fail("Falha ao testar a criação de um novo fornecedor.");
 
                 #endregion
 
                 #region Teste da Criação em Massa
 
-                List<Guid> retCriacaoMassa = Executar.Cadastro.Fornecedor.CriarMuitosNovosFornecedores(fornecedoresTeste);
+                int totalacriar = fornecedoresTeste.Count;
+                fornecedoresTeste = Executar.Cadastro.Fornecedor.CriarMuitosNovosFornecedores(fornecedoresTeste);
 
-                if (retCriacao == Guid.Empty)
+                if (fornecedoresTeste == null)
                     Assert.Fail("Falha ao testar a criação dos novos fornecedores.");
 
-                if (retCriacaoMassa.Count != fornecedoresTeste.Count)
+                if (fornecedoresTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos fornecedores. Nenhum fornecedor foi gravado.");
+
+                if (fornecedoresTeste.Count != totalacriar)
                     Assert.Fail("Falha ao testar a criação dos novos fornecedores. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Atualização Unitária
+
+                fornecedorTeste.NomeFantasia = "Nome fantasia de Teste atualizado";
+                fornecedorTeste = Executar.Cadastro.Fornecedor.AtualizarFornecedor(fornecedorTeste);
+
+                #endregion
+
+                #region Teste da Atualização em Massa
+
+                Parallel.ForEach<Fornecedor>(fornecedoresTeste, item =>
+                {
+                    item.NomeFantasia = "Nome Fantasia de Teste atualizado";
+                });
+
+                int totalaatualizar = fornecedoresTeste.Count;
+
+                fornecedoresTeste = Executar.Cadastro.Fornecedor.AtualizarMuitosFornecedores(fornecedoresTeste);
+
+                if (fornecedoresTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos fornecedores.");
+
+                if (fornecedoresTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos fornecedores. Nenhum fornecedor foi salvo.");
+
+                if (fornecedoresTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos fornecedores. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.Fornecedor.ExcluirFornecedor(fornecedorTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do fornecedore.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.Fornecedor.ExcluirMuitosFornecedores(fornecedoresTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos fornecedores.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos fornecedores.");
 
                 #endregion
 

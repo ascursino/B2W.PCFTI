@@ -20,7 +20,7 @@ namespace B2WTI.PCFTI.TESTE
         public void CRUD_Orcamento_Lancamento()
         {
             Execute exec = new Execute();
-            Guid FornecedorId = exec.Cadastro.Fornecedor.CriarNovoFornecedor(new Fornecedor());
+            
             
 
         }
