@@ -55,7 +55,9 @@
     <Compile Include="Model\Orcamento\Real.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Business\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
       <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>

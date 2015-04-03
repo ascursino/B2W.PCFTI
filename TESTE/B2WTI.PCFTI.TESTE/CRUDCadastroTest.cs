@@ -1,105 +1,90 @@
 ﻿
 namespace B2WTI.PCFTI.TESTE
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
-    using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
-    using INFRAESTRUTURA.TRANSVERSAL.Repositories;
+    using APLICACAO.Modulo.Cadastro;
+    using B2WTI.PCFTI.APLICACAO.Operacao;
     using DOMINIO.Model.Global;
     using INFRAESTRUTURA.HORIZONTAL;
-    using B2WTI.PCFTI.APLICACAO.Modulo.Cadastro;
+    using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
+    using INFRAESTRUTURA.TRANSVERSAL.Repositories;
+    using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     [TestClass]
-    public class UnitTest1
+    public class CRUDCadastroTest
     {
-        [TestMethod]
-        public void TesteDoCRUDFornecedor()
-        {
 
+        public Execute Executar = new Execute();
+
+        [TestMethod]
+        public void CRUD_Cadastro_Fornecedor()
+        {
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                Fornecedor fornecedorTeste = new Fornecedor()
                 {
-                    IRepositoryAsync<Fornecedor> fornecedorRepository = new Repository<Fornecedor>(context, unitOfWork);
-                    IFornecedorService fornecedorService = new FornecedorService(fornecedorRepository);
+                    FornecedorId = Guid.NewGuid(),
+                    CNPJ = "0000000000",
+                    NomeFantasia = "Nome Fantasia de Teste",
+                    RazaoSocial = "Razão Social de Teste",
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<Fornecedor> fornecedoresTeste = new List<Fornecedor>();
+                Parallel.For(0, 9, i =>
+                {
+                    Fornecedor fornecedorFor = new Fornecedor()
+                    {
+                        FornecedorId = Guid.NewGuid(),
+                        CNPJ = string.Format("000000000{0}", i),
+                        NomeFantasia = string.Format("Nome Fantasia de Teste {0}", i),
+                        RazaoSocial = string.Format("Razão Social de Teste {0}", i),
+                        Ativo = true
+                    };
+                    fornecedoresTeste.Add(fornecedorFor);
+                });
 
-                    var fornecedor = fornecedorService.NovoFornecedor(
-                        new Fornecedor() 
-                        { 
-                            FornecedorId = Guid.NewGuid(), 
-                            CNPJ = "00000000000", 
-                            NomeFantasia = "NomeFantasia de Teste", 
-                            RazaoSocial = "Razão Social de Teste LTDA", 
-                            Ativo = true 
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (fornecedor == null)
-                        Assert.Fail("O fornecedor retornou nulo ao criar um novo.");
+                Guid retCriacao = Executar.Cadastro.Fornecedor.CriarNovoFornecedor(fornecedorTeste);
 
-                    #endregion
+                if (retCriacao == Guid.Empty)
+                    Assert.Fail("Falha ao testar a criação de um novo fornecedor.");
 
-                    #region READ
-                    
-                    var fornecedores = fornecedorService.ListarTodosOsFornecedores();
+                #endregion
 
-                    if (fornecedores == null)
-                        Assert.Fail("A leitura de fornecedores retornou nulo.");
+                #region Teste da Criação em Massa
 
-                    if (fornecedores.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum fornecedor definido.");
+                List<Guid> retCriacaoMassa = Executar.Cadastro.Fornecedor.CriarMuitosNovosFornecedores(fornecedoresTeste);
 
-                    #endregion
+                if (retCriacao == Guid.Empty)
+                    Assert.Fail("Falha ao testar a criação dos novos fornecedores.");
 
-                    #region UPDATE
+                if (retCriacaoMassa.Count != fornecedoresTeste.Count)
+                    Assert.Fail("Falha ao testar a criação dos novos fornecedores. A contagem não confere.");
 
-                    var query = from item in fornecedores
-                                where item.CNPJ == fornecedor.CNPJ
-                                select item;
+                #endregion
 
-
-                    Fornecedor temp = query.ToList<Fornecedor>().FirstOrDefault<Fornecedor>();
-                    temp.CNPJ = "111111111";
-
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    fornecedorService.Update(temp);
-                    unitOfWork.SaveChanges();
-
-                    #endregion
-
-                    #region DELETE
-
-                    var queryDelete = from item in fornecedores
-                                      where item.FornecedorId == fornecedor.FornecedorId
-                                      select item;
-                    
-                    Fornecedor tempDelete = query.ToList<Fornecedor>().FirstOrDefault<Fornecedor>();
-
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    fornecedorService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
-
-                    #endregion
-
-                }
             }
             catch (Exception Ex)
             {
                 Assert.Fail(Ex.Message);
             }
-            
-
         }
 
         [TestMethod]
-        public void TesteDoCRUDBloco()
+        public void CRUD_Cadastro_Bloco()
         {
 
             try
@@ -180,7 +165,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDTipoBloco()
+        public void CRUD_Cadastro_TipoBloco()
         {
 
             try
@@ -261,7 +246,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDPropriedade()
+        public void CRUD_Cadastro_Propriedade()
         {
 
             try
@@ -341,7 +326,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDResponsavel()
+        public void CRUD_Cadastro_Responsavel()
         {
 
             try
@@ -418,7 +403,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUDStatus()
+        public void CRUD_Cadastro_Status()
         {
 
             try
@@ -482,6 +467,160 @@ namespace B2WTI.PCFTI.TESTE
 
                     temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     statusService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void CRUD_Cadastro_TipoDePagamento()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
+                    ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
+
+                    #region CREATE
+
+                    var _TipoDePagamento = tipodepagamentoService.NovoTipoDePagamento(
+                        new TipoDePagamento()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (_TipoDePagamento == null)
+                        Assert.Fail("A TipoDePagamento retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var lstTipoDePagamento = tipodepagamentoService.ListarTodosOsTipoDePagamento();
+
+                    if (lstTipoDePagamento == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (lstTipoDePagamento.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in lstTipoDePagamento
+                                where item.TipoDePagamentoId == _TipoDePagamento.TipoDePagamentoId
+                                select item;
+
+
+                    TipoDePagamento temp = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    tipodepagamentoService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in lstTipoDePagamento
+                                      where item.TipoDePagamentoId == temp.TipoDePagamentoId
+                                      select item;
+
+                    TipoDePagamento tempDelete = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    tipodepagamentoService.Delete(tempDelete);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Assert.Fail(Ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void CRUD_Cadastro_TipoServico()
+        {
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoServico> TipoServicoRepository = new Repository<TipoServico>(context, unitOfWork);
+                    ITipoServicoService TipoServicoService = new TipoServicoService(TipoServicoRepository);
+
+                    #region CREATE
+
+                    var _TipoServico = TipoServicoService.NovoTipoServico(
+                        new TipoServico()
+                        {
+                            Ativo = true
+                        });
+
+                    unitOfWork.SaveChanges();
+
+                    if (_TipoServico == null)
+                        Assert.Fail("A TipoServico retornou nulo ao criar um novo.");
+
+                    #endregion
+
+                    #region READ
+
+                    var lstTipoServico = TipoServicoService.ListarTodosOsTiposServicos();
+
+                    if (lstTipoServico == null)
+                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+
+                    if (lstTipoServico.Count() == 0)
+                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+
+                    #endregion
+
+                    #region UPDATE
+
+                    var query = from item in lstTipoServico
+                                where item.TipoServicoId == _TipoServico.TipoServicoId
+                                select item;
+
+
+                    TipoServico temp = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
+                    temp.Ativo = true;
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
+                    TipoServicoService.Update(temp);
+                    unitOfWork.SaveChanges();
+
+                    #endregion
+
+                    #region DELETE
+
+                    var queryDelete = from item in lstTipoServico
+                                      where item.TipoServicoId == temp.TipoServicoId
+                                      select item;
+
+                    TipoServico tempDelete = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
+
+                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                    TipoServicoService.Delete(tempDelete);
                     unitOfWork.SaveChanges();
 
                     #endregion
