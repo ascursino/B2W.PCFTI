@@ -10,9 +10,11 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao
         {
             Fornecedor = new FornecedorBuild();
             Bloco = new BlocoBuild();
+            TipoBloco = new TipoBlocoBuild();
         }
 
         public FornecedorBuild Fornecedor { get; set; }
         public BlocoBuild Bloco { get; set; }
+        public TipoBlocoBuild TipoBloco { get; set; }
     }
 }

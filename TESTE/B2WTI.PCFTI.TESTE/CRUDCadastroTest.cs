@@ -252,84 +252,117 @@ namespace B2WTI.PCFTI.TESTE
         [TestMethod]
         public void CRUD_Cadastro_TipoBloco()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                TipoBloco objetoTeste = new TipoBloco()
                 {
-                    IRepositoryAsync<TipoBloco> tipoblocoRepository = new Repository<TipoBloco>(context, unitOfWork);
-                    ITipoBlocoService tipoblocoService = new TipoBlocoService(tipoblocoRepository);
+                    TipoBlocoId = Guid.NewGuid(),
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<TipoBloco> objetosTeste = new List<TipoBloco>();
+                Parallel.For(0, 10, i =>
+                {
+                    TipoBloco objetoFor = new TipoBloco()
+                    {
+                        TipoBlocoId = Guid.NewGuid(),
+                        Descricao = string.Format("Descrição de Teste {0}", i),
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var tipobloco = tipoblocoService.NovoTipoBloco(
-                        new TipoBloco()
-                        {
-                            TipoBlocoId = Guid.NewGuid(),
-                            Descricao = "NOVO BLOCO DE TESTE",
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (tipobloco == null)
-                        Assert.Fail("O Tipo Bloco retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.TipoBloco.CriarNovoTipoBloco(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo tipobloco.");
 
-                    #region READ
+                #endregion
 
-                    var tipoblocos = tipoblocoService.ListarTodosOsTiposBloco();
+                #region Teste da Criação em Massa
 
-                    if (tipoblocos == null)
-                        Assert.Fail("A leitura de Tipos Bloco retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.TipoBloco.CriarMuitosNovosTiposBlocos(objetosTeste);
 
-                    if (tipoblocos.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum Tipo Bloco definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. Nenhum tipobloco foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. A contagem não confere.");
 
-                    var query = from item in tipoblocos
-                                where item.TipoBlocoId == tipobloco.TipoBlocoId
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    TipoBloco temp = query.ToList<TipoBloco>().FirstOrDefault<TipoBloco>();
-                    temp.Descricao = "NOVO TIPO DE BLOCO DE TESTE 222";
+                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste = Executar.Cadastro.TipoBloco.AtualizarTipoBloco(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    tipoblocoService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<TipoBloco>(objetosTeste, item =>
+                {
+                    item.Descricao = "Descrição de Teste atualizado";
+                });
 
-                    var queryDelete = from item in tipoblocos
-                                      where item.TipoBlocoId == tipobloco.TipoBlocoId
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    TipoBloco tempDelete = query.ToList<TipoBloco>().FirstOrDefault<TipoBloco>();
+                objetosTeste = Executar.Cadastro.TipoBloco.AtualizarMuitosTiposBlocos(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    tipoblocoService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos tipoblocos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos tipoblocos. Nenhum tipobloco foi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos tipoblocos. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.TipoBloco.ExcluirTipoBloco(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.TipoBloco.ExcluirMuitosTiposBlocos(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
                 Assert.Fail(Ex.Message);
             }
-
-
         }
 
+
+        //--> ...
         [TestMethod]
         public void CRUD_Cadastro_Propriedade()
         {
