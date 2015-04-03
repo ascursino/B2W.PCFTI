@@ -1,0 +1,42 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                @* Begin Sessão Módulos *@
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" width="64" height="64" src="~/img/logo.b2w.digital.png" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">B2W Digital</strong>
+                            </span> <span class="text-muted text-xs block">PCFTI <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="#">CADASTROS</a></li>
+                        <li><a href="#">ORÇAMENTOS</a></li>
+                        <li><a href="#">CONTRATOS</a></li>
+                    </ul>
+                </div>
+                @* End Sessão Módulos *@
+                <div class="logo-element">
+                    PCFTI
+                </div>
+            </li>
+            @* Home Menu Visões *@
+            <li>
+                <a href="">
+                    <i class="fa fa-eye"></i> <span class="nav-label">Visões</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>@Html.ActionLink("Visão Completa", "Index", "Home")</li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
