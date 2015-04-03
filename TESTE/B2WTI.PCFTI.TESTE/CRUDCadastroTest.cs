@@ -12,10 +12,10 @@ namespace B2WTI.PCFTI.TESTE
     using System.Linq;
 
     [TestClass]
-    public class UnitTest1
+    public class CRUDCadastroTest
     {
         [TestMethod]
-        public void TesteDoCRUD_Fornecedor()
+        public void CRUD_Cadastro_Fornecedor()
         {
 
             try
@@ -98,7 +98,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_Bloco()
+        public void CRUD_Cadastro_Bloco()
         {
 
             try
@@ -179,7 +179,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_TipoBloco()
+        public void CRUD_Cadastro_TipoBloco()
         {
 
             try
@@ -260,7 +260,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_Propriedade()
+        public void CRUD_Cadastro_Propriedade()
         {
 
             try
@@ -340,7 +340,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_Responsavel()
+        public void CRUD_Cadastro_Responsavel()
         {
 
             try
@@ -417,7 +417,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_Status()
+        public void CRUD_Cadastro_Status()
         {
 
             try
@@ -494,7 +494,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_TipoDePagamento()
+        public void CRUD_Cadastro_TipoDePagamento()
         {
 
             try
@@ -571,7 +571,7 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void TesteDoCRUD_TipoServico()
+        public void CRUD_Cadastro_TipoServico()
         {
 
             try

@@ -62,7 +62,12 @@
     <Compile Include="Modulo\Cadastro\FornecedorCommand.cs" />
     <Compile Include="Modulo\Cadastro\BlocoService.cs" />
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
-    <Compile Include="Modulo\Orcamento\Lancamento.cs" />
+    <Compile Include="Modulo\Orcamento\LancamentoCommand.cs" />
+    <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
+    <Compile Include="Operacao\Cadastro.cs" />
+    <Compile Include="Operacao\Execute.cs" />
+    <Compile Include="Operacao\Build\FornecedorBuild.cs" />
+    <Compile Include="Operacao\Orcamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,9 +92,7 @@
       <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modulo\Parametrizacoes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
