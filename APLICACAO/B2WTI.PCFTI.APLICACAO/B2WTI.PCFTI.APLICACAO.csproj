@@ -64,6 +64,7 @@
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoCommand.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
+    <Compile Include="Operacao\Build\BloboBuild.cs" />
     <Compile Include="Operacao\Cadastro.cs" />
     <Compile Include="Operacao\Execute.cs" />
     <Compile Include="Operacao\Build\FornecedorBuild.cs" />
