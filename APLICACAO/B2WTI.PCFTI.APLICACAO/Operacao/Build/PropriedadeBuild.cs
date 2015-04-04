@@ -10,7 +10,6 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using System;
     using System.Collections.Generic;
 
-
     public class PropriedadeBuild
     {
         #region CRIAÇÃO
