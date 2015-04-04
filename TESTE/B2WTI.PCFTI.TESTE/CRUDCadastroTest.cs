@@ -3,6 +3,7 @@ namespace B2WTI.PCFTI.TESTE
 {
     using APLICACAO.Modulo.Cadastro;
     using B2WTI.PCFTI.APLICACAO.Operacao;
+    using B2WTI.PCFTI.TESTE.Massa;
     using DOMINIO.Model.Global;
     using INFRAESTRUTURA.HORIZONTAL;
     using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
@@ -29,29 +30,8 @@ namespace B2WTI.PCFTI.TESTE
                 #region Massa de Testes
 
                 //Unidade
-                Fornecedor objetoTeste = new Fornecedor()
-                {
-                    FornecedorId = Guid.NewGuid(),
-                    CNPJ = "0000000010",
-                    NomeFantasia = "Nome Fantasia de Teste 10",
-                    RazaoSocial = "Razão Social de Teste 10",
-                    Ativo = true
-                };
-
-                //Coleção
-                List<Fornecedor> objetosTeste = new List<Fornecedor>();
-                Parallel.For(0, 10, i =>
-                {
-                    Fornecedor objetoFor = new Fornecedor()
-                    {
-                        FornecedorId = Guid.NewGuid(),
-                        CNPJ = string.Format("000000000{0}", i),
-                        NomeFantasia = string.Format("Nome Fantasia de Teste {0}", i),
-                        RazaoSocial = string.Format("Razão Social de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                Fornecedor objetoTeste = CadastroFake.NovoFornecedorFake();
+                List<Fornecedor> objetosTeste = CadastroFake.NovosFornecedoresFake();
 
                 #endregion
 
@@ -145,25 +125,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                Bloco objetoTeste = new Bloco()
-                {
-                    BlocoId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<Bloco> objetosTeste = new List<Bloco>();
-                Parallel.For(0, 10, i =>
-                {
-                    Bloco objetoFor = new Bloco()
-                    {
-                        BlocoId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                Bloco objetoTeste = CadastroFake.NovoBlocoFake();
+                List<Bloco> objetosTeste = CadastroFake.NovosBlocosFake();
 
                 #endregion
 
@@ -257,25 +220,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                TipoBloco objetoTeste = new TipoBloco()
-                {
-                    TipoBlocoId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<TipoBloco> objetosTeste = new List<TipoBloco>();
-                Parallel.For(0, 10, i =>
-                {
-                    TipoBloco objetoFor = new TipoBloco()
-                    {
-                        TipoBlocoId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                TipoBloco objetoTeste = CadastroFake.NovoTipoBlocoFake();
+                List<TipoBloco> objetosTeste = CadastroFake.NovosTiposBlocosFake();
 
                 #endregion
 
@@ -369,24 +315,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                Propriedade objetoTeste = new Propriedade()
-                {
-                    Ano = 9989,
-                    Ativo = true
-                };
-
-                //Coleção
-                List<Propriedade> objetosTeste = new List<Propriedade>();
-                Parallel.For(0, 10, i =>
-                {
-                    Propriedade objetoFor = new Propriedade()
-                    {
-                        Ano = 9990 + i,
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                Propriedade objetoTeste = CadastroFake.NovaPropriedadeFake();
+                List<Propriedade> objetosTeste = CadastroFake.NovasPropriedadesFake();
 
                 #endregion
 
@@ -480,26 +410,9 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                Responsavel objetoTeste = new Responsavel()
-                {
-                    ResponsavelId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<Responsavel> objetosTeste = new List<Responsavel>();
-                Parallel.For(0, 10, i =>
-                {
-                    Responsavel objetoFor = new Responsavel()
-                    {
-                        ResponsavelId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
-
+                Responsavel objetoTeste = CadastroFake.NovoResponsavelFake();
+                List<Responsavel> objetosTeste = CadastroFake.NovosResponsaveisFake();
+                
                 #endregion
 
                 #region Teste da Criação Unitária
@@ -592,25 +505,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                Status objetoTeste = new Status()
-                {
-                    StatusId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<Status> objetosTeste = new List<Status>();
-                Parallel.For(0, 10, i =>
-                {
-                    Status objetoFor = new Status()
-                    {
-                        StatusId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                Status objetoTeste = CadastroFake.NovoStatusFake();
+                List<Status> objetosTeste = CadastroFake.NovosStatusFake();
 
                 #endregion
 
@@ -704,25 +600,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                TipoDePagamento objetoTeste = new TipoDePagamento()
-                {
-                    TipoDePagamentoId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<TipoDePagamento> objetosTeste = new List<TipoDePagamento>();
-                Parallel.For(0, 10, i =>
-                {
-                    TipoDePagamento objetoFor = new TipoDePagamento()
-                    {
-                        TipoDePagamentoId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                TipoDePagamento objetoTeste = CadastroFake.NovoTipoDePagamentoFake();
+                List<TipoDePagamento> objetosTeste = CadastroFake.NovosTiposDePagamentoFake();
 
                 #endregion
 
@@ -816,25 +695,8 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Massa de Testes
 
-                //Unidade
-                TipoServico objetoTeste = new TipoServico()
-                {
-                    TipoServicoId = Guid.NewGuid(),
-                    Ativo = true
-                };
-
-                //Coleção
-                List<TipoServico> objetosTeste = new List<TipoServico>();
-                Parallel.For(0, 10, i =>
-                {
-                    TipoServico objetoFor = new TipoServico()
-                    {
-                        TipoServicoId = Guid.NewGuid(),
-                        Descricao = string.Format("Descrição de Teste {0}", i),
-                        Ativo = true
-                    };
-                    objetosTeste.Add(objetoFor);
-                });
+                TipoServico objetoTeste = CadastroFake.NovoTipoServicoFake();
+                List<TipoServico> objetosTeste = CadastroFake.NovosTiposServicosFake();
 
                 #endregion
 
