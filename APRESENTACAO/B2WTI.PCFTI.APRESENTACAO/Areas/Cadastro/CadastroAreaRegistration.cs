@@ -17,7 +17,8 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro
             context.MapRoute(
                 "Cadastro_default",
                 "Cadastro/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", area = "Cadastro", id = UrlParameter.Optional },
+                new[] { "B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers" }
             );
         }
     }

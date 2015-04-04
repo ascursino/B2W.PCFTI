@@ -17,7 +17,8 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Orcamento
             context.MapRoute(
                 "Orcamento_default",
                 "Orcamento/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", area = "Orcamento", id = UrlParameter.Optional },
+                new[] { "B2WTI.PCFTI.APRESENTACAO.Areas.Orcamento.Controllers" }
             );
         }
     }
