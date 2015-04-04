@@ -1,5 +1,5 @@
 ﻿
-namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
+namespace B2WTI.PCFTI.APLICACAO.Modulo.Orcamento
 {
     using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
     using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL;
