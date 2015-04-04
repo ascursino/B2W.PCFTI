@@ -60,14 +60,14 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Teste da Atualização Unitária
 
-                Propriedade propriedade2 = new Propriedade()
+                Propriedade propriedade = new Propriedade()
                 {
                     Ano = 2014,
                     Ativo = true
                 };
-                Executar.Cadastro.Propriedade.CriarNovaPropriedade(propriedade2);
+                Executar.Cadastro.Propriedade.CriarNovaPropriedade(propriedade);
 
-                objetoTeste.Ano = propriedade2.Ano;
+                objetoTeste.Ano = propriedade.Ano;
                 objetoTeste = Executar.Orcamento.Lancamento.AtualizarLancamento(objetoTeste);
 
                 #endregion
