@@ -45,7 +45,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return tiposervico;
         }
 
-        public List<TipoServico> CriarMuitosNovosTipoServicos(List<TipoServico> tiposervicos, bool Atualizar = false)
+        public List<TipoServico> CriarMuitosNovosTiposServicos(List<TipoServico> tiposervicos, bool Atualizar = false)
         {
             List<TipoServico> ret = null;
             try
@@ -86,7 +86,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return tiposervico;
         }
 
-        public List<TipoServico> AtualizarMuitosTipoServicos(List<TipoServico> tiposervicos)
+        public List<TipoServico> AtualizarMuitosTiposServicos(List<TipoServico> tiposervicos)
         {
             List<TipoServico> ret = null;
             try
@@ -185,7 +185,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return ret;
         }
 
-        public List<Guid> ExcluirMuitosTipoServicos(List<TipoServico> tiposervicos)
+        public List<Guid> ExcluirMuitosTiposServicos(List<TipoServico> tiposervicos)
         {
             List<Guid> ret = null;
             try

@@ -472,78 +472,111 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
-        //--> ...
-
         [TestMethod]
         public void CRUD_Cadastro_Responsavel()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                Responsavel objetoTeste = new Responsavel()
                 {
-                    IRepositoryAsync<Responsavel> responsavelRepository = new Repository<Responsavel>(context, unitOfWork);
-                    IResponsavelService responsavelService = new ResponsavelService(responsavelRepository);
+                    ResponsavelId = Guid.NewGuid(),
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<Responsavel> objetosTeste = new List<Responsavel>();
+                Parallel.For(0, 10, i =>
+                {
+                    Responsavel objetoFor = new Responsavel()
+                    {
+                        ResponsavelId = Guid.NewGuid(),
+                        Descricao = string.Format("Descrição de Teste {0}", i),
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var responsavel = responsavelService.NovoResponsavel(
-                        new Responsavel()
-                        {
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (responsavel == null)
-                        Assert.Fail("A Responsavel retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.Responsavel.CriarNovoResponsavel(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo responsavel.");
 
-                    #region READ
+                #endregion
 
-                    var responsaveis = responsavelService.ListarTodosOsResponsaveis();
+                #region Teste da Criação em Massa
 
-                    if (responsaveis == null)
-                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.Responsavel.CriarMuitosNovosResponsaveis(objetosTeste);
 
-                    if (responsaveis.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos Responsaveis.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos Responsaveis. Nenhum responsavel foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos Responsaveis. A contagem não confere.");
 
-                    var query = from item in responsaveis
-                                where item.ResponsavelId == responsavel.ResponsavelId
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    Responsavel temp = query.ToList<Responsavel>().FirstOrDefault<Responsavel>();
-                    temp.Ativo = true;
+                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste = Executar.Cadastro.Responsavel.AtualizarResponsavel(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    responsavelService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<Responsavel>(objetosTeste, item =>
+                {
+                    item.Descricao = "Descrição de Teste atualizado";
+                });
 
-                    var queryDelete = from item in responsaveis
-                                      where item.ResponsavelId == temp.ResponsavelId
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    Responsavel tempDelete = query.ToList<Responsavel>().FirstOrDefault<Responsavel>();
+                objetosTeste = Executar.Cadastro.Responsavel.AtualizarMuitosResponsaveis(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    responsavelService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos responsavels.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos responsavels. Nenhum responsavel foi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos responsavels. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.Responsavel.ExcluirResponsavel(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.Responsavel.ExcluirMuitosResponsaveis(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
@@ -554,73 +587,108 @@ namespace B2WTI.PCFTI.TESTE
         [TestMethod]
         public void CRUD_Cadastro_Status()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                Status objetoTeste = new Status()
                 {
-                    IRepositoryAsync<Status> statusRepository = new Repository<Status>(context, unitOfWork);
-                    IStatusService statusService = new StatusService(statusRepository);
+                    StatusId = Guid.NewGuid(),
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<Status> objetosTeste = new List<Status>();
+                Parallel.For(0, 10, i =>
+                {
+                    Status objetoFor = new Status()
+                    {
+                        StatusId = Guid.NewGuid(),
+                        Descricao = string.Format("Descrição de Teste {0}", i),
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var _status = statusService.NovoStatus(
-                        new Status()
-                        {
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (_status == null)
-                        Assert.Fail("A Status retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.Status.CriarNovoStatus(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo Status.");
 
-                    #region READ
+                #endregion
 
-                    var lststatus = statusService.ListarTodosOsStatus();
+                #region Teste da Criação em Massa
 
-                    if (lststatus == null)
-                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.Status.CriarMuitosNovosStatus(objetosTeste);
 
-                    if (lststatus.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos Status.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos Status. Nenhum Status foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos Status. A contagem não confere.");
 
-                    var query = from item in lststatus
-                                where item.StatusId == _status.StatusId
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    Status temp = query.ToList<Status>().FirstOrDefault<Status>();
-                    temp.Ativo = true;
+                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste = Executar.Cadastro.Status.AtualizarStatus(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    statusService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<Status>(objetosTeste, item =>
+                {
+                    item.Descricao = "Descrição de Teste atualizado";
+                });
 
-                    var queryDelete = from item in lststatus
-                                      where item.StatusId == temp.StatusId
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    Status tempDelete = query.ToList<Status>().FirstOrDefault<Status>();
+                objetosTeste = Executar.Cadastro.Status.AtualizarMuitosStatus(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    statusService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos status.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos status. Nenhum status foi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos status. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.Status.ExcluirStatus(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.Status.ExcluirMuitosStatus(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos Status.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos Status.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
@@ -628,76 +696,113 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
+        //--> ...
+
         [TestMethod]
         public void CRUD_Cadastro_TipoDePagamento()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                TipoDePagamento objetoTeste = new TipoDePagamento()
                 {
-                    IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
-                    ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
+                    TipoDePagamentoId = Guid.NewGuid(),
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<TipoDePagamento> objetosTeste = new List<TipoDePagamento>();
+                Parallel.For(0, 10, i =>
+                {
+                    TipoDePagamento objetoFor = new TipoDePagamento()
+                    {
+                        TipoDePagamentoId = Guid.NewGuid(),
+                        Descricao = string.Format("Descrição de Teste {0}", i),
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var _TipoDePagamento = tipodepagamentoService.NovoTipoDePagamento(
-                        new TipoDePagamento()
-                        {
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (_TipoDePagamento == null)
-                        Assert.Fail("A TipoDePagamento retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.TipoDePagamento.CriarNovoTipoDePagamento(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo TipoDePagamento.");
 
-                    #region READ
+                #endregion
 
-                    var lstTipoDePagamento = tipodepagamentoService.ListarTodosOsTipoDePagamento();
+                #region Teste da Criação em Massa
 
-                    if (lstTipoDePagamento == null)
-                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.TipoDePagamento.CriarMuitosNovosTiposDePagamentos(objetosTeste);
 
-                    if (lstTipoDePagamento.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de pagamentos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de pagamentos. Nenhum TipoDePagamento foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de pagamentos. A contagem não confere.");
 
-                    var query = from item in lstTipoDePagamento
-                                where item.TipoDePagamentoId == _TipoDePagamento.TipoDePagamentoId
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    TipoDePagamento temp = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
-                    temp.Ativo = true;
+                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste = Executar.Cadastro.TipoDePagamento.AtualizarTipoDePagamento(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    tipodepagamentoService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<TipoDePagamento>(objetosTeste, item =>
+                {
+                    item.Descricao = "Descrição de Teste atualizado";
+                });
 
-                    var queryDelete = from item in lstTipoDePagamento
-                                      where item.TipoDePagamentoId == temp.TipoDePagamentoId
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    TipoDePagamento tempDelete = query.ToList<TipoDePagamento>().FirstOrDefault<TipoDePagamento>();
+                objetosTeste = Executar.Cadastro.TipoDePagamento.AtualizarMuitosTiposDePagamentos(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    tipodepagamentoService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos TipoDePagamentos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos TipoDePagamentos. Nenhum TipoDePagamento foi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos TipoDePagamentos. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.TipoDePagamento.ExcluirTipoDePagamento(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.TipoDePagamento.ExcluirMuitosTiposDePagamentos(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de pagamentos.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de pagamentos.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
@@ -708,73 +813,108 @@ namespace B2WTI.PCFTI.TESTE
         [TestMethod]
         public void CRUD_Cadastro_TipoServico()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                TipoServico objetoTeste = new TipoServico()
                 {
-                    IRepositoryAsync<TipoServico> TipoServicoRepository = new Repository<TipoServico>(context, unitOfWork);
-                    ITipoServicoService TipoServicoService = new TipoServicoService(TipoServicoRepository);
+                    TipoServicoId = Guid.NewGuid(),
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<TipoServico> objetosTeste = new List<TipoServico>();
+                Parallel.For(0, 10, i =>
+                {
+                    TipoServico objetoFor = new TipoServico()
+                    {
+                        TipoServicoId = Guid.NewGuid(),
+                        Descricao = string.Format("Descrição de Teste {0}", i),
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var _TipoServico = TipoServicoService.NovoTipoServico(
-                        new TipoServico()
-                        {
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (_TipoServico == null)
-                        Assert.Fail("A TipoServico retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.TipoServico.CriarNovoTipoServico(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo TipoServico.");
 
-                    #region READ
+                #endregion
 
-                    var lstTipoServico = TipoServicoService.ListarTodosOsTiposServicos();
+                #region Teste da Criação em Massa
 
-                    if (lstTipoServico == null)
-                        Assert.Fail("A leitura de Responsaveis retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.TipoServico.CriarMuitosNovosTiposServicos(objetosTeste);
 
-                    if (lstTipoServico.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum responsável definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos tipo de servico.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos tipo de servico. Nenhum TipoServico foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos tipo de servico. A contagem não confere.");
 
-                    var query = from item in lstTipoServico
-                                where item.TipoServicoId == _TipoServico.TipoServicoId
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    TipoServico temp = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
-                    temp.Ativo = true;
+                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste = Executar.Cadastro.TipoServico.AtualizarTipoServico(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    TipoServicoService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<TipoServico>(objetosTeste, item =>
+                {
+                    item.Descricao = "Descrição de Teste atualizado";
+                });
 
-                    var queryDelete = from item in lstTipoServico
-                                      where item.TipoServicoId == temp.TipoServicoId
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    TipoServico tempDelete = query.ToList<TipoServico>().FirstOrDefault<TipoServico>();
+                objetosTeste = Executar.Cadastro.TipoServico.AtualizarMuitosTiposServicos(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    TipoServicoService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização dos TipoServicos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização dos TipoServicos. Nenhum TipoServicofoi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização dos TipoServicos. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.TipoServico.ExcluirTipoServico(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<Guid> resultsExlusoes = Executar.Cadastro.TipoServico.ExcluirMuitosTiposServicos(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos tipo de servico.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos tipo de servico.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
