@@ -361,87 +361,118 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
-
-        //--> ...
         [TestMethod]
         public void CRUD_Cadastro_Propriedade()
         {
-
             try
             {
-                using (IDataContextAsync context = new PCFTIDataContext())
-                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+
+                #region Massa de Testes
+
+                //Unidade
+                Propriedade objetoTeste = new Propriedade()
                 {
-                    IRepositoryAsync<Propriedade> propriedadeRepository = new Repository<Propriedade>(context, unitOfWork);
-                    IPropriedadeService propriedadeService = new PropriedadeService(propriedadeRepository);
+                    Ano = 9989,
+                    Ativo = true
+                };
 
-                    #region CREATE
+                //Coleção
+                List<Propriedade> objetosTeste = new List<Propriedade>();
+                Parallel.For(0, 10, i =>
+                {
+                    Propriedade objetoFor = new Propriedade()
+                    {
+                        Ano = 9990 + i,
+                        Ativo = true
+                    };
+                    objetosTeste.Add(objetoFor);
+                });
 
-                    var propriedade = propriedadeService.NovaPropriedade(
-                        new Propriedade()
-                        {
-                            Ano = 2015,
-                            Ativo = true
-                        });
+                #endregion
 
-                    unitOfWork.SaveChanges();
+                #region Teste da Criação Unitária
 
-                    if (propriedade == null)
-                        Assert.Fail("A Propriedade retornou nulo ao criar um novo.");
+                objetoTeste = Executar.Cadastro.Propriedade.CriarNovaPropriedade(objetoTeste);
 
-                    #endregion
+                if (objetoTeste == null)
+                    Assert.Fail("Falha ao testar a criação de um novo propriedade.");
 
-                    #region READ
+                #endregion
 
-                    var propriedades = propriedadeService.ListarTodasAsPropriedades();
+                #region Teste da Criação em Massa
 
-                    if (propriedades == null)
-                        Assert.Fail("A leitura de Tipos Bloco retornou nulo.");
+                int totalacriar = objetosTeste.Count;
+                objetosTeste = Executar.Cadastro.Propriedade.CriarMuitasNovasPropriedades(objetosTeste);
 
-                    if (propriedades.Count() == 0)
-                        Assert.Fail("O objeto foi instanciado, mas não contém nenhum Tipo Bloco definido.");
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. Nenhum propriedade foi gravado.");
 
-                    #region UPDATE
+                if (objetosTeste.Count != totalacriar)
+                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. A contagem não confere.");
 
-                    var query = from item in propriedades
-                                where item.Ano == propriedade.Ano
-                                select item;
+                #endregion
 
+                #region Teste da Atualização Unitária
 
-                    Propriedade temp = query.ToList<Propriedade>().FirstOrDefault<Propriedade>();
-                    temp.Ativo = true;
+                objetoTeste.Ativo = false;
+                objetoTeste = Executar.Cadastro.Propriedade.AtualizarPropriedade(objetoTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                    propriedadeService.Update(temp);
-                    unitOfWork.SaveChanges();
+                #endregion
 
-                    #endregion
+                #region Teste da Atualização em Massa
 
-                    #region DELETE
+                Parallel.ForEach<Propriedade>(objetosTeste, item =>
+                {
+                    item.Ativo = false;
+                });
 
-                    var queryDelete = from item in propriedades
-                                      where item.Ano == temp.Ano
-                                      select item;
+                int totalaatualizar = objetosTeste.Count;
 
-                    Propriedade tempDelete = query.ToList<Propriedade>().FirstOrDefault<Propriedade>();
+                objetosTeste = Executar.Cadastro.Propriedade.AtualizarMuitasPropriedades(objetosTeste);
 
-                    temp.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
-                    propriedadeService.Delete(tempDelete);
-                    unitOfWork.SaveChanges();
+                if (objetosTeste == null)
+                    Assert.Fail("Falha ao testar a atualização das propriedades.");
 
-                    #endregion
+                if (objetosTeste.Count == 0)
+                    Assert.Fail("Falha ao testar a atualização das propriedades. Nenhum propriedade foi salvo.");
 
-                }
+                if (objetosTeste.Count != totalaatualizar)
+                    Assert.Fail("Falha ao testar a atualização das propriedades. A contagem não confere.");
+
+                #endregion
+
+                #region Teste da Exclusão Unitária
+
+                bool resultExclusao = Executar.Cadastro.Propriedade.ExcluirPropriedade(objetoTeste);
+
+                if (!resultExclusao)
+                    Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
+
+                #endregion
+
+                #region Teste da Exclusão em Massa
+
+                List<int> resultsExlusoes = Executar.Cadastro.Propriedade.ExcluirMuitasPropriedades(objetosTeste);
+
+                if (resultsExlusoes == null)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                if (resultsExlusoes.Count == 0)
+                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+
+                #endregion
+
             }
             catch (Exception Ex)
             {
                 Assert.Fail(Ex.Message);
             }
-
-
         }
+
+        //--> ...
 
         [TestMethod]
         public void CRUD_Cadastro_Responsavel()
