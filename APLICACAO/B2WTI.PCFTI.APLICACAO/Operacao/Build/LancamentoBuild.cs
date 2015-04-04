@@ -81,6 +81,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 lancamento.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 lancamentoService.Update(lancamento);
                 unitOfWork.SaveChanges();
+                unitOfWork.Dispose();
             }
 
             return lancamento;
