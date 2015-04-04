@@ -66,6 +66,7 @@
     <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
     <Compile Include="Operacao\Build\ResponsavelBuild.cs" />
     <Compile Include="Operacao\Build\PropriedadeBuild.cs" />
+    <Compile Include="Operacao\Build\StatusBuild.cs" />
     <Compile Include="Operacao\Build\TipoBloboBuild.cs" />
     <Compile Include="Operacao\Build\BloboBuild.cs" />
     <Compile Include="Operacao\Cadastro.cs" />
