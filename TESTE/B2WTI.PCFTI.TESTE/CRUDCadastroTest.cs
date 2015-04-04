@@ -696,8 +696,6 @@ namespace B2WTI.PCFTI.TESTE
             }
         }
 
-        //--> ...
-
         [TestMethod]
         public void CRUD_Cadastro_TipoDePagamento()
         {
