@@ -3,6 +3,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
 {
     using B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe;
     using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+    using System.Collections.Generic;
     using System.Web.Mvc;
 
     public class BlocoController : Controller
@@ -10,8 +11,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
        
         // GET: Cadastro/Bloco
         public ActionResult Index()
-        {    
-            return View(BlocoExecute.ListarTodosOsBlocos());
+        {
+            List<BlocoView> lista = BlocoExecute.ListarTodosOsBlocos();
+            return View(lista);
         }
 
         [HttpGet]

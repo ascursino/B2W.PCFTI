@@ -1,4 +1,7 @@
 ﻿@using System.Web.Optimization
+@using B2WTI.PCFTI.APRESENTACAO.Views.Helpers
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,18 +53,7 @@
             
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>ORÇAMENTOS</h2>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="">Home</a>
-                        </li>
-                        <li>
-                            <a>Lançamentos</a>
-                        </li>
-                        <li class="active">
-                            <strong>Orçamentos</strong>
-                        </li>
-                    </ol>
+                    @Html.Raw(Html.BuildBreadcrumbNavigation())
                 </div>
                 <div class="col-lg-2">
 
