@@ -1,14 +1,9 @@
 ﻿
 namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
 {
-    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using SERVICES;
     using B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe;
+    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+    using System.Web.Mvc;
 
     public class BlocoController : Controller
     {
