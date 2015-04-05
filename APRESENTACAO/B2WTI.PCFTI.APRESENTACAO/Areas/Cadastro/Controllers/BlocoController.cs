@@ -20,6 +20,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/Bloco/Novo
         public ActionResult Index(string filtro)
         {
+            ViewData["filtro"] = filtro;
             List<BlocoView> lista = BlocoExecute.BuscarBlocos(filtro);
             return View("Index", lista);
         }

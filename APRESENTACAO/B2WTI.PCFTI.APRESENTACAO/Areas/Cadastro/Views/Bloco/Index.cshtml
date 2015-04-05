@@ -3,36 +3,43 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var vdfiltro = ViewData["filtro"];
+    string filtro = (vdfiltro != null) ? vdfiltro.ToString() : string.Empty;
+
+    int resultados = Model.Count(); 
 }
 
 <div class="col-lg-12">
     <div class="wrapper wrapper-content animated fadeInUp">
-
         <div class="ibox">
             <div class="ibox-title">
-                <h5>Todos os Blocos</h5>
+                <h5>@Html.Raw((filtro != string.Empty) ? string.Format("Resultados para a pesquisa: \" {0} \", retornou {1} registro(s).", filtro, resultados) : "Todos os Blocos")</h5>
                 <div class="ibox-tools">
-                    <a href="" class="btn btn-primary btn-xs">Criar Novo Bloco</a>
-                    
+                    <a href="/Cadastro/Bloco/Novo" class="btn btn-primary btn-xs">Criar Novo Bloco</a>
                 </div>
             </div>
             <div class="ibox-content">
                 <div class="list">
                     <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Atualizar</button>
-                    <table class="table">
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Ativo?</th>
-                            <th>Ação</th>
-                        </tr>
-                        @foreach (BlocoView item in Model)
-                        {
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td>@item.Descricao</td>
-                                <td>@item.Ativo</td>
-                                <td>Editar | Excluir</td>
+                                <th>Descrição</th>
+                                <th>Ativo?</th>
+                                <th>Ação</th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
+                            @foreach (BlocoView item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Descricao</td>
+                                    <td>@Html.Raw((item.Ativo) ? "<a href=\"#\"><i class=\"fa fa-check text-navy\"></i></a>" : "")</td>
+                                    <td>Editar | Excluir</td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
