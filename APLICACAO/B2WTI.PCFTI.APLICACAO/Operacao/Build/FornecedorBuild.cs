@@ -1,22 +1,21 @@
 ﻿
 namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 {
-    using B2WTI.PCFTI.APLICACAO.Modulo.Cadastro;
-    using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DataContexts;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Repositories;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
+    using APLICACAO.Modulo.Cadastro;
+    using INFRAESTRUTURA.HORIZONTAL;
+    using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
+    using INFRAESTRUTURA.TRANSVERSAL.Repositories;
+    using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using DOMINIO.Model.Global;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     public class FornecedorBuild
     {
 
         #region CRIAÇÃO
 
-        public Guid CriarNovoFornecedor(Fornecedor fornecedor)
+        public Fornecedor CriarNovoFornecedor(Fornecedor fornecedor, bool Atualizar = false)
         {
             if (fornecedor == null)
             {
@@ -34,22 +33,28 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     fornecedor = fornecedorService.NovoFornecedor(fornecedor);
                     unitOfWork.SaveChanges();
                 }
+                else if (Atualizar)
+                {
+                    fornecedor = AtualizarFornecedor(fornecedor);
+                    unitOfWork.SaveChanges();
+                }
+
                 unitOfWork.Dispose();
             }
 
-            return fornecedor.FornecedorId;
+            return fornecedor;
         }
 
-        public List<Guid> CriarMuitosNovosFornecedores(List<Fornecedor> fornecedores)
+        public List<Fornecedor> CriarMuitosNovosFornecedores(List<Fornecedor> fornecedores, bool Atualizar = false)
         {
-            List<Guid> ret = null;
+            List<Fornecedor> ret = null;
             try
             {
-                ret = new List<Guid>();
+                ret = new List<Fornecedor>();
                 foreach (Fornecedor fornecedor in fornecedores)
                 {
-                    Guid result = CriarNovoFornecedor(fornecedor);
-                    if (result != Guid.Empty)
+                    Fornecedor result = CriarNovoFornecedor(fornecedor, Atualizar);
+                    if (result != null)
                         ret.Add(result);
                 }
             }
@@ -74,7 +79,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 IRepositoryAsync<Fornecedor> fornecedorRepository = new Repository<Fornecedor>(context, unitOfWork);
                 IFornecedorService fornecedorService = new FornecedorService(fornecedorRepository);
                 fornecedor.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
-                fornecedor = fornecedorService.NovoFornecedor(fornecedor);
+                fornecedorService.Update(fornecedor);
                 unitOfWork.SaveChanges();
             }
 

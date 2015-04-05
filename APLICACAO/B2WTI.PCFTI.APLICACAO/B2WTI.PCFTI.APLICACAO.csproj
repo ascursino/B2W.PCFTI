@@ -64,6 +64,14 @@
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoCommand.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
+    <Compile Include="Operacao\Build\LancamentoBuild.cs" />
+    <Compile Include="Operacao\Build\TipoDePagamentoBuild.cs" />
+    <Compile Include="Operacao\Build\TipoServicoBuild.cs" />
+    <Compile Include="Operacao\Build\ResponsavelBuild.cs" />
+    <Compile Include="Operacao\Build\PropriedadeBuild.cs" />
+    <Compile Include="Operacao\Build\StatusBuild.cs" />
+    <Compile Include="Operacao\Build\TipoBloboBuild.cs" />
+    <Compile Include="Operacao\Build\BlocoBuild.cs" />
     <Compile Include="Operacao\Cadastro.cs" />
     <Compile Include="Operacao\Execute.cs" />
     <Compile Include="Operacao\Build\FornecedorBuild.cs" />
