@@ -1,15 +1,11 @@
 ﻿
 namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 {
-    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
     using B2WTI.PCFTI.APLICACAO.Operacao;
-    using DOMINIO.Model.Global;
+    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+    using Map;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Map;
 
     public static class BlocoExecute
     {
@@ -25,6 +21,30 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
         {
             List<BlocoView> blocos = Executar.Cadastro.Bloco.BuscarBlocos(filtro).DeDominParaView();
             return blocos;
+        }
+
+        public static BlocoView CarregarBloco(Guid BlocoId)
+        {
+            BlocoView bloco = Executar.Cadastro.Bloco.CarregarBloco(BlocoId).DeDominParaView();
+            return bloco;
+        }
+
+        public static BlocoView CriarNovoBloco(BlocoView bloco)
+        {
+            bloco = Executar.Cadastro.Bloco.CriarNovoBloco(bloco.DeViewParaDomin()).DeDominParaView();
+            return bloco;
+        }
+
+        public static BlocoView EditarBloco(BlocoView bloco)
+        {
+            bloco = Executar.Cadastro.Bloco.AtualizarBloco(bloco.DeViewParaDomin()).DeDominParaView();
+            return bloco;
+        }
+
+        public static bool ExcluirBloco(BlocoView bloco)
+        {
+            bool ret = Executar.Cadastro.Bloco.ExcluirBloco(bloco.DeViewParaDomin());
+            return ret;
         }
 
     }

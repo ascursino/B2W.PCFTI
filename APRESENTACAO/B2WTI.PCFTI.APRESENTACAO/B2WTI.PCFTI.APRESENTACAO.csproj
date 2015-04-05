@@ -240,6 +240,7 @@
     <Content Include="Areas\Orcamento\Views\Home\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\Bloco\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\Bloco\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Bloco\Editar.cshtml" />
     <None Include="js\jquery.framework\_references.js" />
     <None Include="js\jquery.framework\jquery-1.10.2.intellisense.js" />
     <Content Include="js\jquery.framework\jquery-1.10.2.js" />

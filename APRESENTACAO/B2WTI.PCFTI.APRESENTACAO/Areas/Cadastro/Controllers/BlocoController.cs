@@ -3,6 +3,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
 {
     using B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe;
     using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+    using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
 
@@ -36,7 +37,26 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/Bloco/Novo
         public ActionResult Novo(BlocoView bloco)
         {
-            return View("Novo", bloco);
+            bloco = BlocoExecute.CriarNovoBloco(bloco);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        // GET: Cadastro/Bloco/Editar
+        public ActionResult Editar(Guid Id)
+        {
+            BlocoView item = BlocoExecute.CarregarBloco(Id);
+            return View("Editar", item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // POST: Cadastro/Bloco/Novo
+        public ActionResult Editar(BlocoView bloco)
+        {
+            bloco = BlocoExecute.EditarBloco(bloco);
+            return RedirectToAction("Index");
         }
     }
 }
