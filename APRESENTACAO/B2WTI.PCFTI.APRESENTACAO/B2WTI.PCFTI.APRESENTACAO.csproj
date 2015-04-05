@@ -295,7 +295,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BlocoView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -332,16 +331,9 @@
     <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
     <Folder Include="Areas\Cadastro\Views\TipoServico\" />
     <Folder Include="Areas\Orcamento\Models\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\APLICACAO\B2WTI.PCFTI.APLICACAO\B2WTI.PCFTI.APLICACAO.csproj">
-      <Project>{e6a18487-515f-4530-81ef-9fd89b43aacf}</Project>
-      <Name>B2WTI.PCFTI.APLICACAO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DOMINIO\B2WTI.PCFTI.DOMINIO\B2WTI.PCFTI.DOMINIO.csproj">
-      <Project>{30b6fc63-33b2-48a3-acf7-2b09cafbd247}</Project>
-      <Name>B2WTI.PCFTI.DOMINIO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.csproj">
       <Project>{27cf782c-4178-44b6-9d97-3f87d146c045}</Project>
       <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO</Name>
@@ -349,6 +341,10 @@
     <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
       <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>
       <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\B2WTI.PCFTI.APRESENTACAO.SERVICES\B2WTI.PCFTI.APRESENTACAO.SERVICES.csproj">
+      <Project>{fa2bac30-26b2-408b-92f7-aa0a700aa7a3}</Project>
+      <Name>B2WTI.PCFTI.APRESENTACAO.SERVICES</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

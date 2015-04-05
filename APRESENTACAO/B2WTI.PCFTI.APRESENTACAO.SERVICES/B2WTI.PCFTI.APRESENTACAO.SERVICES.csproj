@@ -39,10 +39,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Exe\BlocoExecute.cs" />
+    <Compile Include="Map\BlocoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\APLICACAO\B2WTI.PCFTI.APLICACAO\B2WTI.PCFTI.APLICACAO.csproj">
+      <Project>{e6a18487-515f-4530-81ef-9fd89b43aacf}</Project>
+      <Name>B2WTI.PCFTI.APLICACAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DOMINIO\B2WTI.PCFTI.DOMINIO\B2WTI.PCFTI.DOMINIO.csproj">
+      <Project>{30b6fc63-33b2-48a3-acf7-2b09cafbd247}</Project>
+      <Name>B2WTI.PCFTI.DOMINIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.csproj">
+      <Project>{27cf782c-4178-44b6-9d97-3f87d146c045}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
+      <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>
+      <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,8 +1,17 @@
-﻿@model List<B2WTI.PCFTI.APRESENTACAO.Models.BlocoView>
-
+﻿@model List<B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.BlocoView>
+@using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-Listar aqui
+<table>
+    @foreach (BlocoView item in Model)
+    {
+        <tr>
+            <td>@item.BlocoId</td>
+            <td>@item.Descricao</td>
+            <td>@item.Ativo</td>
+        </tr>
+    }
+</table>

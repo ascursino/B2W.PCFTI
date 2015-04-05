@@ -1,5 +1,5 @@
 ﻿
-namespace B2WTI.PCFTI.APRESENTACAO.Models
+namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel
 {
     using System;
     using System.Collections.Generic;
