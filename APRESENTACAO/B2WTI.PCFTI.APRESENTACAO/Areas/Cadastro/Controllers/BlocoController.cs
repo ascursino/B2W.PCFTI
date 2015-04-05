@@ -52,11 +52,29 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // POST: Cadastro/Bloco/Novo
+        // POST: Cadastro/Bloco/Editar
         public ActionResult Editar(BlocoView bloco)
         {
             bloco = BlocoExecute.EditarBloco(bloco);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        // GET: Cadastro/Bloco/Excluir
+        public ActionResult Excluir(Guid Id)
+        {
+            BlocoView item = BlocoExecute.CarregarBloco(Id);
+            return View("Excluir", item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // POST: Cadastro/Bloco/Excluir
+        public ActionResult Excluir(BlocoView bloco)
+        {
+            bool result = BlocoExecute.ExcluirBloco(bloco);
+            return RedirectToAction("Index");
+        }
+
     }
 }
