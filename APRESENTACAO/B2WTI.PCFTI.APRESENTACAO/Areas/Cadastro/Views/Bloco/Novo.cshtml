@@ -1,0 +1,21 @@
+﻿@model B2WTI.PCFTI.APRESENTACAO.Models.BlocoView
+@{
+    ViewBag.Title = "Novo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    Html.EnableClientValidation(true);
+
+    <ul>
+        <li>
+            @Html.LabelFor(m => m.Descricao)
+            @Html.EditorFor(m => m.Descricao)
+            @Html.ValidationMessageFor(m => m.Descricao)
+        </li>
+    </ul>
+    <input type="submit" value="Salvar" />
+}
+
+
