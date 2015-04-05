@@ -5,13 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table>
-    @foreach (BlocoView item in Model)
-    {
-        <tr>
-            <td>@item.BlocoId</td>
-            <td>@item.Descricao</td>
-            <td>@item.Ativo</td>
-        </tr>
-    }
-</table>
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Todos os Blocos</h5>
+                <div class="ibox-tools">
+                    <a href="" class="btn btn-primary btn-xs">Criar Novo Bloco</a>
+                    
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="list">
+                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Atualizar</button>
+                    <table class="table">
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Ativo?</th>
+                            <th>Ação</th>
+                        </tr>
+                        @foreach (BlocoView item in Model)
+                        {
+                            <tr>
+                                <td>@item.Descricao</td>
+                                <td>@item.Ativo</td>
+                                <td>Editar | Excluir</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
