@@ -175,6 +175,28 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return ret;
         }
 
+        public List<Bloco> BuscarBlocos(string filtro)
+        {
+            List<Bloco> ret = null;
+            try
+            {
+                ret = new List<Bloco>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Bloco> blocoRepository = new Repository<Bloco>(context, unitOfWork);
+                    IBlocoService blocoService = new BlocoService(blocoRepository);
+                    ret = blocoService.BuscarBlocos(filtro).ToList<Bloco>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
         #endregion
 
         #region EXCLUSÃO

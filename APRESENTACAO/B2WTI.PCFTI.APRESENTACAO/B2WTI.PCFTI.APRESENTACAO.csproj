@@ -316,6 +316,7 @@
     <Content Include="css\bootstrap.css.map" />
     <Content Include="js\jquery.datatables\Portuguese-Brasil.json" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -21,5 +21,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return blocos;
         }
 
+        public static List<BlocoView> BuscarBlocos(string filtro)
+        {
+            List<BlocoView> blocos = Executar.Cadastro.Bloco.BuscarBlocos(filtro).DeDominParaView();
+            return blocos;
+        }
+
     }
 }
