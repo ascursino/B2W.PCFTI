@@ -30,9 +30,9 @@
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
 
                         @if (ViewContext.RouteData.DataTokens["area"] != null && Html.ViewContext.Controller.ControllerContext.RouteData.Values["controller"] != null)
-                        { 
+                        {
                             if (ViewContext.RouteData.DataTokens["area"].ToString().Trim() != ""
-                            && Html.ViewContext.Controller.ControllerContext.RouteData.Values["controller"].ToString().ToLower() != "home"    
+                            && Html.ViewContext.Controller.ControllerContext.RouteData.Values["controller"].ToString().ToLower() != "home"
                             && (ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "cadastro"
                             || ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "orcamento"))
                             {
@@ -55,7 +55,7 @@
                 </nav>
 
             </div>
-            
+
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
                     @Html.Raw(Html.BuildBreadcrumbNavigation())

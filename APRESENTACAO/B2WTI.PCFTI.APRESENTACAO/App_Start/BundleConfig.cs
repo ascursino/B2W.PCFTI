@@ -8,9 +8,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //Jquery Framework
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/js/jquery.framework/jquery-{version}.js"));
-
+            
+            //Jquery Validate
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/js/jquery.framework/jquery.validate*"));
 
@@ -18,6 +20,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/js/jquery.framework/modernizr-*"));
+
+            //Javascript Jquery Edit Table - Complemento DataTables para Arrows
+            bundles.Add(new ScriptBundle("~/bundles/jeditable").Include(
+                        "~/js/jquery.editable/jquery.jeditable.js",
+                        "~/js/jquery.editable/jquery.keytable.js"));
 
             //Javascript Bootstrap Page
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
