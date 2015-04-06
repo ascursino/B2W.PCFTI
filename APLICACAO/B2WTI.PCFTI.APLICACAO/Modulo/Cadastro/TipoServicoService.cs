@@ -15,6 +15,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     {
         TipoServico NovoTipoServico(TipoServico tiposervico);
         IEnumerable<TipoServico> ListarTodosOsTiposServicos();
+        IEnumerable<TipoServico> BuscarTiposServicos(string filtro);
     }
 
     public class TipoServicoService : Service<TipoServico>, ITipoServicoService
@@ -38,5 +39,14 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
                    where item.Ativo.Equals(true)
                    select item;
         }
+
+        public IEnumerable<TipoServico> BuscarTiposServicos(string filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Descricao.Contains(filtro)
+                   select item;
+        }
+
     }
 }

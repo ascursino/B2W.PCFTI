@@ -8,6 +8,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public class TipoBlocoBuild
@@ -142,6 +143,50 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     ITipoBlocoService tipoblocoService = new TipoBlocoService(tipoblocoRepository);
 
                     ret = tipoblocoService.Find(TipoBlocoId);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoBloco> ListarTiposBlocos()
+        {
+            List<TipoBloco> ret = null;
+            try
+            {
+                ret = new List<TipoBloco>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoBloco> tipoblocoRepository = new Repository<TipoBloco>(context, unitOfWork);
+                    ITipoBlocoService tipoblocoService = new TipoBlocoService(tipoblocoRepository);
+                    ret = tipoblocoService.ListarTodosOsTiposBloco().ToList<TipoBloco>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoBloco> BuscarTiposBlocos(string filtro)
+        {
+            List<TipoBloco> ret = null;
+            try
+            {
+                ret = new List<TipoBloco>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoBloco> tipoblocoRepository = new Repository<TipoBloco>(context, unitOfWork);
+                    ITipoBlocoService tipoblocoService = new TipoBlocoService(tipoblocoRepository);
+                    ret = tipoblocoService.BuscarTiposBlocos(filtro).ToList<TipoBloco>();
                     unitOfWork.Dispose();
                 }
             }

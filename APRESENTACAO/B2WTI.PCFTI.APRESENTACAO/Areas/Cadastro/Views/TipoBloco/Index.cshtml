@@ -1,4 +1,4 @@
-﻿@model List<B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.BlocoView>
+﻿@model List<B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.TipoBlocoView>
 @using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
 @{
     ViewBag.Title = "Index";
@@ -14,9 +14,9 @@
     <div class="wrapper wrapper-content animated fadeInUp">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>@Html.Raw((filtro != string.Empty) ? string.Format("Resultados para a pesquisa: \" {0} \", retornou {1} registros.", filtro, resultados) : (resultados > 1) ? string.Format("Todos os {0} Blocos", resultados) : (resultados == 1) ? "Um único Bloco foi localizado" : "Nenhum Bloco foi localizado")</h5>
+                <h5>@Html.Raw((filtro != string.Empty) ? string.Format("Resultados para a pesquisa: \" {0} \", retornou {1} registro(s).", filtro, resultados) : (resultados > 1) ? string.Format("Todos os {0} Tipos de Blocos", resultados) : (resultados == 1) ? "Um único Tipo de Bloco foi localizado" : "Nenhum Tipo de Bloco foi localizado")</h5>
                 <div class="ibox-tools">
-                    <a href="/Cadastro/Bloco/Novo" class="btn btn-primary btn-xs">Criar Novo Bloco</a>
+                    <a href="/Cadastro/TipoBloco/Novo" class="btn btn-primary btn-xs">Criar Novo Tipo de Bloco</a>
                 </div>
             </div>
             <div class="ibox-content">
@@ -33,12 +33,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (BlocoView item in Model)
+                            @foreach (TipoBlocoView item in Model)
                             {
                                 <tr>
                                     <td>@item.Descricao</td>
                                     <td>@Html.Raw((item.Ativo) ? "<a href=\"#\"><i class=\"fa fa-check text-navy\"></i></a>" : "")</td>
-                                    <td><a href="/Cadastro/Bloco/Editar/@item.BlocoId">Editar</a> | <a href="/Cadastro/Bloco/Excluir/@item.BlocoId">Excluir</a></td>
+                                    <td><a href="/Cadastro/TipoBloco/Editar/@item.TipoBlocoId">Editar</a> | <a href="/Cadastro/TipoBloco/Excluir/@item.TipoBlocoId">Excluir</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -46,7 +46,7 @@
                     }
                     else
                     {
-                        @Html.Raw("Nenhum bloco foi cadastrado.") 
+                        @Html.Raw("Nenhum tipo de bloco foi cadastrado.")
                     }
                 </div>
             </div>

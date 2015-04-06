@@ -39,7 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exe\TipoServicoExecute.cs" />
+    <Compile Include="Exe\TipoBlocoExecute.cs" />
     <Compile Include="Exe\BlocoExecute.cs" />
+    <Compile Include="Map\TipoServicoMap.cs" />
+    <Compile Include="Map\TipoBlocoMap.cs" />
     <Compile Include="Map\BlocoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

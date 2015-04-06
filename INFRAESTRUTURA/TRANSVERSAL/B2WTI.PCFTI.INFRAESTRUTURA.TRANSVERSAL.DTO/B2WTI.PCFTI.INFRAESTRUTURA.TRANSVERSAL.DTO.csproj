@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\ViewModel\TipoServicoView.cs" />
+    <Compile Include="Modulo\Cadastro\ViewModel\TipoBlocoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\BlocoView.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,6 +15,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     {
         TipoBloco NovoTipoBloco(TipoBloco TipoBloco);
         IEnumerable<TipoBloco> ListarTodosOsTiposBloco();
+        IEnumerable<TipoBloco> BuscarTiposBlocos(string filtro);
     }
 
     public class TipoBlocoService : Service<TipoBloco>, ITipoBlocoService
@@ -36,6 +37,14 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)
+                   select item;
+        }
+
+        public IEnumerable<TipoBloco> BuscarTiposBlocos(string filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Descricao.Contains(filtro)
                    select item;
         }
     }

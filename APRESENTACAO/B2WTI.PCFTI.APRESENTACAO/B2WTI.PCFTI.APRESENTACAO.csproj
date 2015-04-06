@@ -241,6 +241,15 @@
     <Content Include="Areas\Cadastro\Views\Bloco\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\Bloco\Novo.cshtml" />
     <Content Include="Areas\Cadastro\Views\Bloco\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Bloco\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoBloco\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoBloco\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoBloco\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoBloco\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoServico\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoServico\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoServico\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
     <None Include="js\jquery.framework\_references.js" />
     <None Include="js\jquery.framework\jquery-1.10.2.intellisense.js" />
     <Content Include="js\jquery.framework\jquery-1.10.2.js" />
@@ -332,9 +341,7 @@
     <Folder Include="Areas\Cadastro\Views\Propriedade\" />
     <Folder Include="Areas\Cadastro\Views\Responsavel\" />
     <Folder Include="Areas\Cadastro\Views\Status\" />
-    <Folder Include="Areas\Cadastro\Views\TipoBloco\" />
     <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
-    <Folder Include="Areas\Cadastro\Views\TipoServico\" />
     <Folder Include="Areas\Orcamento\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>

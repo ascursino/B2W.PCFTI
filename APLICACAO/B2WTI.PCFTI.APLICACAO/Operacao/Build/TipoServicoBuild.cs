@@ -8,6 +8,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public class TipoServicoBuild
@@ -142,6 +143,50 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     ITipoServicoService tiposervicoService = new TipoServicoService(tiposervicoRepository);
 
                     ret = tiposervicoService.Find(TipoServicoId);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoServico> ListarTiposServicos()
+        {
+            List<TipoServico> ret = null;
+            try
+            {
+                ret = new List<TipoServico>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoServico> tiposervicoRepository = new Repository<TipoServico>(context, unitOfWork);
+                    ITipoServicoService tiposervicoService = new TipoServicoService(tiposervicoRepository);
+                    ret = tiposervicoService.ListarTodosOsTiposServicos().ToList<TipoServico>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoServico> BuscarTiposServicos(string filtro)
+        {
+            List<TipoServico> ret = null;
+            try
+            {
+                ret = new List<TipoServico>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoServico> tiposervicoRepository = new Repository<TipoServico>(context, unitOfWork);
+                    ITipoServicoService tiposervicoService = new TipoServicoService(tiposervicoRepository);
+                    ret = tiposervicoService.BuscarTiposServicos(filtro).ToList<TipoServico>();
                     unitOfWork.Dispose();
                 }
             }
