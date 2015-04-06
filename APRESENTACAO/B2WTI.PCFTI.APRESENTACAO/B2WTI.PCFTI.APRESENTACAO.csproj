@@ -201,6 +201,7 @@
     <Content Include="js\jquery.datatables\swf\copy_csv_xls.swf" />
     <Content Include="js\jquery.datatables\swf\copy_csv_xls_pdf.swf" />
     <Content Include="js\jquery.editable\jquery.editable.js" />
+    <Content Include="js\jquery.editable\jquery.jeditable.js" />
     <Content Include="js\jquery.framework\jquery-1.10.2.min.map" />
     <Content Include="js\jquery.framework\jquery-1.9.1.min.map" />
     <Content Include="fonts\fonts\fontawesome-webfont.eot" />
@@ -252,8 +253,9 @@
     <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
     <Content Include="Areas\Orcamento\Views\Lancamento\Index.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Index.cshtml" />
-    <Content Include="Areas\Orcamento\Views\Visao\Anual.cshtml" />
-    <Content Include="Areas\Orcamento\Views\Visao\Semestral.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\_Anual.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\_Semestral.cshtml" />
+    <Content Include="js\jquery.editable\jquery.keytable.js" />
     <None Include="js\jquery.framework\_references.js" />
     <None Include="js\jquery.framework\jquery-1.10.2.intellisense.js" />
     <Content Include="js\jquery.framework\jquery-1.10.2.js" />
@@ -333,6 +335,7 @@
     <Content Include="js\jquery.datatables\Portuguese-Brasil.json" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\_Widgets.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
