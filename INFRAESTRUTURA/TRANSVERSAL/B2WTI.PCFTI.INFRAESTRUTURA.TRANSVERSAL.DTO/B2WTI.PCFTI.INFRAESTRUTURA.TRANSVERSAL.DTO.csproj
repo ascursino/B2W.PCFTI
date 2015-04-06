@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\ViewModel\ResponsavelView.cs" />
+    <Compile Include="Modulo\Cadastro\ViewModel\FornecedorView.cs" />
+    <Compile Include="Modulo\Cadastro\ViewModel\StatusView.cs" />
+    <Compile Include="Modulo\Cadastro\ViewModel\TipoDePagamentoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\TipoServicoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\TipoBlocoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\BlocoView.cs" />

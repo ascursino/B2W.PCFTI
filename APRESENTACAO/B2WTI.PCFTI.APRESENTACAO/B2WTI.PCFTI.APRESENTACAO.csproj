@@ -250,6 +250,10 @@
     <Content Include="Areas\Cadastro\Views\TipoServico\Excluir.cshtml" />
     <Content Include="Areas\Cadastro\Views\TipoServico\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Lancamento\Index.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\Index.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\Anual.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\Semestral.cshtml" />
     <None Include="js\jquery.framework\_references.js" />
     <None Include="js\jquery.framework\jquery-1.10.2.intellisense.js" />
     <Content Include="js\jquery.framework\jquery-1.10.2.js" />
@@ -300,6 +304,8 @@
     <Compile Include="Areas\Cadastro\Controllers\TipoDePagamentoController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\TipoServicoController.cs" />
     <Compile Include="Areas\Orcamento\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Orcamento\Controllers\LancamentoController.cs" />
+    <Compile Include="Areas\Orcamento\Controllers\VisaoController.cs" />
     <Compile Include="Areas\Orcamento\OrcamentoAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

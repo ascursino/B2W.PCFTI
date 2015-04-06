@@ -7,8 +7,6 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Global
     public partial class Fornecedor : Entity
     {
 
-        public Fornecedor() { }
-
         public Guid FornecedorId { get; set; }
         public string CNPJ { get; set; }
         public string RazaoSocial { get; set; }
