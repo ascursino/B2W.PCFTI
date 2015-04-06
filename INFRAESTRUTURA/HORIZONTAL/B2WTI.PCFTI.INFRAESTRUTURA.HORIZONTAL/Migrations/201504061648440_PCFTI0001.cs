@@ -40,7 +40,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 .PrimaryKey(t => t.LancamentoId)
                 .ForeignKey("dbo.Bloco", t => t.BlocoId)
                 .ForeignKey("dbo.Fornecedor", t => t.FornecedorId)
-                .ForeignKey("dbo.Propriedade", t => t.Ano)
+                .ForeignKey("dbo.AnoCalendario", t => t.Ano)
                 .ForeignKey("dbo.Responsavel", t => t.ResponsavelId)
                 .ForeignKey("dbo.Status", t => t.StatusId)
                 .ForeignKey("dbo.TipoBloco", t => t.TipoBlocoId)
@@ -126,7 +126,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 .Index(t => t.Lancamento_LancamentoId);
             
             CreateTable(
-                "dbo.Propriedade",
+                "dbo.AnoCalendario",
                 c => new
                     {
                         Ano = c.Int(nullable: false, identity: false),
@@ -212,7 +212,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropForeignKey("dbo.Lancamento", "ResponsavelId", "dbo.Responsavel");
             DropForeignKey("dbo.Real", "Lancamento_LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Real", "LancamentoId", "dbo.Lancamento");
-            DropForeignKey("dbo.Lancamento", "Ano", "dbo.Propriedade");
+            DropForeignKey("dbo.Lancamento", "Ano", "dbo.AnoCalendario");
             DropForeignKey("dbo.Orcado", "Lancamento_LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Orcado", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Lancamento", "FornecedorId", "dbo.Fornecedor");
@@ -246,7 +246,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropTable("dbo.Status");
             DropTable("dbo.Responsavel");
             DropTable("dbo.Real");
-            DropTable("dbo.Propriedade");
+            DropTable("dbo.AnoCalendario");
             DropTable("dbo.Orcado");
             DropTable("dbo.Fornecedor");
             DropTable("dbo.Caixa");

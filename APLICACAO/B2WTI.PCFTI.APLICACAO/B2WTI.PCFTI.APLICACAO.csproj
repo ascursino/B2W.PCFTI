@@ -54,8 +54,8 @@
     <Compile Include="Modulo\Cadastro\StatusService.cs" />
     <Compile Include="Modulo\Cadastro\ResponsavelCommand.cs" />
     <Compile Include="Modulo\Cadastro\ResponsavelService.cs" />
-    <Compile Include="Modulo\Cadastro\PropriedadeCommand.cs" />
-    <Compile Include="Modulo\Cadastro\PropriedadeService.cs" />
+    <Compile Include="Modulo\Cadastro\AnoCalendarioCommand.cs" />
+    <Compile Include="Modulo\Cadastro\AnoCalendarioService.cs" />
     <Compile Include="Modulo\Cadastro\TipoBlocoService.cs" />
     <Compile Include="Modulo\Cadastro\TipoBlocoCommand.cs" />
     <Compile Include="Modulo\Cadastro\BlocoCommand.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="Operacao\Build\TipoDePagamentoBuild.cs" />
     <Compile Include="Operacao\Build\TipoServicoBuild.cs" />
     <Compile Include="Operacao\Build\ResponsavelBuild.cs" />
-    <Compile Include="Operacao\Build\PropriedadeBuild.cs" />
+    <Compile Include="Operacao\Build\AnoCalendarioBuild.cs" />
     <Compile Include="Operacao\Build\StatusBuild.cs" />
     <Compile Include="Operacao\Build\TipoBloboBuild.cs" />
     <Compile Include="Operacao\Build\BlocoBuild.cs" />

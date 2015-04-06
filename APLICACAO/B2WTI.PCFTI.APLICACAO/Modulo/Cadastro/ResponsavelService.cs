@@ -15,6 +15,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     {
         Responsavel NovoResponsavel(Responsavel responsavel);
         IEnumerable<Responsavel> ListarTodosOsResponsaveis();
+        IEnumerable<Responsavel> BuscarResponsaveis(string filtro);
     }
 
     public class ResponsavelService : Service<Responsavel>, IResponsavelService
@@ -38,5 +39,14 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
                    where item.Ativo.Equals(true)
                    select item;
         }
+
+        public IEnumerable<Responsavel> BuscarResponsaveis(string filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Descricao.Contains(filtro)
+                   select item;
+        }
+
     }
 }

@@ -11,28 +11,28 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface IPropriedadeService : IService<Propriedade>
+    public interface IAnoCalendarioService : IService<AnoCalendario>
     {
-        Propriedade NovaPropriedade(Propriedade Propriedade);
-        IEnumerable<Propriedade> ListarTodasAsPropriedades();
+        AnoCalendario NovoAnoCalendario(AnoCalendario Propriedade);
+        IEnumerable<AnoCalendario> ListarTodasOsAnosCalendario();
     }
 
-    public class PropriedadeService : Service<Propriedade>, IPropriedadeService
+    public class AnoCalendarioService : Service<AnoCalendario>, IAnoCalendarioService
     {
-        private readonly IRepositoryAsync<Propriedade> _repository;
+        private readonly IRepositoryAsync<AnoCalendario> _repository;
 
-        public PropriedadeService(IRepositoryAsync<Propriedade> repository)
+        public AnoCalendarioService(IRepositoryAsync<AnoCalendario> repository)
             : base(repository)
         {
             _repository = repository;
         }
 
-        public Propriedade NovaPropriedade(Propriedade Propriedade)
+        public AnoCalendario NovoAnoCalendario(AnoCalendario Propriedade)
         {
             return _repository.NovaPropriedade(Propriedade);
         }
 
-        public IEnumerable<Propriedade> ListarTodasAsPropriedades()
+        public IEnumerable<AnoCalendario> ListarTodasOsAnosCalendario()
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)

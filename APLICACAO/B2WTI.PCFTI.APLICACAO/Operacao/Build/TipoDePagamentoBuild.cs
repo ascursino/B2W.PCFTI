@@ -8,6 +8,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public class TipoDePagamentoBuild
@@ -142,6 +143,50 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
 
                     ret = tipodepagamentoService.Find(TipoDePagamentoId);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoDePagamento> ListarTiposDePagamento()
+        {
+            List<TipoDePagamento> ret = null;
+            try
+            {
+                ret = new List<TipoDePagamento>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
+                    ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
+                    ret = tipodepagamentoService.ListarTodosOsTiposDePagamento().ToList<TipoDePagamento>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<TipoDePagamento> BuscarTiposDePagamento(string filtro)
+        {
+            List<TipoDePagamento> ret = null;
+            try
+            {
+                ret = new List<TipoDePagamento>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
+                    ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
+                    ret = tipodepagamentoService.BuscarTiposDePagamento(filtro).ToList<TipoDePagamento>();
                     unitOfWork.Dispose();
                 }
             }

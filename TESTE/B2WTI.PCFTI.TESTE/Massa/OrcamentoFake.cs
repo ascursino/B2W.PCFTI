@@ -28,8 +28,8 @@ namespace B2WTI.PCFTI.TESTE.Massa
             TipoBloco tipobloco = CadastroFake.NovoTipoBlocoFake();
             Executar.Cadastro.TipoBloco.CriarNovoTipoBloco(tipobloco);
 
-            Propriedade propriedade = CadastroFake.NovaPropriedadeFake();
-            Executar.Cadastro.Propriedade.CriarNovaPropriedade(propriedade);
+            AnoCalendario anocalendario = CadastroFake.NovoAnoCalendarioFake();
+            Executar.Cadastro.AnoCalendario.CriarNovoAnoCalendario(anocalendario);
 
             Responsavel responsavel = CadastroFake.NovoResponsavelFake();
             Executar.Cadastro.Responsavel.CriarNovoResponsavel(responsavel);
@@ -48,7 +48,7 @@ namespace B2WTI.PCFTI.TESTE.Massa
                 LancamentoId = Guid.NewGuid(),
                 ResponsavelId = responsavel.ResponsavelId,
                 FornecedorId = fornecedor.FornecedorId,
-                Ano = propriedade.Ano,
+                Ano = anocalendario.Ano,
                 StatusId = status.StatusId,
                 BlocoId = bloco.BlocoId,
                 TipoBlocoId = tipobloco.TipoBlocoId,

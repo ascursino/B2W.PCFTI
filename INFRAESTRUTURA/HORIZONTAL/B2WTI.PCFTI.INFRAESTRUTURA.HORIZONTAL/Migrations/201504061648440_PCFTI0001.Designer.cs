@@ -13,7 +13,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201504021947597_PCFTI0001"; }
+            get { return "201504061648440_PCFTI0001"; }
         }
         
         string IMigrationMetadata.Source

@@ -308,75 +308,75 @@ namespace B2WTI.PCFTI.TESTE
         }
 
         [TestMethod]
-        public void CRUD_Cadastro_Propriedade()
+        public void CRUD_Cadastro_AnoCalendario()
         {
             try
             {
 
                 #region Massa de Testes
 
-                Propriedade objetoTeste = CadastroFake.NovaPropriedadeFake();
-                List<Propriedade> objetosTeste = CadastroFake.NovasPropriedadesFake();
+                AnoCalendario objetoTeste = CadastroFake.NovoAnoCalendarioFake();
+                List<AnoCalendario> objetosTeste = CadastroFake.NovosAnosCalendarioFake();
 
                 #endregion
 
                 #region Teste da Criação Unitária
 
-                objetoTeste = Executar.Cadastro.Propriedade.CriarNovaPropriedade(objetoTeste);
+                objetoTeste = Executar.Cadastro.AnoCalendario.CriarNovoAnoCalendario(objetoTeste);
 
                 if (objetoTeste == null)
-                    Assert.Fail("Falha ao testar a criação de um novo propriedade.");
+                    Assert.Fail("Falha ao testar a criação de um novo Ano Calendário.");
 
                 #endregion
 
                 #region Teste da Criação em Massa
 
                 int totalacriar = objetosTeste.Count;
-                objetosTeste = Executar.Cadastro.Propriedade.CriarMuitasNovasPropriedades(objetosTeste);
+                objetosTeste = Executar.Cadastro.AnoCalendario.CriarMuitosNovosAnoCalendarios(objetosTeste);
 
                 if (objetosTeste == null)
-                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos.");
+                    Assert.Fail("Falha ao testar a criação dos novos Anos Calendário.");
 
                 if (objetosTeste.Count == 0)
-                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. Nenhum propriedade foi gravado.");
+                    Assert.Fail("Falha ao testar a criação dos novos Anos Calendário. Nenhum ano calendário foi gravado.");
 
                 if (objetosTeste.Count != totalacriar)
-                    Assert.Fail("Falha ao testar a criação dos novos tipos de blocos. A contagem não confere.");
+                    Assert.Fail("Falha ao testar a criação dos novos Anos Calendário. A contagem não confere.");
 
                 #endregion
 
                 #region Teste da Atualização Unitária
 
                 objetoTeste.Ativo = false;
-                objetoTeste = Executar.Cadastro.Propriedade.AtualizarPropriedade(objetoTeste);
+                objetoTeste = Executar.Cadastro.AnoCalendario.AtualizarAnoCalendario(objetoTeste);
 
                 #endregion
 
                 #region Teste da Atualização em Massa
 
-                Parallel.ForEach<Propriedade>(objetosTeste, item =>
+                Parallel.ForEach<AnoCalendario>(objetosTeste, item =>
                 {
                     item.Ativo = false;
                 });
 
                 int totalaatualizar = objetosTeste.Count;
 
-                objetosTeste = Executar.Cadastro.Propriedade.AtualizarMuitasPropriedades(objetosTeste);
+                objetosTeste = Executar.Cadastro.AnoCalendario.AtualizarMuitosAnoCalendarios(objetosTeste);
 
                 if (objetosTeste == null)
-                    Assert.Fail("Falha ao testar a atualização das propriedades.");
+                    Assert.Fail("Falha ao testar a atualização dos Anos Calendários.");
 
                 if (objetosTeste.Count == 0)
-                    Assert.Fail("Falha ao testar a atualização das propriedades. Nenhum propriedade foi salvo.");
+                    Assert.Fail("Falha ao testar a atualização dos Anos Calendários. Nenhum ano calendário foi salvo.");
 
                 if (objetosTeste.Count != totalaatualizar)
-                    Assert.Fail("Falha ao testar a atualização das propriedades. A contagem não confere.");
+                    Assert.Fail("Falha ao testar a atualização dos Anos Calendários. A contagem não confere.");
 
                 #endregion
 
                 #region Teste da Exclusão Unitária
 
-                bool resultExclusao = Executar.Cadastro.Propriedade.ExcluirPropriedade(objetoTeste);
+                bool resultExclusao = Executar.Cadastro.AnoCalendario.ExcluirAnoCalendario(objetoTeste);
 
                 if (!resultExclusao)
                     Assert.Fail("Falha ao testar a exclusão do tipo de bloco.");
@@ -385,13 +385,13 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Teste da Exclusão em Massa
 
-                List<int> resultsExlusoes = Executar.Cadastro.Propriedade.ExcluirMuitasPropriedades(objetosTeste);
+                List<int> resultsExlusoes = Executar.Cadastro.AnoCalendario.ExcluirMuitosAnosCalendario(objetosTeste);
 
                 if (resultsExlusoes == null)
-                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+                    Assert.Fail("Falha ao testar a exclusão dos Anos Calendários.");
 
                 if (resultsExlusoes.Count == 0)
-                    Assert.Fail("Falha ao testar a exclusão dos tipos de blocos.");
+                    Assert.Fail("Falha ao testar a exclusão dos Anos Calendários.");
 
                 #endregion
 

@@ -39,9 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exe\TipoDePagamentoExecute.cs" />
+    <Compile Include="Exe\ResponsavelExecute.cs" />
     <Compile Include="Exe\TipoServicoExecute.cs" />
     <Compile Include="Exe\TipoBlocoExecute.cs" />
     <Compile Include="Exe\BlocoExecute.cs" />
+    <Compile Include="Map\TipoDePagamentoMap.cs" />
+    <Compile Include="Map\ResponsavelMap.cs" />
     <Compile Include="Map\TipoServicoMap.cs" />
     <Compile Include="Map\TipoBlocoMap.cs" />
     <Compile Include="Map\BlocoMap.cs" />

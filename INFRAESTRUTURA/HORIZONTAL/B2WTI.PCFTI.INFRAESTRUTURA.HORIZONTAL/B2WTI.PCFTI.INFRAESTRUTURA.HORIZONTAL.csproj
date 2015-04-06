@@ -76,12 +76,12 @@
     <Compile Include="DataMap\StatusMap.cs" />
     <Compile Include="DataMap\TipoBlocoMap.cs" />
     <Compile Include="DataMap\BlocoMap.cs" />
-    <Compile Include="DataMap\PropriedadeMap.cs" />
+    <Compile Include="DataMap\AnoCalendarioMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201504021947597_PCFTI0001.cs" />
-    <Compile Include="Migrations\201504021947597_PCFTI0001.Designer.cs">
-      <DependentUpon>201504021947597_PCFTI0001.cs</DependentUpon>
+    <Compile Include="Migrations\201504061648440_PCFTI0001.cs" />
+    <Compile Include="Migrations\201504061648440_PCFTI0001.Designer.cs">
+      <DependentUpon>201504061648440_PCFTI0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
@@ -91,7 +91,7 @@
     <Compile Include="Repositories\TipoDePagamentoRep.cs" />
     <Compile Include="Repositories\StatusRep.cs" />
     <Compile Include="Repositories\ResponsavelRep.cs" />
-    <Compile Include="Repositories\PropriedadeRep.cs" />
+    <Compile Include="Repositories\AnoCalendarioRep.cs" />
     <Compile Include="Repositories\TipoBlocoRep.cs" />
     <Compile Include="Repositories\BlocoRep.cs" />
     <Compile Include="Repositories\FornecedorRep.cs" />
@@ -118,8 +118,8 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504021947597_PCFTI0001.resx">
-      <DependentUpon>201504021947597_PCFTI0001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504061648440_PCFTI0001.resx">
+      <DependentUpon>201504061648440_PCFTI0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

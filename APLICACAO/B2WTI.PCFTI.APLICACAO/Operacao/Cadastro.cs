@@ -11,7 +11,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao
             Fornecedor = new FornecedorBuild();
             Bloco = new BlocoBuild();
             TipoBloco = new TipoBlocoBuild();
-            Propriedade = new PropriedadeBuild();
+            AnoCalendario = new AnoCalendarioBuild();
             Responsavel = new ResponsavelBuild();
             Status = new StatusBuild();
             TipoDePagamento = new TipoDePagamentoBuild();
@@ -21,7 +21,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao
         public FornecedorBuild Fornecedor { get; set; }
         public BlocoBuild Bloco { get; set; }
         public TipoBlocoBuild TipoBloco { get; set; }
-        public PropriedadeBuild Propriedade { get; set; }
+        public AnoCalendarioBuild AnoCalendario { get; set; }
         public ResponsavelBuild Responsavel { get; set; }
         public StatusBuild Status { get; set; }
         public TipoDePagamentoBuild TipoDePagamento { get; set; }

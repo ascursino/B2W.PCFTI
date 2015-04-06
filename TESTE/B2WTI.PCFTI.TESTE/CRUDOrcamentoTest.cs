@@ -60,14 +60,14 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Teste da Atualização Unitária
 
-                Propriedade propriedade = new Propriedade()
+                AnoCalendario anocalendario = new AnoCalendario()
                 {
                     Ano = 2014,
                     Ativo = true
                 };
-                Executar.Cadastro.Propriedade.CriarNovaPropriedade(propriedade);
+                Executar.Cadastro.AnoCalendario.CriarNovoAnoCalendario(anocalendario);
 
-                objetoTeste.Ano = propriedade.Ano;
+                objetoTeste.Ano = anocalendario.Ano;
                 objetoTeste = Executar.Orcamento.Lancamento.AtualizarLancamento(objetoTeste);
 
                 #endregion
