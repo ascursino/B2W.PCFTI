@@ -111,32 +111,32 @@ namespace B2WTI.PCFTI.TESTE.Massa
 
         #endregion
 
-        #region Propriedade
+        #region Ano Calendario
 
-        public static Propriedade NovaPropriedadeFake()
+        public static AnoCalendario NovoAnoCalendarioFake()
         {
-            return new Propriedade()
+            return new AnoCalendario()
             {
                 Ano = 2010,
                 Ativo = true
             };
         }
 
-        public static List<Propriedade> NovasPropriedadesFake()
+        public static List<AnoCalendario> NovosAnosCalendarioFake()
         {
-            List<Propriedade> propriedades = new List<Propriedade>();
+            List<AnoCalendario> anoscalendario = new List<AnoCalendario>();
 
             Parallel.For(0, 9, i =>
             {
-                Propriedade objetoFor = new Propriedade()
+                AnoCalendario objetoFor = new AnoCalendario()
                 {
                     Ano = 2000 + i,
                     Ativo = true
                 };
-                propriedades.Add(objetoFor);
+                anoscalendario.Add(objetoFor);
             });
 
-            return propriedades;
+            return anoscalendario;
         }
 
         #endregion

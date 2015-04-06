@@ -22,7 +22,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
                     IRepositoryAsync<TipoDePagamento> tipodepagamentoRepository = new Repository<TipoDePagamento>(context, unitOfWork);
                     ITipoDePagamentoService tipodepagamentoService = new TipoDePagamentoService(tipodepagamentoRepository);
 
-                    ret = tipodepagamentoService.ListarTodosOsTipoDePagamento();
+                    ret = tipodepagamentoService.ListarTodosOsTiposDePagamento();
                 }
             }
             catch

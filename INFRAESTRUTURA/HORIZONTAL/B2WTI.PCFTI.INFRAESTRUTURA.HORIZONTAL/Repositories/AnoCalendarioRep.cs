@@ -7,10 +7,10 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
     using System.Collections.Generic;
     using System.Linq;
 
-    public static class PropriedadeRep
+    public static class AnoCalendarioRep
     {
 
-        public static  Propriedade NovaPropriedade(this IRepository<Propriedade> repository, Propriedade propriedade)
+        public static  AnoCalendario NovaPropriedade(this IRepository<AnoCalendario> repository, AnoCalendario propriedade)
         {
             propriedade.Ativo = true;
             repository.Insert(propriedade);
@@ -18,25 +18,25 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
             return propriedade;
         }
 
-        public static IEnumerable<Propriedade> BuscarPropriedade(this IRepository< Propriedade> repository, string TextoArgumentoBusca)
+        public static IEnumerable<AnoCalendario> BuscarPropriedade(this IRepository< AnoCalendario> repository, string TextoArgumentoBusca)
         {
             return from item in repository.Queryable()
                    where item.Ativo.Equals(true)
                    select item;
         }
 
-        public static bool ExcluirPropriedade(this IRepository<Propriedade> repository, int Ano)
+        public static bool ExcluirPropriedade(this IRepository<AnoCalendario> repository, int Ano)
         { 
             bool ret = true;
             try
             {
-                Propriedade propriedade = null;
+                AnoCalendario propriedade = null;
 
                 var query = from item in repository.Queryable()
                             where item.Ano == Ano
                             select item;
 
-                propriedade = query.SingleOrDefault<Propriedade>();
+                propriedade = query.SingleOrDefault<AnoCalendario>();
 
                 if (propriedade != null)
                     throw new Exception("O objeto Propriedade não pode ser excluido, pois o mesmo não foi encontrado na base de dados.");

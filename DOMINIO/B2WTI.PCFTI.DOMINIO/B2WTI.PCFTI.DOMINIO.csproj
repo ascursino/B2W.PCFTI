@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Model\Global\Bloco.cs" />
     <Compile Include="Model\Global\Fornecedor.cs" />
-    <Compile Include="Model\Global\Propriedade.cs" />
+    <Compile Include="Model\Global\AnoCalendario.cs" />
     <Compile Include="Model\Global\Responsavel.cs" />
     <Compile Include="Model\Global\Status.cs" />
     <Compile Include="Model\Global\TipoBloco.cs" />

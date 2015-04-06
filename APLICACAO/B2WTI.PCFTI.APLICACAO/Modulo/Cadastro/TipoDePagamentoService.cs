@@ -14,7 +14,8 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     public interface ITipoDePagamentoService : IService<TipoDePagamento>
     {
         TipoDePagamento NovoTipoDePagamento(TipoDePagamento tipodepagamento);
-        IEnumerable<TipoDePagamento> ListarTodosOsTipoDePagamento();
+        IEnumerable<TipoDePagamento> ListarTodosOsTiposDePagamento();
+        IEnumerable<TipoDePagamento> BuscarTiposDePagamento(string filtro);
     }
 
     public class TipoDePagamentoService : Service<TipoDePagamento>, ITipoDePagamentoService
@@ -32,10 +33,18 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
             return _repository.NovoTipoDePagamento(tipodepagamento);
         }
 
-        public IEnumerable<TipoDePagamento> ListarTodosOsTipoDePagamento()
+        public IEnumerable<TipoDePagamento> ListarTodosOsTiposDePagamento()
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)
+                   select item;
+        }
+
+        public IEnumerable<TipoDePagamento> BuscarTiposDePagamento(string filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Descricao.Contains(filtro)
                    select item;
         }
     }

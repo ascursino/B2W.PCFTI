@@ -8,21 +8,21 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using System.Collections.Generic;
 
-    public static class PropriedadeCommand
+    public static class AnoCalendarioCommand
     {
 
-        public static IEnumerable<Propriedade> ListarTodasAsPropriedades()
+        public static IEnumerable<AnoCalendario> ListarTodasOsAnosCalendario()
         {
-            IEnumerable<Propriedade> ret = null;
+            IEnumerable<AnoCalendario> ret = null;
             try
             {
                 using (IDataContextAsync context = new PCFTIDataContext())
                 using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
                 {
-                    IRepositoryAsync<Propriedade> propriedadeRepository = new Repository<Propriedade>(context, unitOfWork);
-                    IPropriedadeService propriedadeService = new PropriedadeService(propriedadeRepository);
+                    IRepositoryAsync<AnoCalendario> anocalendarioRepository = new Repository<AnoCalendario>(context, unitOfWork);
+                    IAnoCalendarioService anocalendarioService = new AnoCalendarioService(anocalendarioRepository);
 
-                    ret = propriedadeService.ListarTodasAsPropriedades();
+                    ret = anocalendarioService.ListarTodasOsAnosCalendario();
                 }
             }
             catch

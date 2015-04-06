@@ -8,6 +8,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public class ResponsavelBuild
@@ -142,6 +143,51 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     IResponsavelService responsavelService = new ResponsavelService(responsavelRepository);
 
                     ret = responsavelService.Find(ResponsavelId);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+
+        public List<Responsavel> ListarResponsavel()
+        {
+            List<Responsavel> ret = null;
+            try
+            {
+                ret = new List<Responsavel>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Responsavel> responsavelRepository = new Repository<Responsavel>(context, unitOfWork);
+                    IResponsavelService responsavelService = new ResponsavelService(responsavelRepository);
+                    ret = responsavelService.ListarTodosOsResponsaveis().ToList<Responsavel>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<Responsavel> BuscarResponsaveis(string filtro)
+        {
+            List<Responsavel> ret = null;
+            try
+            {
+                ret = new List<Responsavel>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Responsavel> responsavelRepository = new Repository<Responsavel>(context, unitOfWork);
+                    IResponsavelService responsavelService = new ResponsavelService(responsavelRepository);
+                    ret = responsavelService.BuscarResponsaveis(filtro).ToList<Responsavel>();
                     unitOfWork.Dispose();
                 }
             }

@@ -29,7 +29,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
         public DbSet<Lancamento> Lancamento { get; set; }
         public DbSet<Fornecedor> Fornecedor { get; set; }
         public DbSet<Responsavel> Responsavel { get; set; }
-        public DbSet<Propriedade> Propriedade { get; set; }
+        public DbSet<AnoCalendario> Propriedade { get; set; }
         public DbSet<TipoServico> TipoServico { get; set; }
         public DbSet<TipoBloco> TipoBloco { get; set; }
         public DbSet<Bloco> Bloco { get; set; }
@@ -74,7 +74,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
             modelBuilder.Configurations.Add(new CaixaMap());
             modelBuilder.Configurations.Add(new FornecedorMap());
             modelBuilder.Configurations.Add(new OrcadoMap());
-            modelBuilder.Configurations.Add(new PropriedadeMap());
+            modelBuilder.Configurations.Add(new AnoCalendarioMap());
             modelBuilder.Configurations.Add(new RealMap());
             modelBuilder.Configurations.Add(new ResponsavelMap());
             modelBuilder.Configurations.Add(new StatusMap());

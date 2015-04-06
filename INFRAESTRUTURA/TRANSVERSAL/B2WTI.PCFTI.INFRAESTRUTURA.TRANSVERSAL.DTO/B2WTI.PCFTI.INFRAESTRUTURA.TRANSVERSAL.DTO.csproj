@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo\Cadastro\ViewModel\AnoCalendarioView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\ResponsavelView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\FornecedorView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\StatusView.cs" />

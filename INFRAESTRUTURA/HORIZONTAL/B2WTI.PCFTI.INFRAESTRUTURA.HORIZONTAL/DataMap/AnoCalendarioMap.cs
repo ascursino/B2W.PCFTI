@@ -10,11 +10,11 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
     using System.Text;
     using System.Threading.Tasks;
 
-    public class PropriedadeMap : EntityTypeConfiguration<Propriedade>
+    public class AnoCalendarioMap : EntityTypeConfiguration<AnoCalendario>
     {
-        public PropriedadeMap()
+        public AnoCalendarioMap()
         {
-            this.ToTable("Propriedade");
+            this.ToTable("AnoCalendario");
 
             this.HasKey(t => t.Ano);
             
