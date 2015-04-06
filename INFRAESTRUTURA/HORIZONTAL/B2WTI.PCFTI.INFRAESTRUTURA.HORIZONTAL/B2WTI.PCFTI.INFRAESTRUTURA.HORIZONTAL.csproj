@@ -71,6 +71,7 @@
     <Compile Include="DataMap\CaixaMap.cs" />
     <Compile Include="DataMap\OrcadoMap.cs" />
     <Compile Include="DataMap\RealMap.cs" />
+    <Compile Include="DataMap\VersaoMap.cs" />
     <Compile Include="DataMap\TipoPagamentoMap.cs" />
     <Compile Include="DataMap\TipoServicoMap.cs" />
     <Compile Include="DataMap\StatusMap.cs" />
@@ -83,9 +84,22 @@
     <Compile Include="Migrations\201504061648440_PCFTI0001.Designer.cs">
       <DependentUpon>201504061648440_PCFTI0001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504061828028_PCFTI0002.cs" />
+    <Compile Include="Migrations\201504061828028_PCFTI0002.Designer.cs">
+      <DependentUpon>201504061828028_PCFTI0002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504061948006_PCFTI0003.cs" />
+    <Compile Include="Migrations\201504061948006_PCFTI0003.Designer.cs">
+      <DependentUpon>201504061948006_PCFTI0003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504062128205_PCFTI0004.cs" />
+    <Compile Include="Migrations\201504062128205_PCFTI0004.Designer.cs">
+      <DependentUpon>201504062128205_PCFTI0004.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\VersaoRep.cs" />
     <Compile Include="Repositories\LancamentoRep.cs" />
     <Compile Include="Repositories\TipoServicoRep.cs" />
     <Compile Include="Repositories\TipoDePagamentoRep.cs" />
@@ -120,6 +134,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504061648440_PCFTI0001.resx">
       <DependentUpon>201504061648440_PCFTI0001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504061828028_PCFTI0002.resx">
+      <DependentUpon>201504061828028_PCFTI0002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504061948006_PCFTI0003.resx">
+      <DependentUpon>201504061948006_PCFTI0003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504062128205_PCFTI0004.resx">
+      <DependentUpon>201504062128205_PCFTI0004.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

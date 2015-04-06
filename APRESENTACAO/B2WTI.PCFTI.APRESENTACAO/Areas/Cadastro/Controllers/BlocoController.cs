@@ -37,8 +37,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/Bloco/Novo
         public ActionResult Novo(BlocoView bloco)
         {
-            bloco = BlocoExecute.CriarNovoBloco(bloco);
-
+            bloco = BlocoExecute.CriarNovoBloco(bloco, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 

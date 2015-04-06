@@ -2,6 +2,7 @@
 namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 {
     using B2WTI.PCFTI.APLICACAO.Operacao;
+    using B2WTI.PCFTI.DOMINIO.Model.Global;
     using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
     using Map;
     using System;
@@ -29,9 +30,13 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return bloco;
         }
 
-        public static BlocoView CriarNovoBloco(BlocoView bloco)
+        public static BlocoView CriarNovoBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
         {
-            bloco = Executar.Cadastro.Bloco.CriarNovoBloco(bloco.DeViewParaDomin()).DeDominParaView();
+            Bloco objdomin = bloco.DeViewParaDomin();
+            objdomin.CriadoPor = CriadoPor;
+            objdomin.CriadoEm = CriadoEm;
+
+            bloco = Executar.Cadastro.Bloco.CriarNovoBloco(objdomin).DeDominParaView();
             return bloco;
         }
 

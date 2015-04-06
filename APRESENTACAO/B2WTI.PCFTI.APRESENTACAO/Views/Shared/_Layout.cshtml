@@ -18,7 +18,6 @@
 
     <div id="wrapper">
 
-        @* Menu Side *@
         @{
             Html.RenderPartial("_MenuSide");
         }
@@ -48,7 +47,7 @@
 
                         <li>
                             <a href="">
-                                <i class="fa fa-users"></i> Nome do usuário
+                                <i class="fa fa-users"></i> @User.Identity.Name
                             </a>
                         </li>
                     </ul>

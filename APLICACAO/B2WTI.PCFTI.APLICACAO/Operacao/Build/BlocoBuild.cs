@@ -7,9 +7,10 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
     using INFRAESTRUTURA.TRANSVERSAL.UnitOfWork;
+    using Newtonsoft.Json;
     using System;
-    using System.Linq;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class BlocoBuild
     {
@@ -41,6 +42,16 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+                {
+                    VersaoId = Guid.NewGuid(),
+                    Momento = DateTime.Now,
+                    Operacao = "C",
+                    Entidade = bloco.GetType().Name,
+                    EnitdadeId = bloco.BlocoId.ToString(),
+                    Promotor = bloco.CriadoPor,
+                    Dados = JsonConvert.SerializeObject(bloco)
+                });
             }
 
             return bloco;

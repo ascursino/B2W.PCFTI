@@ -36,6 +36,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -64,6 +68,8 @@
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoCommand.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
+    <Compile Include="Modulo\Sistema\VersaoCommand.cs" />
+    <Compile Include="Modulo\Sistema\VersaoService.cs" />
     <Compile Include="Operacao\Build\LancamentoBuild.cs" />
     <Compile Include="Operacao\Build\TipoDePagamentoBuild.cs" />
     <Compile Include="Operacao\Build\TipoServicoBuild.cs" />
@@ -72,9 +78,11 @@
     <Compile Include="Operacao\Build\StatusBuild.cs" />
     <Compile Include="Operacao\Build\TipoBloboBuild.cs" />
     <Compile Include="Operacao\Build\BlocoBuild.cs" />
+    <Compile Include="Operacao\Build\VersaoBuild.cs" />
     <Compile Include="Operacao\Cadastro.cs" />
     <Compile Include="Operacao\Execute.cs" />
     <Compile Include="Operacao\Build\FornecedorBuild.cs" />
+    <Compile Include="Operacao\Sistema.cs" />
     <Compile Include="Operacao\Orcamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
