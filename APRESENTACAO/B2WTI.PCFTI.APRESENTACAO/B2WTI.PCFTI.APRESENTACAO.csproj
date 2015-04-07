@@ -168,6 +168,7 @@
     <Content Include="css\stylesheet.datatables\images\xls_hover.png" />
     <Content Include="css\stylesheet.datatables\swf\copy_csv_xls.swf" />
     <Content Include="css\stylesheet.datatables\swf\copy_csv_xls_pdf.swf" />
+    <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
     <Content Include="fonts\fonts\fontawesome-webfont.svg" />
