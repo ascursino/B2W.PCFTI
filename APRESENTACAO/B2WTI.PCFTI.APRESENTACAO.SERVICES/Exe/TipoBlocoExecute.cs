@@ -2,6 +2,7 @@
 namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 {
     using B2WTI.PCFTI.APLICACAO.Operacao;
+    using B2WTI.PCFTI.DOMINIO.Model.Global;
     using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
     using Map;
     using System;
@@ -19,31 +20,43 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 
         public static List<TipoBlocoView> BuscarTipoBlocos(string filtro)
         {
-            List<TipoBlocoView> TipoBlocos = Executar.Cadastro.TipoBloco.BuscarTiposBlocos(filtro).DeDominParaView();
-            return TipoBlocos;
+            List<TipoBlocoView> tipoblocos = Executar.Cadastro.TipoBloco.BuscarTiposBlocos(filtro).DeDominParaView();
+            return tipoblocos;
         }
 
         public static TipoBlocoView CarregarTipoBloco(Guid TipoBlocoId)
         {
-            TipoBlocoView TipoBloco = Executar.Cadastro.TipoBloco.CarregarTipoBloco(TipoBlocoId).DeDominParaView();
-            return TipoBloco;
+            TipoBlocoView tipobloco = Executar.Cadastro.TipoBloco.CarregarTipoBloco(TipoBlocoId).DeDominParaView();
+            return tipobloco;
         }
 
-        public static TipoBlocoView CriarNovoTipoBloco(TipoBlocoView TipoBloco)
+        public static TipoBlocoView CriarNovoTipoBloco(TipoBlocoView tipobloco, string CriadoPor, DateTime CriadoEm)
         {
-            TipoBloco = Executar.Cadastro.TipoBloco.CriarNovoTipoBloco(TipoBloco.DeViewParaDomin()).DeDominParaView();
-            return TipoBloco;
+            TipoBloco objdomin = tipobloco.DeViewParaDomin();
+            objdomin.CriadoPor = CriadoPor;
+            objdomin.CriadoEm = CriadoEm;
+
+            tipobloco = Executar.Cadastro.TipoBloco.CriarNovoTipoBloco(objdomin).DeDominParaView();
+            return tipobloco;
         }
 
-        public static TipoBlocoView EditarTipoBloco(TipoBlocoView TipoBloco)
+        public static TipoBlocoView EditarTipoBloco(TipoBlocoView tipobloco, string CriadoPor, DateTime CriadoEm)
         {
-            TipoBloco = Executar.Cadastro.TipoBloco.AtualizarTipoBloco(TipoBloco.DeViewParaDomin()).DeDominParaView();
-            return TipoBloco;
+            TipoBloco objdomin = tipobloco.DeViewParaDomin();
+            objdomin.CriadoPor = CriadoPor;
+            objdomin.CriadoEm = CriadoEm;
+
+            tipobloco = Executar.Cadastro.TipoBloco.AtualizarTipoBloco(objdomin).DeDominParaView();
+            return tipobloco;
         }
 
-        public static bool ExcluirTipoBloco(TipoBlocoView TipoBloco)
+        public static bool ExcluirTipoBloco(TipoBlocoView tipobloco, string CriadoPor, DateTime CriadoEm)
         {
-            bool ret = Executar.Cadastro.TipoBloco.ExcluirTipoBloco(TipoBloco.DeViewParaDomin());
+            TipoBloco objdomin = tipobloco.DeViewParaDomin();
+            objdomin.CriadoPor = CriadoPor;
+            objdomin.CriadoEm = CriadoEm;
+
+            bool ret = Executar.Cadastro.TipoBloco.ExcluirTipoBloco(objdomin);
             return ret;
         }
 

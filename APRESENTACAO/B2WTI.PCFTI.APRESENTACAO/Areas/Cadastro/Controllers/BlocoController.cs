@@ -54,7 +54,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/Bloco/Editar
         public ActionResult Editar(BlocoView bloco)
         {
-            bloco = BlocoExecute.EditarBloco(bloco);
+            bloco = BlocoExecute.EditarBloco(bloco, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 
@@ -71,7 +71,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/Bloco/Excluir
         public ActionResult Excluir(BlocoView bloco)
         {
-            bool result = BlocoExecute.ExcluirBloco(bloco);
+            bool result = BlocoExecute.ExcluirBloco(bloco, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 

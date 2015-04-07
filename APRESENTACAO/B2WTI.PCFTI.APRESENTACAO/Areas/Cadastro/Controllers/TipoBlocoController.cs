@@ -35,10 +35,10 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
 
         [HttpPost]
         // POST: Cadastro/TipoBloco/Novo
-        public ActionResult Novo(TipoBlocoView TipoBloco)
+        public ActionResult Novo(TipoBlocoView tipobloco)
         {
-            TipoBloco.Ativo = true;
-            TipoBloco = TipoBlocoExecute.CriarNovoTipoBloco(TipoBloco);
+            tipobloco.Ativo = true;
+            tipobloco = TipoBlocoExecute.CriarNovoTipoBloco(tipobloco, User.Identity.Name.ToString(), DateTime.Now);
 
             return RedirectToAction("Index");
         }
@@ -56,7 +56,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         // POST: Cadastro/TipoBloco/Editar
         public ActionResult Editar(TipoBlocoView TipoBloco)
         {
-            TipoBloco = TipoBlocoExecute.EditarTipoBloco(TipoBloco);
+            TipoBloco = TipoBlocoExecute.EditarTipoBloco(TipoBloco, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 
@@ -71,9 +71,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Cadastro/TipoBloco/Excluir
-        public ActionResult Excluir(TipoBlocoView TipoBloco)
+        public ActionResult Excluir(TipoBlocoView tipobloco)
         {
-            bool result = TipoBlocoExecute.ExcluirTipoBloco(TipoBloco);
+            bool result = TipoBlocoExecute.ExcluirTipoBloco(tipobloco, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 
