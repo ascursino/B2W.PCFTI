@@ -11,10 +11,12 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao
         {
             Cadastro = new Cadastro();
             Orcamento = new Orcamento();
+            Sistema = new Sistema();
         }
 
         public Cadastro Cadastro { get; set; }
         public Orcamento Orcamento { get; set; }
+        public Sistema Sistema { get; set; }
 
     }
 }

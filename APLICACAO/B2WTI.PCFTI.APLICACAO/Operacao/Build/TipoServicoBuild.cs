@@ -41,6 +41,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(tiposervico);
             }
 
             return tiposervico;
@@ -82,6 +83,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 tiposervico.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 tiposervicoService.Update(tiposervico);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(tiposervico);
             }
 
             return tiposervico;
@@ -221,6 +223,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     tiposervico.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     TipoServicoService.Delete(tiposervico.TipoServicoId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(tiposervico);
                 }
             }
             catch

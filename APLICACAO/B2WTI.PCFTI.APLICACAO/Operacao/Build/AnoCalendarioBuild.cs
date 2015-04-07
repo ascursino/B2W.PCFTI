@@ -12,6 +12,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 
     public class AnoCalendarioBuild
     {
+
         #region CRIAÇÃO
 
         public AnoCalendario CriarNovoAnoCalendario(AnoCalendario anocalendario, bool Atualizar = false)
@@ -39,6 +40,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(anocalendario);
             }
 
             return anocalendario;
@@ -80,6 +82,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 anocalendario.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 anocalendarioService.Update(anocalendario);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(anocalendario);
             }
 
             return anocalendario;
@@ -175,6 +178,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     anocalendario.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     AnoCalendarioService.Delete(anocalendario.Ano);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(anocalendario);
                 }
             }
             catch

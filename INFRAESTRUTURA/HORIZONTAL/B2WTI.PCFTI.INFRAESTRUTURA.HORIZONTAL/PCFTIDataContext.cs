@@ -1,17 +1,13 @@
 ﻿
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
 {
+    using B2WTI.PCFTI.DOMINIO.Model.Global;
+    using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
+    using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap;
     using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DataContexts;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Data.Entity;
-    using B2WTI.PCFTI.DOMINIO.Model.Global;
-    using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap;
     using System.Data.Entity.ModelConfiguration.Conventions;
-    using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
 
     public partial class PCFTIDataContext : DataContext
     {
@@ -82,6 +78,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
             modelBuilder.Configurations.Add(new TipoDePagamentoMap());
             modelBuilder.Configurations.Add(new TipoServicoMap());
             modelBuilder.Configurations.Add(new LancamentoMap());
+            modelBuilder.Configurations.Add(new VersaoMap());
         }
 
     }

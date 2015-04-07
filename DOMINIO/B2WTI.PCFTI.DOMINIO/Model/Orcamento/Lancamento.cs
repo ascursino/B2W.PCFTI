@@ -1,12 +1,13 @@
 ﻿
 namespace B2WTI.PCFTI.DOMINIO.Model.Orcamento
 {
-    using B2WTI.PCFTI.DOMINIO.Model.Global;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Base;
+    using DOMINIO.Model.Sistema;
+    using DOMINIO.Model.Global;
+    using INFRAESTRUTURA.TRANSVERSAL.Base;
     using System;
     using System.Collections.Generic;
     
-    public partial class Lancamento : Entity
+    public partial class Lancamento : CadastroBase
     {
         public Guid LancamentoId { get; set; }
 

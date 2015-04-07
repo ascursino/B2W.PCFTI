@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Global\Bloco.cs" />
+    <Compile Include="Model\Sistema\CadastroBase.cs" />
     <Compile Include="Model\Global\Fornecedor.cs" />
     <Compile Include="Model\Global\AnoCalendario.cs" />
     <Compile Include="Model\Global\Responsavel.cs" />
@@ -53,10 +54,12 @@
     <Compile Include="Model\Orcamento\Lancamento.cs" />
     <Compile Include="Model\Orcamento\Orcado.cs" />
     <Compile Include="Model\Orcamento\Real.cs" />
+    <Compile Include="Model\Sistema\Versao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
+    <Folder Include="Model\Contrato\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\INFRAESTRUTURA\TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL\B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.csproj">
