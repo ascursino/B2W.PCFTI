@@ -40,6 +40,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(lancamento);
             }
 
             return lancamento;
@@ -82,6 +83,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 lancamentoService.Update(lancamento);
                 unitOfWork.SaveChanges();
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(lancamento);
             }
 
             return lancamento;
@@ -177,6 +179,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     lancamento.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     lancamentoService.Delete(lancamento.LancamentoId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(lancamento);
                 }
             }
             catch

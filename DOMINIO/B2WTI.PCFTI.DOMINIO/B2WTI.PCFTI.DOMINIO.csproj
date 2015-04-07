@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Global\Bloco.cs" />
-    <Compile Include="Model\Global\CadastroBase.cs" />
+    <Compile Include="Model\Sistema\CadastroBase.cs" />
     <Compile Include="Model\Global\Fornecedor.cs" />
     <Compile Include="Model\Global\AnoCalendario.cs" />
     <Compile Include="Model\Global\Responsavel.cs" />

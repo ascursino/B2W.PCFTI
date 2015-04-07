@@ -41,6 +41,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(responsavel);
             }
 
             return responsavel;
@@ -82,6 +83,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 responsavel.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 responsavelService.Update(responsavel);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(responsavel);
             }
 
             return responsavel;
@@ -222,6 +224,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     responsavel.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     responsavelService.Delete(responsavel.ResponsavelId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(responsavel);
                 }
             }
             catch

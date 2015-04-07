@@ -41,6 +41,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(tipobloco);
             }
 
             return tipobloco;
@@ -82,6 +83,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 tipobloco.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 tipoblocoService.Update(tipobloco);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(tipobloco);
             }
 
             return tipobloco;
@@ -221,6 +223,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     tipobloco.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     TipoBlocoService.Delete(tipobloco.TipoBlocoId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(tipobloco);
                 }
             }
             catch

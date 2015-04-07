@@ -41,6 +41,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(tipodepagamento);
             }
 
             return tipodepagamento;
@@ -82,6 +83,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 tipodepagamento.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 tipodepagamentoService.Update(tipodepagamento);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(tipodepagamento);
             }
 
             return tipodepagamento;
@@ -221,6 +223,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     tipodepagamento.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     tipodepagamentoService.Delete(tipodepagamento.TipoDePagamentoId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(tipodepagamento);
                 }
             }
             catch

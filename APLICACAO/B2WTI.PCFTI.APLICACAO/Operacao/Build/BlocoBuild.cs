@@ -28,11 +28,11 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             using (IDataContextAsync context = new PCFTIDataContext())
             using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
             {
-                IRepositoryAsync<Bloco> BlocoRepository = new Repository<Bloco>(context, unitOfWork);
-                IBlocoService BlocoService = new BlocoService(BlocoRepository);
+                IRepositoryAsync<Bloco> blocoRepository = new Repository<Bloco>(context, unitOfWork);
+                IBlocoService blocoService = new BlocoService(blocoRepository);
                 if (!ExisteBloco(bloco.BlocoId))
                 {
-                    bloco = BlocoService.NovoBloco(bloco);
+                    bloco = blocoService.NovoBloco(bloco);
                     unitOfWork.SaveChanges();
                 }
                 else if (Atualizar)
@@ -42,16 +42,9 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 }
 
                 unitOfWork.Dispose();
-                (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
-                {
-                    VersaoId = Guid.NewGuid(),
-                    Momento = DateTime.Now,
-                    Operacao = "C",
-                    Entidade = bloco.GetType().Name,
-                    EnitdadeId = bloco.BlocoId.ToString(),
-                    Promotor = bloco.CriadoPor,
-                    Dados = JsonConvert.SerializeObject(bloco)
-                });
+
+                (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(bloco);
+
             }
 
             return bloco;
@@ -93,6 +86,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 bloco.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Modified;
                 blocoService.Update(bloco);
                 unitOfWork.SaveChanges();
+                (new Execute()).Sistema.Versao.NovaVersaoParaEdicao(bloco);
             }
 
             return bloco;
@@ -232,6 +226,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     bloco.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
                     BlocoService.Delete(bloco.BlocoId);
                     unitOfWork.SaveChanges();
+                    (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(bloco);
                 }
             }
             catch
