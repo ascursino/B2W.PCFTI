@@ -68,7 +68,13 @@
     <Compile Include="Modulo\Cadastro\FornecedorService.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoCommand.cs" />
     <Compile Include="Modulo\Orcamento\LancamentoService.cs" />
+    <Compile Include="Modulo\Sistema\RegraCommand.cs" />
+    <Compile Include="Modulo\Sistema\UsuarioRegraCommand.cs" />
+    <Compile Include="Modulo\Sistema\UsuarioCommand.cs" />
+    <Compile Include="Modulo\Sistema\UsuarioRegraService.cs" />
+    <Compile Include="Modulo\Sistema\UsuarioService.cs" />
     <Compile Include="Modulo\Sistema\VersaoCommand.cs" />
+    <Compile Include="Modulo\Sistema\RegraService.cs" />
     <Compile Include="Modulo\Sistema\VersaoService.cs" />
     <Compile Include="Operacao\Build\LancamentoBuild.cs" />
     <Compile Include="Operacao\Build\TipoDePagamentoBuild.cs" />
@@ -78,6 +84,9 @@
     <Compile Include="Operacao\Build\StatusBuild.cs" />
     <Compile Include="Operacao\Build\TipoBloboBuild.cs" />
     <Compile Include="Operacao\Build\BlocoBuild.cs" />
+    <Compile Include="Operacao\Build\RegraBuild.cs" />
+    <Compile Include="Operacao\Build\UsuarioBuild.cs" />
+    <Compile Include="Operacao\Build\UsuarioRegraBuild.cs" />
     <Compile Include="Operacao\Build\VersaoBuild.cs" />
     <Compile Include="Operacao\Cadastro.cs" />
     <Compile Include="Operacao\Execute.cs" />

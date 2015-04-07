@@ -168,6 +168,11 @@
     <Content Include="css\stylesheet.datatables\images\xls_hover.png" />
     <Content Include="css\stylesheet.datatables\swf\copy_csv_xls.swf" />
     <Content Include="css\stylesheet.datatables\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Areas\Sistema\Views\web.config" />
+    <Content Include="Areas\Sistema\Views\Usuario\Editar.cshtml" />
+    <Content Include="Areas\Sistema\Views\Usuario\Excluir.cshtml" />
+    <Content Include="Areas\Sistema\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Sistema\Views\Usuario\Novo.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -314,6 +319,8 @@
     <Compile Include="Areas\Orcamento\Controllers\LancamentoController.cs" />
     <Compile Include="Areas\Orcamento\Controllers\VisaoController.cs" />
     <Compile Include="Areas\Orcamento\OrcamentoAreaRegistration.cs" />
+    <Compile Include="Areas\Sistema\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Sistema\SistemaAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -357,6 +364,8 @@
     <Folder Include="Areas\Cadastro\Views\Status\" />
     <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
     <Folder Include="Areas\Orcamento\Models\" />
+    <Folder Include="Areas\Sistema\Models\" />
+    <Folder Include="Areas\Sistema\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

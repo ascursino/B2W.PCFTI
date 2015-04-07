@@ -1,5 +1,5 @@
 ﻿
-namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.RepositoriesRegra
+namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
 {
     using B2WTI.PCFTI.DOMINIO.Model.Sistema;
     using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Repositories;
@@ -10,7 +10,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.RepositoriesRegra
     public static class RegraRep
     {
 
-        public static Regra NovoRegra(this IRepository<Regra> repository, Regra regra)
+        public static Regra NovaRegra(this IRepository<Regra> repository, Regra regra)
         {
             regra.RegraId = Guid.NewGuid();
             repository.Insert(regra);

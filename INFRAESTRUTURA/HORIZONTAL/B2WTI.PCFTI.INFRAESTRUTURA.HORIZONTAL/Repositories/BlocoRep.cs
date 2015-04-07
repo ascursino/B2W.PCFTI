@@ -1,5 +1,4 @@
 ﻿
-
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
 {
     using B2WTI.PCFTI.DOMINIO.Model.Global;

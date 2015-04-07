@@ -8,7 +8,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
     using System;
     using System.Collections.Generic;
 
-    public static class BlocoExecute
+    public static class RegraExecute
     {
         static Execute Executar = new Execute();
 

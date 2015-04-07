@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modulo\Cadastro\ViewModel\AnoCalendarioView.cs" />
+    <Compile Include="Modulo\Sistema\ViewModel\UsuarioRegraView.cs" />
+    <Compile Include="Modulo\Sistema\ViewModel\RegraView.cs" />
+    <Compile Include="Modulo\Sistema\ViewModel\UsuarioView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\ResponsavelView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\FornecedorView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\StatusView.cs" />

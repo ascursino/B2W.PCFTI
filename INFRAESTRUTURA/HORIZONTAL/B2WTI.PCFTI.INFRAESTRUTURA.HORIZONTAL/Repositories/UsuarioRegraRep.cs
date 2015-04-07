@@ -1,5 +1,5 @@
 ﻿
-namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.RepositoriesUsuarioRegra
+namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Repositories
 {
     using B2WTI.PCFTI.DOMINIO.Model.Sistema;
     using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Repositories;

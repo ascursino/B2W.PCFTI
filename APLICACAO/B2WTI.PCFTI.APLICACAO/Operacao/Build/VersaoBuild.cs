@@ -52,6 +52,52 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
         }
 
 
+        //Usuario
+        public void NovaVersaoParaCriacao(Usuario usuario, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "C",
+                Entidade = usuario.GetType().Name,
+                EnitdadeId = usuario.UsuarioId.ToString(),
+                Promotor = usuario.CriadoPor,
+                Dados = JsonConvert.SerializeObject(usuario)
+            });
+        }
+
+        //Regra
+        public void NovaVersaoParaCriacao(Regra regra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "C",
+                Entidade = regra.GetType().Name,
+                EnitdadeId = regra.RegraId.ToString(),
+                Promotor = regra.CriadoPor,
+                Dados = JsonConvert.SerializeObject(regra)
+            });
+        }
+
+        //UsuarioRegra
+        public void NovaVersaoParaCriacao(UsuarioRegra usuarioregra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "C",
+                Entidade = usuarioregra.GetType().Name,
+                EnitdadeId = string.Format("UsuarioId: {0} | RegraId: {1}", usuarioregra.UsuarioId.ToString(), usuarioregra.RegraId.ToString()),
+                Promotor = usuarioregra.CriadoPor,
+                Dados = JsonConvert.SerializeObject(usuarioregra)
+            });
+        }
+
+
         //AnoCalendario
         public void NovaVersaoParaCriacao(AnoCalendario anocalendario, bool Atualizar = false)
         {
@@ -211,6 +257,51 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return versao;
         }
 
+
+        //Usuario
+        public void NovaVersaoParaEdicao(Usuario usuario, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "U",
+                Entidade = usuario.GetType().Name,
+                EnitdadeId = usuario.UsuarioId.ToString(),
+                Promotor = usuario.AlteradoPor,
+                Dados = JsonConvert.SerializeObject(usuario)
+            });
+        }
+
+        //Regra
+        public void NovaVersaoParaEdicao(Regra regra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "U",
+                Entidade = regra.GetType().Name,
+                EnitdadeId = regra.RegraId.ToString(),
+                Promotor = regra.AlteradoPor,
+                Dados = JsonConvert.SerializeObject(regra)
+            });
+        }
+
+        //UsuarioRegra
+        public void NovaVersaoParaEdicao(UsuarioRegra usuarioregra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "U",
+                Entidade = usuarioregra.GetType().Name,
+                EnitdadeId = string.Format("UsuarioId: {0} | RegraId: {1}", usuarioregra.UsuarioId.ToString(), usuarioregra.RegraId.ToString()),
+                Promotor = usuarioregra.AlteradoPor,
+                Dados = JsonConvert.SerializeObject(usuarioregra)
+            });
+        }
 
         //AnoCalendario
         public void NovaVersaoParaEdicao(AnoCalendario anocalendario, bool Atualizar = false)
@@ -474,6 +565,51 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
             return ret;
         }
 
+        //Usuario
+        public void NovaVersaoParaExclusao(Usuario usuario, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "D",
+                Entidade = usuario.GetType().Name,
+                EnitdadeId = usuario.UsuarioId.ToString(),
+                Promotor = usuario.CriadoPor,
+                Dados = JsonConvert.SerializeObject(usuario)
+            });
+        }
+
+        //Regra
+        public void NovaVersaoParaExclusao(Regra regra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "D",
+                Entidade = regra.GetType().Name,
+                EnitdadeId = regra.RegraId.ToString(),
+                Promotor = regra.AlteradoPor,
+                Dados = JsonConvert.SerializeObject(regra)
+            });
+        }
+
+        //UsuarioRegra
+        public void NovaVersaoParaExclusao(UsuarioRegra usuarioregra, bool Atualizar = false)
+        {
+            (new Execute()).Sistema.Versao.CriarNovaVersao(new DOMINIO.Model.Sistema.Versao()
+            {
+                VersaoId = Guid.NewGuid(),
+                Momento = DateTime.Now,
+                Operacao = "D",
+                Entidade = usuarioregra.GetType().Name,
+                EnitdadeId = string.Format("UsuarioId: {0} | RegraId: {1}", usuarioregra.UsuarioId.ToString(), usuarioregra.RegraId.ToString()),
+                Promotor = usuarioregra.AlteradoPor,
+                Dados = JsonConvert.SerializeObject(usuarioregra)
+            });
+        }
+
         //AnoCalendario
         public void NovaVersaoParaExclusao(AnoCalendario anocalendario, bool Atualizar = false)
         {
@@ -484,7 +620,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = anocalendario.GetType().Name,
                 EnitdadeId = anocalendario.Ano.ToString(),
-                Promotor = anocalendario.CriadoPor,
+                Promotor = anocalendario.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(anocalendario)
             });
         }
@@ -499,7 +635,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = bloco.GetType().Name,
                 EnitdadeId = bloco.BlocoId.ToString(),
-                Promotor = bloco.CriadoPor,
+                Promotor = bloco.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(bloco)
             });
         }
@@ -514,7 +650,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = tipobloco.GetType().Name,
                 EnitdadeId = tipobloco.TipoBlocoId.ToString(),
-                Promotor = tipobloco.CriadoPor,
+                Promotor = tipobloco.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(tipobloco)
             });
         }
@@ -529,7 +665,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = fornecedor.GetType().Name,
                 EnitdadeId = fornecedor.FornecedorId.ToString(),
-                Promotor = fornecedor.CriadoPor,
+                Promotor = fornecedor.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(fornecedor)
             });
         }
@@ -544,7 +680,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = responsavel.GetType().Name,
                 EnitdadeId = responsavel.ResponsavelId.ToString(),
-                Promotor = responsavel.CriadoPor,
+                Promotor = responsavel.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(responsavel)
             });
         }
@@ -559,7 +695,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = status.GetType().Name,
                 EnitdadeId = status.StatusId.ToString(),
-                Promotor = status.CriadoPor,
+                Promotor = status.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(status)
             });
         }
@@ -574,7 +710,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = tipodepagamento.GetType().Name,
                 EnitdadeId = tipodepagamento.TipoDePagamentoId.ToString(),
-                Promotor = tipodepagamento.CriadoPor,
+                Promotor = tipodepagamento.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(tipodepagamento)
             });
         }
@@ -589,7 +725,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = tiposervico.GetType().Name,
                 EnitdadeId = tiposervico.TipoServicoId.ToString(),
-                Promotor = tiposervico.CriadoPor,
+                Promotor = tiposervico.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(tiposervico)
             });
         }
@@ -604,7 +740,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 Operacao = "D",
                 Entidade = lancamento.GetType().Name,
                 EnitdadeId = lancamento.TipoServicoId.ToString(),
-                Promotor = lancamento.CriadoPor,
+                Promotor = lancamento.AlteradoPor,
                 Dados = JsonConvert.SerializeObject(lancamento)
             });
         }
