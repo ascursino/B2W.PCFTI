@@ -44,7 +44,6 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)
-                   && item.Descricao.Contains(filtro)
                    select item;
         }
 

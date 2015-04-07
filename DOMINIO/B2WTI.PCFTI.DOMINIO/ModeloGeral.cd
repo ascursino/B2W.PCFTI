@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.AnoCalendario">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\AnoCalendario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.Bloco">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\Bloco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.Fornecedor">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAAAAAEAEAAAAAEAAIAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Model\Global\Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.Responsavel">
+    <Position X="15" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAEAAAAAAIAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Model\Global\Responsavel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.Status">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\Status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.TipoBloco">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\TipoBloco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.TipoDePagamento">
+    <Position X="11" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\TipoDePagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Global.TipoServico">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Global\TipoServico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <AssociationLine Name="Bloco" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Bloco" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.562" />
+        <Point X="4.938" Y="4.562" />
+        <Point X="4.938" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Fornecedor" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Fornecedor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="5.188" />
+        <Point X="14.438" Y="5.188" />
+        <Point X="14.438" Y="3.329" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Responsavel" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Responsavel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="5.312" />
+        <Point X="16.188" Y="5.312" />
+        <Point X="16.188" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Status" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Status" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.812" />
+        <Point X="8.25" Y="4.812" />
+        <Point X="8.25" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TipoBloco" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoBloco" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.688" />
+        <Point X="6.5" Y="4.688" />
+        <Point X="6.5" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TipoDePagamento" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoDePagamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="5.063" />
+        <Point X="12.562" Y="5.063" />
+        <Point X="12.562" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TipoServico" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoServico" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.938" />
+        <Point X="10.438" Y="4.938" />
+        <Point X="10.438" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAKQQAIMSAAAAAAgMECAAAQAAggAAQAAAEACAABAAAA=</HashCode>
+      <FileName>Model\Orcamento\Lancamento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bloco" />
+      <Property Name="Fornecedor" />
+      <Property Name="Responsavel" />
+      <Property Name="Status" />
+      <Property Name="TipoBloco" />
+      <Property Name="TipoDePagamento" />
+      <Property Name="TipoServico" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Acumulado">
+    <Position X="4" Y="9" Width="1.5" />
+    <AssociationLine Name="Lancamento" Type="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.375" Y="9" />
+        <Point X="4.375" Y="7.5" />
+        <Point X="2.75" Y="7.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Orcamento\Acumulado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lancamento" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Backlog">
+    <Position X="5.75" Y="9" Width="1.5" />
+    <AssociationLine Name="Lancamento" Type="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.125" Y="9" />
+        <Point X="6.125" Y="7.188" />
+        <Point X="2.75" Y="7.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Orcamento\Backlog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lancamento" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Caixa">
+    <Position X="7.5" Y="9" Width="1.5" />
+    <AssociationLine Name="Lancamento" Type="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.875" Y="9" />
+        <Point X="7.875" Y="6.875" />
+        <Point X="2.75" Y="6.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Orcamento\Caixa.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lancamento" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Orcado">
+    <Position X="9.25" Y="9" Width="1.5" />
+    <AssociationLine Name="Lancamento" Type="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="9" />
+        <Point X="9.75" Y="6.562" />
+        <Point X="2.75" Y="6.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Orcamento\Orcado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lancamento" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Real">
+    <Position X="11" Y="9" Width="1.5" />
+    <AssociationLine Name="Lancamento" Type="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.625" Y="9" />
+        <Point X="11.625" Y="6.25" />
+        <Point X="2.75" Y="6.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Orcamento\Real.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lancamento" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Sistema.Usuario">
+    <Position X="17.75" Y="0.75" Width="2" />
+    <AssociationLine Name="Regras" Type="B2WTI.PCFTI.DOMINIO.Model.Sistema.Regra" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.75" Y="2.752" />
+        <Point X="18.75" Y="5.6" />
+        <Point X="21.75" Y="5.6" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAAAAAAAEAAAAAAIAAAAAAAABAAAEAAAA=</HashCode>
+      <FileName>Model\Sistema\Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Regras" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Sistema.Regra">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <AssociationLine Name="Usuarios" Type="B2WTI.PCFTI.DOMINIO.Model.Sistema.Usuario" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="21.75" Y="4.844" />
+        <Point X="20.745" Y="4.844" />
+        <Point X="20.745" Y="2.495" />
+        <Point X="19.75" Y="2.495" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAgA=</HashCode>
+      <FileName>Model\Sistema\Regra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Usuarios" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="B2WTI.PCFTI.DOMINIO.Model.Sistema.UsuarioRegra">
+    <Position X="21" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAAABEAAAAAAA=</HashCode>
+      <FileName>Model\Sistema\UsuarioRegra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuario" />
+      <Property Name="Regra" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

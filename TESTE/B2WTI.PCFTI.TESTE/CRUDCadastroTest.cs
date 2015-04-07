@@ -442,7 +442,7 @@ namespace B2WTI.PCFTI.TESTE
 
                 #region Teste da Atualização Unitária
 
-                objetoTeste.Descricao = "Descrição de Teste atualizado";
+                objetoTeste.UsuarioId = Guid.Empty;
                 objetoTeste = Executar.Cadastro.Responsavel.AtualizarResponsavel(objetoTeste);
 
                 #endregion
@@ -451,7 +451,7 @@ namespace B2WTI.PCFTI.TESTE
 
                 Parallel.ForEach<Responsavel>(objetosTeste, item =>
                 {
-                    item.Descricao = "Descrição de Teste atualizado";
+                    item.UsuarioId = Guid.Empty;
                 });
 
                 int totalaatualizar = objetosTeste.Count;

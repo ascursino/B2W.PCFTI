@@ -22,7 +22,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
                 responsaveis.Add(new Responsavel()
                 {
                     ResponsavelId = item.ResponsavelId,
-                    Descricao = item.Descricao,
+                    UsuarioId = item.UsuarioId,
                     Ativo = item.Ativo
                 });
             });
@@ -34,7 +34,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
             Responsavel responsavel = new Responsavel()
             {
                 ResponsavelId = source.ResponsavelId,
-                Descricao = source.Descricao,
+                UsuarioId = source.UsuarioId,
                 Ativo = source.Ativo
             };
             return responsavel;
@@ -49,7 +49,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
                 Responsavels.Add(new ResponsavelView()
                 {
                     ResponsavelId = item.ResponsavelId,
-                    Descricao = item.Descricao,
+                    UsuarioId = item.UsuarioId,
                     Ativo = item.Ativo
                 });
             });
@@ -62,7 +62,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
             ResponsavelView responsavel = new ResponsavelView()
             {
                 ResponsavelId = source.ResponsavelId,
-                Descricao = source.Descricao,
+                UsuarioId = source.UsuarioId,
                 Ativo = source.Ativo
             };
 

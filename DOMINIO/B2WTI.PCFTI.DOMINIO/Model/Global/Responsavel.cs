@@ -9,7 +9,8 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Global
     {
 
         public Guid ResponsavelId { get; set; }
-        public string Descricao { get; set; }
+        public Guid UsuarioId { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public bool Ativo { get; set; }
 
     }

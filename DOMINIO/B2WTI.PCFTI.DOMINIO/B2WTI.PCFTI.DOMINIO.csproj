@@ -54,6 +54,9 @@
     <Compile Include="Model\Orcamento\Lancamento.cs" />
     <Compile Include="Model\Orcamento\Orcado.cs" />
     <Compile Include="Model\Orcamento\Real.cs" />
+    <Compile Include="Model\Sistema\Regra.cs" />
+    <Compile Include="Model\Sistema\Usuario.cs" />
+    <Compile Include="Model\Sistema\UsuarioRegra.cs" />
     <Compile Include="Model\Sistema\Versao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +69,9 @@
       <Project>{65787b7a-42b7-461b-9dcf-bd4ce8d842fb}</Project>
       <Name>B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ModeloGeral.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

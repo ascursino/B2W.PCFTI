@@ -20,10 +20,9 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.Property(t => t.ResponsavelId)
                 .HasColumnName("ResponsavelId");
 
-            this.Property(t => t.Descricao)
-                .HasColumnName("Descricao")
-                .HasColumnType("varchar")
-                .HasMaxLength(250);
+            this.HasRequired(t => t.Usuario)
+                .WithMany()
+                .HasForeignKey(t => t.UsuarioId);
             
             this.Property(t => t.Ativo)
             .HasColumnName("Ativo");

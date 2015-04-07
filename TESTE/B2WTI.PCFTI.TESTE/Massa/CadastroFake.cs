@@ -148,7 +148,7 @@ namespace B2WTI.PCFTI.TESTE.Massa
             return new Responsavel()
             {
                 ResponsavelId = Guid.NewGuid(),
-                Descricao = "Responsavel de teste 10",
+                UsuarioId = Guid.Empty,
                 Ativo = true
             };
         }
@@ -162,7 +162,7 @@ namespace B2WTI.PCFTI.TESTE.Massa
                 Responsavel objetoFor = new Responsavel()
                 {
                     ResponsavelId = Guid.NewGuid(),
-                    Descricao = string.Format("Responsavel de teste {0}", i),
+                    UsuarioId = Guid.Empty,
                     Ativo = true
                 };
                 responsaveis.Add(objetoFor);

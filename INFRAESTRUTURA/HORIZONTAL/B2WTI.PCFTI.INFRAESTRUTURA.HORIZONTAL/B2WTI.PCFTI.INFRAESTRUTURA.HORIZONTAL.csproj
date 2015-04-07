@@ -71,6 +71,9 @@
     <Compile Include="DataMap\CaixaMap.cs" />
     <Compile Include="DataMap\OrcadoMap.cs" />
     <Compile Include="DataMap\RealMap.cs" />
+    <Compile Include="DataMap\RegraMap.cs" />
+    <Compile Include="DataMap\UsuarioRegraMap.cs" />
+    <Compile Include="DataMap\UsuarioMap.cs" />
     <Compile Include="DataMap\VersaoMap.cs" />
     <Compile Include="DataMap\TipoPagamentoMap.cs" />
     <Compile Include="DataMap\TipoServicoMap.cs" />
@@ -100,9 +103,16 @@
     <Compile Include="Migrations\201504070106304_PCFTI0005.Designer.cs">
       <DependentUpon>201504070106304_PCFTI0005.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504071841338_PCFTI0006.cs" />
+    <Compile Include="Migrations\201504071841338_PCFTI0006.Designer.cs">
+      <DependentUpon>201504071841338_PCFTI0006.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UsuarioRegraRep.cs" />
+    <Compile Include="Repositories\UsuarioRep.cs" />
+    <Compile Include="Repositories\RegraRep.cs" />
     <Compile Include="Repositories\VersaoRep.cs" />
     <Compile Include="Repositories\LancamentoRep.cs" />
     <Compile Include="Repositories\TipoServicoRep.cs" />
@@ -150,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504070106304_PCFTI0005.resx">
       <DependentUpon>201504070106304_PCFTI0005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504071841338_PCFTI0006.resx">
+      <DependentUpon>201504071841338_PCFTI0006.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
