@@ -18,7 +18,7 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Orcamento
         public virtual Responsavel Responsavel { get; set; }
 
         public int Ano { get; set; }
-        public virtual AnoCalendario Propriedade { get; set; }
+        public virtual AnoCalendario AnoCalendario { get; set; }
 
         public Guid? TipoServicoId { get; set; }
         public virtual TipoServico TipoServico { get; set; }

@@ -61,13 +61,6 @@
   </Class>
   <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Lancamento">
     <Position X="0.5" Y="3.75" Width="2.25" />
-    <AssociationLine Name="Bloco" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Bloco" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="2.75" Y="4.562" />
-        <Point X="4.938" Y="4.562" />
-        <Point X="4.938" Y="2.367" />
-      </Path>
-    </AssociationLine>
     <AssociationLine Name="Fornecedor" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Fornecedor" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="5.188" />
@@ -82,18 +75,32 @@
         <Point X="16.188" Y="2.367" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Status" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Status" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="TipoServico" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoServico" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="2.75" Y="4.812" />
-        <Point X="8.25" Y="4.812" />
-        <Point X="8.25" Y="2.367" />
+        <Point X="2.75" Y="4.938" />
+        <Point X="10.438" Y="4.938" />
+        <Point X="10.438" Y="2.367" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="TipoBloco" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoBloco" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="4.688" />
-        <Point X="6.5" Y="4.688" />
-        <Point X="6.5" Y="2.367" />
+        <Point X="6.875" Y="4.688" />
+        <Point X="6.875" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Bloco" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Bloco" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.562" />
+        <Point X="4.938" Y="4.562" />
+        <Point X="4.938" Y="2.367" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Status" Type="B2WTI.PCFTI.DOMINIO.Model.Global.Status" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="4.812" />
+        <Point X="8.562" Y="4.812" />
+        <Point X="8.562" Y="2.367" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="TipoDePagamento" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoDePagamento" FixedFromPoint="true" FixedToPoint="true">
@@ -103,25 +110,18 @@
         <Point X="12.562" Y="2.367" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="TipoServico" Type="B2WTI.PCFTI.DOMINIO.Model.Global.TipoServico" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="2.75" Y="4.938" />
-        <Point X="10.438" Y="4.938" />
-        <Point X="10.438" Y="2.367" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IAKQQAIMSAAAAAAgMECAAAQAAggAAQAAAEACAABAAAA=</HashCode>
+      <HashCode>YAKQQAIMSAAAAAAgMECAAAQAAggAAAAAAEACAABAAAA=</HashCode>
       <FileName>Model\Orcamento\Lancamento.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Bloco" />
       <Property Name="Fornecedor" />
       <Property Name="Responsavel" />
-      <Property Name="Status" />
-      <Property Name="TipoBloco" />
-      <Property Name="TipoDePagamento" />
       <Property Name="TipoServico" />
+      <Property Name="TipoBloco" />
+      <Property Name="Bloco" />
+      <Property Name="Status" />
+      <Property Name="TipoDePagamento" />
     </ShowAsAssociation>
   </Class>
   <Class Name="B2WTI.PCFTI.DOMINIO.Model.Orcamento.Acumulado">
@@ -215,7 +215,7 @@
       <Path>
         <Point X="18.75" Y="2.752" />
         <Point X="18.75" Y="5.6" />
-        <Point X="21.75" Y="5.6" />
+        <Point X="21.5" Y="5.6" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -227,10 +227,10 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="B2WTI.PCFTI.DOMINIO.Model.Sistema.Regra">
-    <Position X="21.75" Y="4.5" Width="1.5" />
+    <Position X="21.5" Y="4.5" Width="1.5" />
     <AssociationLine Name="Usuarios" Type="B2WTI.PCFTI.DOMINIO.Model.Sistema.Usuario" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="21.75" Y="4.844" />
+        <Point X="21.5" Y="4.844" />
         <Point X="20.745" Y="4.844" />
         <Point X="20.745" Y="2.495" />
         <Point X="19.75" Y="2.495" />

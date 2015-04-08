@@ -31,7 +31,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
                 .WithMany()
                 .HasForeignKey(t => t.ResponsavelId);
 
-            this.HasRequired(t => t.Propriedade)
+            this.HasRequired(t => t.AnoCalendario)
                 .WithMany()
                 .HasForeignKey(t => t.Ano);
 
