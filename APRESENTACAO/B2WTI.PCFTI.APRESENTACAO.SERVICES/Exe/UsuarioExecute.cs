@@ -8,7 +8,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
     using System;
     using System.Collections.Generic;
     using B2WTI.PCFTI.DOMINIO.Model.Sistema;
-
+    
     public static class UsuarioExecute
     {
         static Execute Executar = new Execute();

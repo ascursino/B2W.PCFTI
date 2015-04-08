@@ -10,7 +10,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Sistema
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-
+        
     public interface IUsuarioService : IService<Usuario>
     {
         Usuario NovoUsuario(Usuario Usuario);
