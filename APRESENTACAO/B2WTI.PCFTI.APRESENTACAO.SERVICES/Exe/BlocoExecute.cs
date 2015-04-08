@@ -40,23 +40,23 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return bloco;
         }
 
-        public static BlocoView EditarBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
+        public static BlocoView EditarBloco(BlocoView bloco, string AlteradoPor, DateTime AlteradoEm)
         {
             Bloco objdomin = bloco.DeViewParaDomin();
-            objdomin.CriadoPor = CriadoPor;
-            objdomin.CriadoEm = CriadoEm;
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
 
-            bloco = Executar.Cadastro.Bloco.AtualizarBloco(bloco.DeViewParaDomin()).DeDominParaView();
+            bloco = Executar.Cadastro.Bloco.AtualizarBloco(objdomin).DeDominParaView();
             return bloco;
         }
 
-        public static bool ExcluirBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
+        public static bool ExcluirBloco(BlocoView bloco, string AlteradoPor, DateTime AlteradoEm)
         {
             Bloco objdomin = bloco.DeViewParaDomin();
-            objdomin.CriadoPor = CriadoPor;
-            objdomin.CriadoEm = CriadoEm;
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
 
-            bool ret = Executar.Cadastro.Bloco.ExcluirBloco(bloco.DeViewParaDomin());
+            bool ret = Executar.Cadastro.Bloco.ExcluirBloco(objdomin);
             return ret;
         }
 
