@@ -45,7 +45,7 @@ function editDataTableElementInLine() {
 function dataTablesComFixedColumnAndExport() {
 
     table = $('.dataTables-example').dataTable({
-        ajax: GetURLParameter() + "/js/jquery.generic/listTripa.json",
+        ajax: "/js/jquery.generic/listTripa.json",
         columns: [
             { data: "FORNECEDOR" },
                 { data: "NOME_FANTASIA" },
@@ -144,13 +144,16 @@ function dataTablesComFixedColumnAndExport() {
                 { data: "REAL_TOTAL" },
                 { data: "ACUM_TOTAL" }
         ],
+        scrollCollapse: true,
+        "dom": 'C<"clear">lfrtip',
         "bPaginate": true,
+        "iDisplayStart":96,
         "bLengthChange": true,
         "bFilter": true,
         "bSort": false,
         "bInfo": true,
-        "bAutoWidth": true,
-        "bStateSave": true,
+        "bAutoWidth": false,
+        "bStateSave": false,
         "scrollY": 300,
         "scrollX": true,
         "language": {
@@ -176,7 +179,7 @@ function dataTablesComFixedColumnAndExport() {
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
         },
-        responsive: true
+        //responsive: true
         //"sDom": 'T<"clear">lfrtip',
         //"dom": 'T<"clear">lfrtip',
         //"tableTools": {
