@@ -11,7 +11,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             //Jquery Framework
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/js/jquery.framework/jquery-{version}.js"));
-            
+
             //Jquery Validate
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/js/jquery.framework/jquery.validate*"));
@@ -28,48 +28,55 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
 
             //Javascript Bootstrap Page
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/js/jquery.bootstrap/bootstrap.js",
-                      "~/js/jquery.bootstrap/respond.js"));
+                        "~/js/jquery.bootstrap/bootstrap.js",
+                        "~/js/jquery.bootstrap/respond.js"));
 
             //Javascript Metis Menu Page
             bundles.Add(new ScriptBundle("~/bundles/MetisMenu").Include(
-                      "~/js/jquery.metismenu/jquery.metismenu.js"));
+                        "~/js/jquery.metismenu/jquery.metismenu.js"));
 
             //Javascript Slim Scroll Page
             bundles.Add(new ScriptBundle("~/bundles/SlimScroll").Include(
-                      "~/js/jquery.slimscroll/jquery.slimscroll.js"));
+                        "~/js/jquery.slimscroll/jquery.slimscroll.js"));
 
             //Javascript DataTables Generic Fixed Column Page
             bundles.Add(new ScriptBundle("~/bundles/iniDataTableFixedColumn").Include(
-                      "~/js/jquery.generic/jquery.generic.inidatatablefixedcolumn.js"));
+                        "~/js/jquery.generic/jquery.generic.inidatatablefixedcolumn.js"));
 
             //Javascript Edit Table Page
             bundles.Add(new ScriptBundle("~/bundles/EditTable").Include(
-                      "~/js/jquery.editable/jquery.editable.js"));
+                        "~/js/jquery.editable/jquery.editable.js"));
 
             //Javascript Data Tables Page
             bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
-                      "~/js/jquery.datatables/jquery.dataTables.js",
-                      "~/js/jquery.datatables/dataTables.fixedColumns.js",
-                      "~/js/jquery.datatables/dataTables.tableTools.js",
-                      "~/js/jquery.datatables/dataTables.colVis.js",
-                      "~/js/jquery.datatables/dataTables.bootstrap.js",
-                      "~/js/jquery.datatables/dataTables.responsive.js"));
+                        "~/js/jquery.datatables/jquery.dataTables.js",
+                        "~/js/jquery.datatables/dataTables.fixedColumns.js",
+                        "~/js/jquery.datatables/dataTables.tableTools.js",
+                        "~/js/jquery.datatables/dataTables.colVis.js",
+                        "~/js/jquery.datatables/dataTables.bootstrap.js",
+                        "~/js/jquery.datatables/dataTables.responsive.js",
+                        "~/js/jquery.datatables/dataTables.editor.js",
+                        "~/js/jquery.datatables/dataTables.keyTable.js"));
+
+
+            //Javascript Data Tables Page
+            bundles.Add(new ScriptBundle("~/bundles/DataTables/shCore").Include(
+                        "~/js/jquery.datatables/resources/syntax/shCore.js"));
 
             //Javascript Dashboard Inspinia Page
             bundles.Add(new ScriptBundle("~/bundles/DashboardInspinia").Include(
-                      "~/js/jquery.inspinia/jquery.inspinia.js",
-                      "~/js/jquery.pace/jquery.pace.js"));            
-            
-            
+                        "~/js/jquery.inspinia/jquery.inspinia.js",
+                        "~/js/jquery.pace/jquery.pace.js"));
+
+
             //Style Bootstrap Page
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/css/bootstrap.css"));
+                        "~/css/bootstrap.css"));
 
             //Style Page
             bundles.Add(new StyleBundle("~/Content/Style").Include(
-                      "~/css/style.css"));
-            
+                        "~/css/style.css"));
+
 
             //Style Animate Page
             bundles.Add(new StyleBundle("~/Content/css/Animate").Include(

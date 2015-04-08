@@ -174,6 +174,9 @@
     <Content Include="Areas\Sistema\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Sistema\Views\Usuario\Novo.cshtml" />
     <Content Include="Areas\Sistema\Views\Home\Index.cshtml" />
+    <Content Include="js\jquery.datatables\resources\bootstrap\editor.bootstrap.scss" />
+    <Content Include="js\jquery.datatables\resources\examples.php" />
+    <Content Include="js\jquery.datatables\resources\syntax\Syntax Highlighter license" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -193,6 +196,8 @@
     <Content Include="js\jquery.datatables\dataTables.colReorder.min.js" />
     <Content Include="js\jquery.datatables\dataTables.colVis.js" />
     <Content Include="js\jquery.datatables\dataTables.colVis.min.js" />
+    <Content Include="js\jquery.datatables\dataTables.editor.js" />
+    <Content Include="js\jquery.datatables\dataTables.editor.min.js" />
     <Content Include="js\jquery.datatables\dataTables.fixedColumns.js" />
     <Content Include="js\jquery.datatables\dataTables.fixedColumns.min.js" />
     <Content Include="js\jquery.datatables\dataTables.fixedHeader.js" />
@@ -209,6 +214,15 @@
     <Content Include="js\jquery.datatables\dataTables.tableTools.min.js" />
     <Content Include="js\jquery.datatables\jquery.dataTables.js" />
     <Content Include="js\jquery.datatables\jquery.dataTables.min.js" />
+    <Content Include="js\jquery.datatables\resources\bootstrap\editor.bootstrap.css" />
+    <Content Include="js\jquery.datatables\resources\bootstrap\editor.bootstrap.js" />
+    <Content Include="js\jquery.datatables\resources\demo.css" />
+    <Content Include="js\jquery.datatables\resources\demo.js" />
+    <Content Include="js\jquery.datatables\resources\editor-demo.js" />
+    <Content Include="js\jquery.datatables\resources\jqueryui\editor.jqueryui.css" />
+    <Content Include="js\jquery.datatables\resources\jqueryui\editor.jqueryui.js" />
+    <Content Include="js\jquery.datatables\resources\syntax\shCore.css" />
+    <Content Include="js\jquery.datatables\resources\syntax\shCore.js" />
     <Content Include="js\jquery.datatables\swf\copy_csv_xls.swf" />
     <Content Include="js\jquery.datatables\swf\copy_csv_xls_pdf.swf" />
     <Content Include="js\jquery.editable\jquery.editable.js" />
