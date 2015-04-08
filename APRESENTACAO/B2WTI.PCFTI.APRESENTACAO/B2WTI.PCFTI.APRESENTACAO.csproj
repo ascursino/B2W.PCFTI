@@ -111,6 +111,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="css\ICheckCustom.css" />
     <Content Include="css\Style.css" />
     <Content Include="css\stylesheet.datatables\css\dataTables.autoFill.css" />
     <Content Include="css\stylesheet.datatables\css\dataTables.autoFill.min.css" />
@@ -278,7 +279,7 @@
     <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
     <Content Include="Areas\Orcamento\Views\Lancamento\Index.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Index.cshtml" />
-    <Content Include="Areas\Orcamento\Views\Visao\Anual.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\_Anual.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Semestral.cshtml" />
     <Content Include="js\jquery.editable\jquery.keytable.js" />
     <None Include="js\jquery.framework\_references.js" />
@@ -297,6 +298,7 @@
     <Content Include="js\jquery.framework\modernizr-2.6.2.js" />
     <Content Include="js\jquery.framework\npm.js" />
     <Content Include="js\jquery.generic\jquery.generic.inidatatablefixedcolumn.js" />
+    <Content Include="js\jquery.ICheck\jquery.ICheck.js" />
     <Content Include="js\jquery.inspinia\jquery.inspinia.js" />
     <Content Include="js\jquery.metismenu\jquery.metismenu.js" />
     <Content Include="js\jquery.pace\jquery.pace.js" />

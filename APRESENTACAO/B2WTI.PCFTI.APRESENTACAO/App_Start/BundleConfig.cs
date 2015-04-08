@@ -47,6 +47,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             bundles.Add(new ScriptBundle("~/bundles/EditTable").Include(
                         "~/js/jquery.editable/jquery.editable.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ICheck").Include(
+            "~/js/jquery.Icheck/jquery.ICheck.js"));
+
             //Javascript Data Tables Page
             bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
                         "~/js/jquery.datatables/jquery.dataTables.js",
@@ -76,6 +79,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             //Style Page
             bundles.Add(new StyleBundle("~/Content/Style").Include(
                         "~/css/style.css"));
+
+            bundles.Add(new StyleBundle("~/Content/StyleICheck").Include(
+                        "~/css/ICheckCustom.css"));
 
 
             //Style Animate Page
