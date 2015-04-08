@@ -1,8 +1,8 @@
 ﻿
 namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 {
-    using B2WTI.PCFTI.APLICACAO.Modulo.Sistema;
-    using B2WTI.PCFTI.DOMINIO.Model.Sistema;
+    using APLICACAO.Modulo.Sistema;
+    using DOMINIO.Model.Sistema;
     using INFRAESTRUTURA.HORIZONTAL;
     using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
