@@ -34,7 +34,8 @@
                             if (ViewContext.RouteData.DataTokens["area"].ToString().Trim() != ""
                             && Html.ViewContext.Controller.ControllerContext.RouteData.Values["controller"].ToString().ToLower() != "home"
                             && (ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "cadastro"
-                            || ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "orcamento"))
+                            || ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "orcamento"
+                            || ViewContext.RouteData.DataTokens["area"].ToString().ToLower() == "sistema"))
                             {
                                 Html.RenderPartial("_Search");
                             }
