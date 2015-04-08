@@ -181,6 +181,7 @@ function dataTablesComFixedColumnAndExport() {
     });
 
     new $.fn.dataTable.FixedColumns(table);
+    new $.fn.dataTable.KeyTable(table);
 }
 
 
