@@ -53,9 +53,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Sistema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // POST: Sistema/Usuario/Editar
-        public ActionResult Editar(UsuarioView bloco)
+        public ActionResult Editar(UsuarioView usuario)
         {
-            bloco = UsuarioExecute.EditarUsuario(bloco, User.Identity.Name.ToString(), DateTime.Now);
+            usuario = UsuarioExecute.EditarUsuario(usuario, User.Identity.Name.ToString(), DateTime.Now);
             return RedirectToAction("Index");
         }
 

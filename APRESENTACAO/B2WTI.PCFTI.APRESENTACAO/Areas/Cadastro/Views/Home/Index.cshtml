@@ -1,7 +1,96 @@
-﻿
+﻿@using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    int resultados = (Model == null) ? 0 : Model.Count();
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-12">
 
+
+
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <ul class="notes">
+                <li>
+                    <a href="/Cadastro/Bloco">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>BLOCO</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/Fornecedor">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>FORNECEDOR</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/AnoCalendario">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>ANO CALENDÁRIO</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/Responsavel">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>RESPONSÁVEL</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/Status">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>STATUS</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/TipoBloco">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>TIPO DE BLOCO</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/TipoDePagamento">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>TIPO DE PAGAMENTO</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Cadastro/TipoServico">
+                        <div>
+                            <small>CADASTRO</small>
+                            <h4>TIPO DE SERVIÇO</h4>
+                            <p>Aqui uma descrição sobre o que é o bloco.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+</div>

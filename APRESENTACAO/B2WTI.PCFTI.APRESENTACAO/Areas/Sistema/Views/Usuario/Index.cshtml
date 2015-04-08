@@ -44,7 +44,7 @@
                                         <td>@item.Nome</td>
                                         <td>@item.Email</td>
                                         <td>@Html.Raw((item.Ativo) ? "<a href=\"#\"><i class=\"fa fa-check text-navy\"></i></a>" : "")</td>
-                                        <td><a href="/Sistema/Usuario/Editar/@item.UsuarioId">Editar</a> | <a href="/Sistema/Usuario/Excluir/@item.UsuarioId">Excluir</a></td>
+                                        <td><a href="/Sistema/Usuario/Privilegios/@item.UsuarioId">Gerenciar Privilégios</a> | <a href="/Sistema/Usuario/Editar/@item.UsuarioId">Editar</a> | <a href="/Sistema/Usuario/Excluir/@item.UsuarioId">Excluir</a></td>
                                     </tr>
                                 }
                             </tbody>
