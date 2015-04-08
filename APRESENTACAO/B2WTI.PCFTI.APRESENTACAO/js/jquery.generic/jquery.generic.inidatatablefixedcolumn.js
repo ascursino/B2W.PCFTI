@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
     dataTablesComFixedColumnAndExport();
-    iCheckBoxJquery();
 });
 
 function iCheckBoxJquery() {
@@ -16,7 +15,7 @@ function GetURLParameter() {
     //var pathname = window.location.pathname; // Returns path only
     var url = window.location.host;
 
-    return url + "/js/jquery.generic/listTripa.txt";
+    return url;
     //alert(pathname);
     //alert(url + "/js/jquery.generic/listTripa.txt");
 };
@@ -46,11 +45,9 @@ function editDataTableElementInLine() {
 function dataTablesComFixedColumnAndExport() {
 
     table = $('.dataTables-example').dataTable({
-       
-        ajax : GetURLParameter() + "/js/jquery.generic/listTripa.json",
-        serverSide: true,
+        ajax: GetURLParameter() + "/js/jquery.generic/listTripa.json",
         columns: [
-                { data: "FORNECEDOR" },
+            { data: "FORNECEDOR" },
                 { data: "NOME_FANTASIA" },
                 { data: "RESPONSAVEL" },
                 { data: "ANO" },

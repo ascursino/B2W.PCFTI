@@ -112,6 +112,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\ICheckCustom.css" />
+    <Content Include="css\patterns\header-profile.png" />
     <Content Include="css\Style.css" />
     <Content Include="css\stylesheet.datatables\css\dataTables.autoFill.css" />
     <Content Include="css\stylesheet.datatables\css\dataTables.autoFill.min.css" />
