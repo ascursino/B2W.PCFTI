@@ -10,7 +10,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
+    
     public class UsuarioBuild
     {
 
