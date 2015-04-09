@@ -97,8 +97,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
                         "~/css/stylesheet.datatables/css/dataTables.bootstrap.css",
                         "~/css/stylesheet.datatables/css/dataTables.fixedColumns.css",
                         "~/css/stylesheet.datatables/css/dataTables.responsive.css",
-                        "~/css/stylesheet.datatables/css/dataTables.tableTools.min.css",
-                        "~/css/stylesheet.datatables/css/dataTables.colVis.css"));
+                        "~/css/stylesheet.datatables/css/dataTables.tableTools.css",
+                        "~/css/stylesheet.datatables/css/dataTables.colVis.css",
+                        "~/css/stylesheet.datatables/css/dataTables.keyTable.css"));
 
         }
     }

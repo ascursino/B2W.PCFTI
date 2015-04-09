@@ -47,7 +47,7 @@ function dataTablesComFixedColumnAndExport() {
     table = $('.dataTables-example').dataTable({
         ajax: "/js/jquery.generic/listTripa.json",
         columns: [
-            { data: "FORNECEDOR" },
+                { data: "FORNECEDOR" },
                 { data: "NOME_FANTASIA" },
                 { data: "RESPONSAVEL" },
                 { data: "ANO" },
@@ -144,18 +144,24 @@ function dataTablesComFixedColumnAndExport() {
                 { data: "REAL_TOTAL" },
                 { data: "ACUM_TOTAL" }
         ],
-        scrollCollapse: true,
+
         "dom": 'C<"clear">lfrtip',
+        "colVis": {
+            "buttonText": "Exibir/Ocultar Colunas",
+            restore: "Restaurar Visão",
+            showAll: "Exibir Todas",
+            showNone: "Ocultar Todas"
+        },
+
         "bPaginate": true,
-        "iDisplayStart":96,
-        "bLengthChange": true,
+        "sScrollY": "300px",
+        "sScrollX": "100%",
+        "bScrollCollapse": true,
         "bFilter": true,
         "bSort": false,
         "bInfo": true,
-        "bAutoWidth": false,
+        "bAutoWidth": true,
         "bStateSave": false,
-        "scrollY": 300,
-        "scrollX": true,
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ à _END_ de _TOTAL_ registros",
@@ -179,7 +185,6 @@ function dataTablesComFixedColumnAndExport() {
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
         },
-        //responsive: true
         //"sDom": 'T<"clear">lfrtip',
         //"dom": 'T<"clear">lfrtip',
         //"tableTools": {
@@ -187,8 +192,13 @@ function dataTablesComFixedColumnAndExport() {
         //}
     });
 
-    new $.fn.dataTable.FixedColumns(table);
-    new $.fn.dataTable.KeyTable(table);
+    new $.fn.dataTable.FixedColumns(table, {
+        leftColumns: 1
+        //"iLeftWidth": 480 // pixels
+
+    });
+
+    //new $.fn.dataTable.KeyTable(table);
 }
 
 

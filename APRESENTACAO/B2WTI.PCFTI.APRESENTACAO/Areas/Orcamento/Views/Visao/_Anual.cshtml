@@ -7,12 +7,12 @@
 @Styles.Render("~/Content/css/DataTables")
 
 
-<table id="editable" class="table table-striped table-bordered  dataTables-example">
+<table id="editable" class="table table-striped table-bordered text-nowrap text-justify dataTables-example" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th style="width: 250px;">FORNECEDOR</th>
+            <th>FORNECEDOR</th>
             <th>NOME FANTASIA</th>
-            <th>RESPONSAVEL</th>
+            <th class="text-center dt-body-center">RESPONSAVEL</th>
             <th>ANO</th>
             <th>ATIVO</th>
             <th>SERVICO</th>
@@ -108,16 +108,21 @@
             <th>ACUM TOTAL</th>
         </tr>
     </thead>
-    
+
 </table>
 
 <style type="text/css">
-    table.dataTable {
-        width: 100%;
-    }
-
     .dataTables_scrollHead {
         background-color: #FFF;
     }
+.DTFC_LeftBodyLiner {
+    overflow-y: hidden !important;
+}    
+.ColVis_collection {
+    height: 250px;
+    overflow-y: scroll !important;
+    width: 200px !important;
+    left: 1103px !important;
+}
 </style>
 
