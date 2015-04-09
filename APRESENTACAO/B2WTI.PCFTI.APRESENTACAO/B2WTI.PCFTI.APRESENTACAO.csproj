@@ -14,7 +14,7 @@
     <RootNamespace>B2WTI.PCFTI.APRESENTACAO</RootNamespace>
     <AssemblyName>B2WTI.PCFTI.APRESENTACAO</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
@@ -422,7 +422,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>21472</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://app.portalti.b2w/PCFTI</IISUrl>
+          <IISUrl>http://localhost:21472/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
