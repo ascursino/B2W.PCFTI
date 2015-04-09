@@ -1,7 +1,17 @@
 ﻿
 
 $(document).ready(function () {
-    dataTablesComFixedColumnAndExport();
+
+    if ($(".dataTables-example").size() > 0) {
+        dataTablesComFixedColumnAndExport();
+    } else {
+        return false;
+    }
+
+
+    iCheckBoxJquery();
+
+
 });
 
 function iCheckBoxJquery() {
@@ -19,7 +29,6 @@ function GetURLParameter() {
     //alert(pathname);
     //alert(url + "/js/jquery.generic/listTripa.txt");
 };
-
 function editDataTableElementInLine() {
     /* Init DataTables */
     var oTable = $('#editable').dataTable();
@@ -41,7 +50,6 @@ function editDataTableElementInLine() {
         "height": "100%"
     });
 }
-
 function dataTablesComFixedColumnAndExport() {
 
     table = $('.dataTables-example').dataTable({
@@ -178,7 +186,7 @@ function dataTablesComFixedColumnAndExport() {
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
         }
-        
+
     });
 
 
@@ -189,10 +197,8 @@ function dataTablesComFixedColumnAndExport() {
 
     //new $.fn.dataTable.KeyTable(table);
 }
-
-
 function calculoSubTotalColumns() {
-    
+
     var sums = [];
 
     $('.teste').each(function () {

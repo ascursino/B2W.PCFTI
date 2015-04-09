@@ -85,8 +85,8 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
                         "~/css/style.css"));
 
             bundles.Add(new StyleBundle("~/Content/StyleICheck").Include(
-                        "~/css/ICheckCustom.css"));
-
+                "~/css/skins/all.css",        
+                "~/css/skins/ICheckCustom.css"));
 
             //Style Animate Page
             bundles.Add(new StyleBundle("~/Content/css/Animate").Include(
