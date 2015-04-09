@@ -1,5 +1,4 @@
-﻿
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @{
     ViewBag.Title = "Anual";
     //Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,105 +6,213 @@
 @Styles.Render("~/Content/css/DataTables")
 
 
-<table id="editable" class="table table-striped table-bordered text-nowrap text-justify dataTables-example" cellspacing="0" width="100%">
+<table id="editable" class="table table-striped table-bordered text-nowrap dataTables-example" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>FORNECEDOR</th>
-            <th>NOME FANTASIA</th>
-            <th class="text-center dt-body-center">RESPONSAVEL</th>
-            <th>ANO</th>
-            <th>ATIVO</th>
-            <th>SERVICO</th>
-            <th>TIPO BLOCO</th>
-            <th>BLOCO</th>
-            <th>ALTERADO</th>
-            <th>STATUS</th>
-            <th>TIPO DE PGTO</th>
-            <th>ORCADO JANEIRO</th>
-            <th>BACKLOG JANEIRO</th>
-            <th>CAIXA JANEIRO</th>
-            <th>REAL JANEIRO</th>
-            <th>ACUM JANEIRO</th>
-            <th>ORCADO FEVEREIRO</th>
-            <th>BACKLOG FEVEREIRO</th>
-            <th>CAIXA FEVEREIRO</th>
-            <th>REAL FEVEREIRO</th>
-            <th>ACUM FEVEREIRO</th>
-            <th>ORCADO MARCO</th>
-            <th>BACKLOG MARCO</th>
-            <th>CAIXA MARCO</th>
-            <th>REAL MARCO</th>
-            <th>ACUM MARCO</th>
-            <th>ORCADO 1 TRIMESTRE</th>
-            <th>BACKLOG 1 TRIMESTRE</th>
-            <th>CAIXA - 1 TRIMESTRE</th>
-            <th>REAL 1 TRIMESTRE</th>
-            <th>ACUM - 1 TRI</th>
-            <th>ORCADO ABRIL</th>
-            <th>BACKLOG ABRIL</th>
-            <th>CAIXA ABRIL</th>
-            <th>REAL ABRIL</th>
-            <th>ACUM ABRIL</th>
-            <th>ORCADO MAIO</th>
-            <th>BACKLOG MAIO</th>
-            <th>CAIXA MAIO</th>
-            <th>REAL MAIO</th>
-            <th>ACUM MAIO</th>
-            <th>ORCADO JUNHO</th>
-            <th>BACKLOG JUNHO</th>
-            <th>CAIXA JUNHO</th>
-            <th>REAL JUNHO</th>
-            <th>ACUM JUNHO</th>
-            <th>ORCADO 2 TRIMESTRE</th>
-            <th>BACKLOG 2 TRIMESTRE</th>
-            <th>CAIXA - 2 TRIMESTRE</th>
-            <th>REAL 2 TRIMESTRE</th>
-            <th>ACUM - 2 TRI</th>
-            <th>ORCADO JULHO</th>
-            <th>BACKLOG JULHO</th>
-            <th>CAIXA JULHO</th>
-            <th>REAL JULHO</th>
-            <th>ACUM JULHO</th>
-            <th>ORCADO AGOSTO</th>
-            <th>BACKLOG AGOSTO</th>
-            <th>CAIXA AGOSTO</th>
-            <th>REAL AGOSTO</th>
-            <th>ACUM AGOSTO</th>
-            <th>ORCADO SETEMBRO</th>
-            <th>BACKLOG SETEMBRO</th>
-            <th>CAIXA SETEMBRO</th>
-            <th>REAL SETEMBRO</th>
-            <th>ACUM SETEMBRO</th>
-            <th>ORCADO 3 TRIMESTRE</th>
-            <th>BACKLOG 3 TRIMESTRE</th>
-            <th>CAIXA - 3 TRIMESTRE</th>
-            <th>REAL 3 TRIMESTRE</th>
-            <th>ACUM - 3 TRI</th>
-            <th>ORCADO OUTUBRO</th>
-            <th>BACKLOG OUTUBRO</th>
-            <th>CAIXA OUTUBRO</th>
-            <th>REAL OUTUBRO</th>
-            <th>ACUM OUTUBRO</th>
-            <th>ORCADO NOVEMBRO</th>
-            <th>BACKLOG NOVEMBRO</th>
-            <th>CAIXA NOVEMBRO</th>
-            <th>REAL NOVEMBRO</th>
-            <th>ACUM NOVEMBRO</th>
-            <th>ORCADO DEZEMBRO</th>
-            <th>BACKLOG DEZEMBRO</th>
-            <th>CAIXA DEZEMBRO</th>
-            <th>REAL DEZEMBRO</th>
-            <th>ACUM DEZEMBRO</th>
-            <th>ORCADO 4 TRIMESTRE</th>
-            <th>BACKLOG 4 TRIMESTRE</th>
-            <th>CAIXA - 4 TRIMESTRE</th>
-            <th>REAL 4 TRIMESTRE</th>
-            <th>ACUM - 4 TRI</th>
-            <th>ORCADO TOTAL</th>
-            <th>BACKLOG TOTAL</th>
-            <th>CAIXA TOTAL</th>
-            <th>REAL TOTAL</th>
-            <th>ACUM TOTAL</th>
+            <th colspan="2" style="vertical-align: middle; text-align: center;">FORNECEDOR</th>
+            <th colspan="9" style="background-color:#06EAC3; vertical-align: middle;">COMPLEMENTO LANÇAMENTO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">JANEIRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">FEVEREIRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">MARCO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">1º TRIMESTRE</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">ABRIL</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">MAIO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">JUNHO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">2º TRIMESTRE</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">JULHO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">AGOSTO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">SETEMBRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">3º TRIMESTRE</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">OUTUBRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">NOVEMBRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">DEZEMBRO</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">4º TRIMESTRE</th>
+            <th colspan="5" style="background-color: #CCCCCC; font-size: 14px; vertical-align: middle; text-align: center;">TOTAL ANO</th>
+        </tr>
+        <tr>
+            <th rowspan="2" style="background-color: #CCCCCC;vertical-align: middle; text-align: center;">RAZÃO SOCIAL</th>
+            <th rowspan="2" style="background-color: #CCCCCC;vertical-align: middle; text-align: center;">NOME FANTASIA</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">RESPONSAVEL</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">ANO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">ATIVO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">SERVICO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">TIPO BLOCO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">BLOCO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">ALTERADO</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">STATUS</th>
+            <th rowspan="2" style="background-color: #06E4AC;vertical-align: middle; text-align: center;">TIPO DE PGTO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+            <th>ORCADO</th>
+            <th>BACKLOG</th>
+            <th>CAIXA</th>
+            <th>REAL</th>
+            <th>ACUMULADO</th>
+        </tr>
+        <tr>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
+            <th style="font-size:13px; color: #06E4AC; font-weight:bold; font-style:italic;">R$ - </th>
         </tr>
     </thead>
 
@@ -115,14 +222,23 @@
     .dataTables_scrollHead {
         background-color: #FFF;
     }
-.DTFC_LeftBodyLiner {
-    overflow-y: hidden !important;
-}    
-.ColVis_collection {
-    height: 250px;
-    overflow-y: scroll !important;
-    width: 200px !important;
-    left: 1103px !important;
-}
+
+    /*.DTFC_LeftBodyLiner {
+        overflow-y: visible !important;
+    }*/
+
+    .DTFC_LeftWrapper {
+        
+    }
+    .DTFC_LeftBodyLiner {
+        
+    }
+
+    .ColVis_collection {
+        height: 250px;
+        overflow-y: scroll !important;
+        width: 200px !important;
+        left: 1103px !important;
+    }
 </style>
 

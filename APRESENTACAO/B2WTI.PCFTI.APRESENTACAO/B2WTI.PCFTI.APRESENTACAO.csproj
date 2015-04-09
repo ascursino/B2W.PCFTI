@@ -139,6 +139,7 @@
     <Content Include="css\stylesheet.datatables\css\jquery.dataTables.css" />
     <Content Include="css\stylesheet.datatables\css\jquery.dataTables.min.css" />
     <Content Include="css\stylesheet.datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="css\stylesheet.datatables\css\shCore.css" />
     <Content Include="css\stylesheet.datatables\images\background.png" />
     <Content Include="css\stylesheet.datatables\images\back_disabled.png" />
     <Content Include="css\stylesheet.datatables\images\back_enabled.png" />

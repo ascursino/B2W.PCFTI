@@ -59,7 +59,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
                         "~/js/jquery.datatables/dataTables.bootstrap.js",
                         "~/js/jquery.datatables/dataTables.responsive.js",
                         "~/js/jquery.datatables/dataTables.editor.js",
-                        "~/js/jquery.datatables/dataTables.keyTable.js"));
+                        "~/js/jquery.datatables/dataTables.keyTable.js",
+                        "~/js/jquery.datatables/dataTables.autoFill.js",
+                        "~/js/jquery.datatables/dataTables.scroller.js"));
+
+
 
 
             //Javascript Data Tables Page
@@ -94,12 +98,16 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
 
             //Style DataTables Page
             bundles.Add(new StyleBundle("~/Content/css/DataTables").Include(
-                        "~/css/stylesheet.datatables/css/dataTables.bootstrap.css",
+                        //"~/css/stylesheet.datatables/css/dataTables.bootstrap.css",
+                        "~/css/stylesheet.datatables/css/jquery.dataTables.css",
                         "~/css/stylesheet.datatables/css/dataTables.fixedColumns.css",
                         "~/css/stylesheet.datatables/css/dataTables.responsive.css",
                         "~/css/stylesheet.datatables/css/dataTables.tableTools.css",
                         "~/css/stylesheet.datatables/css/dataTables.colVis.css",
-                        "~/css/stylesheet.datatables/css/dataTables.keyTable.css"));
+                        "~/css/stylesheet.datatables/css/dataTables.keyTable.css",
+                        "~/js/jquery.datatables/resources/syntax/shCore.css",
+                        "~/css/stylesheet.datatables/css/dataTables.autoFill.css",
+                        "~/css/stylesheet.datatables/css/dataTables.scroller.css"));
 
         }
     }

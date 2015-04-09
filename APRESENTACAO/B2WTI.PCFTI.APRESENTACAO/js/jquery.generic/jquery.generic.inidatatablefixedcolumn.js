@@ -144,23 +144,16 @@ function dataTablesComFixedColumnAndExport() {
                 { data: "REAL_TOTAL" },
                 { data: "ACUM_TOTAL" }
         ],
-
-        "dom": 'C<"clear">lfrtip',
-        "colVis": {
-            "buttonText": "Exibir/Ocultar Colunas",
-            restore: "Restaurar Visão",
-            showAll: "Exibir Todas",
-            showNone: "Ocultar Todas"
-        },
-
+        "sDom": 'C<"clear"><"H"lfr>t<"F"ip>',
         "bPaginate": true,
-        "sScrollY": "300px",
-        "sScrollX": "100%",
-        "bScrollCollapse": true,
+        "scrollY": "400px",
+        "scrollX": "auto",
+        "scrollCollapse": false,
         "bFilter": true,
         "bSort": false,
         "bInfo": true,
-        "bAutoWidth": true,
+        iDisplayStart: 20,
+        "bAutoWidth": false,
         "bStateSave": false,
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -184,21 +177,34 @@ function dataTablesComFixedColumnAndExport() {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
-        },
-        //"sDom": 'T<"clear">lfrtip',
-        //"dom": 'T<"clear">lfrtip',
-        //"tableTools": {
-        //    "sSwfPath": GetURLParameter() + "/js/jquery.datatables/swf/copy_csv_xls_pdf.swf"
-        //}
+        }
+        
     });
 
-    new $.fn.dataTable.FixedColumns(table, {
-        leftColumns: 1
-        //"iLeftWidth": 480 // pixels
 
+    new $.fn.dataTable.FixedColumns(table, {
+        leftColumns: 1,
+        //"iLeftWidth": 400 // pixels
     });
 
     //new $.fn.dataTable.KeyTable(table);
 }
 
 
+function calculoSubTotalColumns() {
+    
+    var sums = [];
+
+    $('.teste').each(function () {
+        var rowSum = 0;
+        $(this).find('.remaining-detail').each(function () {
+            rowSum += parseInt($(this).html().replace('R$', ''));
+        });
+        sums.push(rowSum);
+    });
+
+    $('#sum2').text("Biggest sum is in row " + (1 + sums.indexOf(Math.max.apply(Math, sums))));
+
+
+
+}
