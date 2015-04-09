@@ -1,0 +1,52 @@
+﻿@model B2WTI.PCFTI.APRESENTACAO.Areas.Sistema.Models.GestaoPrivilegio
+@{
+    ViewBag.Title = "GerenciarPrivilegios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Privilégios do usuário ( @Model.Usuario.Nome )</h5>
+                </div>
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+
+                        @Html.AntiForgeryToken()
+                        
+                        @Html.HiddenFor(model => model.Usuario.UsuarioId)
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            @foreach (var item in Model.Regras)
+                            {
+
+                                <div>
+                                    @Html.Raw((Model.UsuarioRegras.Where(p => p.RegraId == item.RegraId && p.UsuarioId == Model.Usuario.UsuarioId).Count() > 0) ? string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" checked >", item.RegraId) : string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" >", item.RegraId))
+                                    @item.Nome
+                                    <br /><br />
+                                </div>
+
+                            }
+
+                            <div class="col-sm-4 col-sm-offset-9">
+                                <button class="btn btn-primary" type="submit">Salvar Privilégios</button>
+                            </div>
+
+                            <br /><br />
+
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

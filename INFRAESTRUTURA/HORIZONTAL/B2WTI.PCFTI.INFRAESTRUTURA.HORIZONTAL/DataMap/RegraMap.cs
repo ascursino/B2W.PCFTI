@@ -13,7 +13,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.HasKey(t => t.RegraId);
 
             this.Property(t => t.Nome)
-                .HasColumnName("ResponsavelId")
+                .HasColumnName("Nome")
                 .HasColumnType("varchar")
                 .IsRequired()
                 .HasMaxLength(100);

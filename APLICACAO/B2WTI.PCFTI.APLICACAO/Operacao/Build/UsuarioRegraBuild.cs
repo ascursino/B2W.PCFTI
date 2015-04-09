@@ -10,6 +10,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     
     public class UsuarioRegraBuild
     {
@@ -92,7 +93,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                         p.UsuarioId == UsuarioId 
                         && p.RegraId == RegraId)
                         .Select()
-                        .Count() == 0);
+                        .Count() > 0);
 
                     unitOfWork.Dispose();
                 }
@@ -202,6 +203,51 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     UsuarioRegraService.Delete(usuarioregra);
                     unitOfWork.SaveChanges();
                     (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(usuarioregra);
+                }
+            }
+            catch
+            {
+                ret = false;
+            }
+            return ret;
+        }
+
+        public bool ExcluirUsuarioRegra(Usuario usuario)
+        {
+            bool ret = true;
+
+            if (usuario == null)
+                return false;
+
+            if (usuario.UsuarioId == Guid.Empty)
+                return false;
+
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<UsuarioRegra> usuarioregraRepository = new Repository<UsuarioRegra>(context, unitOfWork);
+                    IUsuarioRegraService usuarioregraService = new UsuarioRegraService(usuarioregraRepository);
+                    
+                    List<UsuarioRegra> usuarioregras = (from item in usuarioregraService.Queryable()
+                                                        where item.UsuarioId == usuario.UsuarioId
+                                                        select item)
+                                                        .ToList<UsuarioRegra>();
+
+                    Parallel.ForEach<UsuarioRegra>(usuarioregras, usuarioregra => {
+
+                        usuarioregra.AlteradoPor = usuario.AlteradoPor;
+                        usuarioregra.AlteradoEm = DateTime.Now;
+
+                        usuarioregra.ObjectState = INFRAESTRUTURA.TRANSVERSAL.Core.States.ObjectState.Deleted;
+                        usuarioregraService.Delete(usuarioregra);
+
+                        (new Execute()).Sistema.Versao.NovaVersaoParaExclusao(usuarioregra);
+
+                    });
+                    
+                    unitOfWork.SaveChanges();
                 }
             }
             catch

@@ -14,7 +14,7 @@
     <RootNamespace>B2WTI.PCFTI.APRESENTACAO</RootNamespace>
     <AssemblyName>B2WTI.PCFTI.APRESENTACAO</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
@@ -48,6 +48,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.DynamicData" />
@@ -177,6 +181,7 @@
     <Content Include="js\jquery.datatables\resources\bootstrap\editor.bootstrap.scss" />
     <Content Include="js\jquery.datatables\resources\examples.php" />
     <Content Include="js\jquery.datatables\resources\syntax\Syntax Highlighter license" />
+    <Content Include="Areas\Sistema\Views\Usuario\Privilegios.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -336,6 +341,7 @@
     <Compile Include="Areas\Orcamento\OrcamentoAreaRegistration.cs" />
     <Compile Include="Areas\Sistema\Controllers\HomeController.cs" />
     <Compile Include="Areas\Sistema\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Sistema\Models\GestaoPrivilegio.cs" />
     <Compile Include="Areas\Sistema\SistemaAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -380,7 +386,6 @@
     <Folder Include="Areas\Cadastro\Views\Status\" />
     <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
     <Folder Include="Areas\Orcamento\Models\" />
-    <Folder Include="Areas\Sistema\Models\" />
     <Folder Include="Areas\Sistema\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -413,7 +418,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>21472</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:21472/</IISUrl>
+          <IISUrl>http://app.portalti.b2w/PCFTI</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
