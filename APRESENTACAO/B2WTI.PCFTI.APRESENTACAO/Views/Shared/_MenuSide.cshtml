@@ -1,4 +1,13 @@
-﻿<nav class="navbar-default navbar-static-side" role="navigation">
+﻿@{
+    string _Area = string.Empty;
+
+    if (ViewContext.RouteData.Values["area"] != null)
+    { 
+        _Area = ViewContext.RouteData.Values["area"].ToString();
+    }  
+}
+
+<nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             <li class="nav-header">
@@ -14,9 +23,10 @@
                             </span> <span class="text-muted text-xs block">MÓDULOS DO PCFTI <b class="caret"></b></span>
                         </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="/Cadastro">CADASTROS</a></li>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">                        
                         <li><a href="/Orcamento">ORÇAMENTOS</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/Cadastro">CADASTROS</a></li>
                         <li><a href="/Sistema">CONFIGURAÇÕES DO SISTEMA</a></li>
                     </ul>
                 </div>
@@ -26,15 +36,62 @@
                 </div>
             </li>
             @* Home Menu Visões *@
-            <li>
-                <a href="">
-                    <i class="fa fa-eye"></i> <span class="nav-label">Visões</span>
-                    <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level">
-                    <li>@Html.ActionLink("Visão Completa", "Index", "Home")</li>
-                </ul>
-            </li>
+
+            @switch (_Area.ToUpper())
+            {
+                case "ORCAMENTO":
+                    <li class="active">
+                        <a href="">
+                            <i class="fa fa-eye"></i> <span class="nav-label">VISÕES</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>@Html.ActionLink("Anual", "Anual", "Visao")</li>
+                            <li>@Html.ActionLink("Semestral", "Semestral", "Visao")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-eye"></i> <span class="nav-label">LANÇAMENTOS</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>@Html.ActionLink("Painel de Lançamentos", "Index", "Lancamento")</li>
+                        </ul>
+                    </li>
+                    break;
+                case "CADASTRO":
+                    <li class="active">
+                        <a href="">
+                            <i class="fa fa-eye"></i> <span class="nav-label">CADASTROS</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>@Html.ActionLink("Ano Calendário", "Index", "AnoCalendario")</li>
+                            <li>@Html.ActionLink("Bloco", "Index", "Bloco")</li>
+                            <li>@Html.ActionLink("Fornecedor", "Index", "Fornecedor")</li>
+                            <li>@Html.ActionLink("Responsável", "Index", "Responsavel")</li>
+                            <li>@Html.ActionLink("Status", "Index", "Status")</li>
+                            <li>@Html.ActionLink("Tipo de Bloco", "Index", "TipoBloco")</li>
+                            <li>@Html.ActionLink("Tipo de Pagamento", "Index", "TipoDePagamento")</li>
+                            <li>@Html.ActionLink("Tipo de Serviço", "Index", "TipoServico")</li>
+                        </ul>
+                    </li>
+                    break;
+                case "SISTEMA":
+                    <li class="active">
+                        <a href="">
+                            <i class="fa fa-eye"></i> <span class="nav-label">CONFIGURAÇÕES DO SISTEMA</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>@Html.ActionLink("Usuaários e Permissões", "Index", "Home")</li>
+
+                        </ul>
+                    </li>
+                    break;
+            }
+
 
         </ul>
 

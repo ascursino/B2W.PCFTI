@@ -31,14 +31,30 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return usuarioregra;
         }
 
-        public static UsuarioRegraView CriarNovoUsuarioRegra(UsuarioRegraView usuarioregra, string CriadoPor, DateTime CriadoEm)
+        public static bool GerenciarPrivilegios(Guid usuarioid, Guid[] regras, string CriadoPor, DateTime CriadoEm)
         {
-            UsuarioRegra objdomin = usuarioregra.DeViewParaDomin();
-            objdomin.CriadoPor = CriadoPor;
-            objdomin.CriadoEm = CriadoEm;
+            bool ret = false;
 
-            usuarioregra = Executar.Sistema.UsuarioRegra.CriarNovoUsuarioRegra(objdomin).DeDominParaView();
-            return usuarioregra;
+            if (regras.Length == 0)
+                return false;
+
+            bool exclusaoResult = Executar.Sistema.UsuarioRegra.ExcluirUsuarioRegra(new Usuario() { UsuarioId = usuarioid, AlteradoPor = CriadoPor, AlteradoEm = CriadoEm });
+
+            if (exclusaoResult)
+            {
+                foreach (Guid regra in regras)
+                {
+                    UsuarioRegra objdomin = new UsuarioRegra() { UsuarioId = usuarioid, RegraId = regra };
+                    objdomin.CriadoPor = CriadoPor;
+                    objdomin.CriadoEm = CriadoEm;
+
+                    Executar.Sistema.UsuarioRegra.CriarNovoUsuarioRegra(objdomin).DeDominParaView();
+
+                }
+                ret = true;
+            }
+
+            return ret;
         }
 
         public static UsuarioRegraView EditarUsuarioRegra(UsuarioRegraView usuarioregra, string CriadoPor, DateTime CriadoEm)
@@ -58,6 +74,25 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             objdomin.CriadoEm = CriadoEm;
 
             bool ret = Executar.Sistema.UsuarioRegra.ExcluirUsuarioRegra(usuarioregra.DeViewParaDomin());
+            return ret;
+        }
+
+        public static bool ExcluirUsuarioRegraDeUmUsuario(UsuarioRegraView usuarioregra, string CriadoPor, DateTime CriadoEm)
+        {
+            UsuarioRegra objdomin = usuarioregra.DeViewParaDomin();
+            objdomin.CriadoPor = CriadoPor;
+            objdomin.CriadoEm = CriadoEm;
+
+            bool ret = Executar.Sistema.UsuarioRegra.ExcluirUsuarioRegra(usuarioregra.DeViewParaDomin());
+            return ret;
+        }
+
+        public static bool RemoverTodosOsPrivilegios(Guid usuarioid, string CriadoPor, DateTime CriadoEm)
+        {
+            bool ret = false;
+
+            ret = Executar.Sistema.UsuarioRegra.ExcluirUsuarioRegra(new Usuario() { UsuarioId = usuarioid, AlteradoPor = CriadoPor, AlteradoEm = CriadoEm });
+
             return ret;
         }
 

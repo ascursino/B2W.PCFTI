@@ -2,8 +2,8 @@
 namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 {
     using APLICACAO.Operacao;
-    using DOMINIO.Model.Global;
-    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+    using DOMINIO.Model.Sistema;
+    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Sistema.ViewModel;
     using Map;
     using System;
     using System.Collections.Generic;
@@ -12,51 +12,51 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
     {
         static Execute Executar = new Execute();
 
-        public static List<BlocoView> ListarTodosOsBlocos()
+        public static List<RegraView> ListarTodosAsRegras()
         {
-            List<BlocoView> blocos = Executar.Cadastro.Bloco.ListarBlocos().DeDominParaView();
-            return blocos;
+            List<RegraView> regras = Executar.Sistema.Regra.ListarRegras().DeDominParaView();
+            return regras;
         }
 
-        public static List<BlocoView> BuscarBlocos(string filtro)
+        public static List<RegraView> BuscarRegras(string filtro)
         {
-            List<BlocoView> blocos = Executar.Cadastro.Bloco.BuscarBlocos(filtro).DeDominParaView();
-            return blocos;
+            List<RegraView> regras = Executar.Sistema.Regra.BuscarRegras(filtro).DeDominParaView();
+            return regras;
         }
 
-        public static BlocoView CarregarBloco(Guid BlocoId)
+        public static RegraView CarregarRegra(Guid RegraId)
         {
-            BlocoView bloco = Executar.Cadastro.Bloco.CarregarBloco(BlocoId).DeDominParaView();
-            return bloco;
+            RegraView regra = Executar.Sistema.Regra.CarregarRegra(RegraId).DeDominParaView();
+            return regra;
         }
 
-        public static BlocoView CriarNovoBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
+        public static RegraView CriarNovaRegra(RegraView regra, string CriadoPor, DateTime CriadoEm)
         {
-            Bloco objdomin = bloco.DeViewParaDomin();
+            Regra objdomin = regra.DeViewParaDomin();
             objdomin.CriadoPor = CriadoPor;
             objdomin.CriadoEm = CriadoEm;
 
-            bloco = Executar.Cadastro.Bloco.CriarNovoBloco(objdomin).DeDominParaView();
-            return bloco;
+            regra = Executar.Sistema.Regra.CriarNovaRegra(objdomin).DeDominParaView();
+            return regra;
         }
 
-        public static BlocoView EditarBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
+        public static RegraView EditarRegra(RegraView regra, string AlteradoPor, DateTime AlteradoEm)
         {
-            Bloco objdomin = bloco.DeViewParaDomin();
-            objdomin.CriadoPor = CriadoPor;
-            objdomin.CriadoEm = CriadoEm;
+            Regra objdomin = regra.DeViewParaDomin();
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
 
-            bloco = Executar.Cadastro.Bloco.AtualizarBloco(bloco.DeViewParaDomin()).DeDominParaView();
-            return bloco;
+            regra = Executar.Sistema.Regra.AtualizarRegra(objdomin).DeDominParaView();
+            return regra;
         }
 
-        public static bool ExcluirBloco(BlocoView bloco, string CriadoPor, DateTime CriadoEm)
+        public static bool ExcluirRegra(RegraView regra, string AlteradoPor, DateTime AlteradoEm)
         {
-            Bloco objdomin = bloco.DeViewParaDomin();
-            objdomin.CriadoPor = CriadoPor;
-            objdomin.CriadoEm = CriadoEm;
+            Regra objdomin = regra.DeViewParaDomin();
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
 
-            bool ret = Executar.Cadastro.Bloco.ExcluirBloco(bloco.DeViewParaDomin());
+            bool ret = Executar.Sistema.Regra.ExcluirRegra(objdomin);
             return ret;
         }
 

@@ -61,5 +61,15 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return ret;
         }
 
+        public static bool SolicitarAtivacao(UsuarioView usuario, string AlteradoPor, DateTime AlteradoEm)
+        {
+            Usuario objdomin = usuario.DeViewParaDomin();
+            objdomin.CriadoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
+
+            bool ret = Executar.Sistema.Usuario.SolicitarAtivacao(objdomin);
+            return ret;
+        }
+
     }
 }

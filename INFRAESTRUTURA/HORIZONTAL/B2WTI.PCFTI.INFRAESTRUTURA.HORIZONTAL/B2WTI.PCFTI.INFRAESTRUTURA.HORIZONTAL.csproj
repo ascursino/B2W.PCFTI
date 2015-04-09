@@ -87,6 +87,10 @@
     <Compile Include="Migrations\201504081612505_PCFTI0001.Designer.cs">
       <DependentUpon>201504081612505_PCFTI0001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504082043178_PCFTI0002.cs" />
+    <Compile Include="Migrations\201504082043178_PCFTI0002.Designer.cs">
+      <DependentUpon>201504082043178_PCFTI0002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +132,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504081612505_PCFTI0001.resx">
       <DependentUpon>201504081612505_PCFTI0001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504082043178_PCFTI0002.resx">
+      <DependentUpon>201504082043178_PCFTI0002.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

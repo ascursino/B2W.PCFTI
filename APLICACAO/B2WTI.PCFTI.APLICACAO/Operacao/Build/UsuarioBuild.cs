@@ -3,6 +3,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 {
     using B2WTI.PCFTI.APLICACAO.Modulo.Sistema;
     using B2WTI.PCFTI.DOMINIO.Model.Sistema;
+    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Core.Providers;
     using INFRAESTRUTURA.HORIZONTAL;
     using INFRAESTRUTURA.TRANSVERSAL.DataContexts;
     using INFRAESTRUTURA.TRANSVERSAL.Repositories;
@@ -10,6 +11,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     
     public class UsuarioBuild
     {
@@ -43,12 +45,12 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 
                 unitOfWork.Dispose();
                 (new Execute()).Sistema.Versao.NovaVersaoParaCriacao(usuario);
+                
+                SolicitarAtivacao(usuario);
             }
 
             return usuario;
         }
-
-
 
         #endregion
 
@@ -204,5 +206,40 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 
         #endregion
 
+        #region OUTRAS ( BUSINESS )
+
+        public bool SolicitarAtivacao(Usuario usuario)
+        {
+            if (usuario == null)
+                return false;
+
+            bool ret = true;
+
+            try
+            {
+                List<string> emails = new List<string>();
+                emails.Add(usuario.Email);
+
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(string.Format("Prezado(a) {0};", usuario.Nome));
+                sb.AppendLine("<br/><br/>");
+                sb.AppendLine("Por favor, clique no link abaixo para ativar sua conta.");
+                sb.AppendLine("<br/><br/>");
+                sb.AppendLine(string.Format("<a href='http://app.portalti.b2w/pcfti/Sistema/Usuario/Ativar/{0}'>http://app.portalti.b2w/pcfti/Sistema/Usuario/Editar/{0}</a>", usuario.UsuarioId));
+                sb.AppendLine("<br/><br/>Agradecemos sua compreensão");
+                
+                ret = MailProvider.EnviarEmail(emails, "PCFTI - Ativação de acesso ao sistema. ", sb.ToString());
+
+            }
+            catch
+            {
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        #endregion
     }
 }
