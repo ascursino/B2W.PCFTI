@@ -47,6 +47,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             bundles.Add(new ScriptBundle("~/bundles/EditTable").Include(
                         "~/js/jquery.editable/jquery.editable.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ICheck").Include(
+            "~/js/jquery.Icheck/jquery.ICheck.js"));
+
             //Javascript Data Tables Page
             bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
                         "~/js/jquery.datatables/jquery.dataTables.js",
@@ -56,7 +59,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
                         "~/js/jquery.datatables/dataTables.bootstrap.js",
                         "~/js/jquery.datatables/dataTables.responsive.js",
                         "~/js/jquery.datatables/dataTables.editor.js",
-                        "~/js/jquery.datatables/dataTables.keyTable.js"));
+                        "~/js/jquery.datatables/dataTables.keyTable.js",
+                        "~/js/jquery.datatables/dataTables.autoFill.js",
+                        "~/js/jquery.datatables/dataTables.scroller.js"));
+
+
 
 
             //Javascript Data Tables Page
@@ -77,6 +84,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
             bundles.Add(new StyleBundle("~/Content/Style").Include(
                         "~/css/style.css"));
 
+            bundles.Add(new StyleBundle("~/Content/StyleICheck").Include(
+                        "~/css/ICheckCustom.css"));
+
 
             //Style Animate Page
             bundles.Add(new StyleBundle("~/Content/css/Animate").Include(
@@ -88,13 +98,16 @@ namespace B2WTI.PCFTI.APRESENTACAO.App_Start
 
             //Style DataTables Page
             bundles.Add(new StyleBundle("~/Content/css/DataTables").Include(
-                        "~/css/stylesheet.datatables/css/dataTables.bootstrap.css",
+                        //"~/css/stylesheet.datatables/css/dataTables.bootstrap.css",
+                        "~/css/stylesheet.datatables/css/jquery.dataTables.css",
                         "~/css/stylesheet.datatables/css/dataTables.fixedColumns.css",
                         "~/css/stylesheet.datatables/css/dataTables.responsive.css",
-                        "~/css/stylesheet.datatables/css/dataTables.tableTools.min.css"));
-
-
-
+                        "~/css/stylesheet.datatables/css/dataTables.tableTools.css",
+                        "~/css/stylesheet.datatables/css/dataTables.colVis.css",
+                        "~/css/stylesheet.datatables/css/dataTables.keyTable.css",
+                        "~/js/jquery.datatables/resources/syntax/shCore.css",
+                        "~/css/stylesheet.datatables/css/dataTables.autoFill.css",
+                        "~/css/stylesheet.datatables/css/dataTables.scroller.css"));
 
         }
     }

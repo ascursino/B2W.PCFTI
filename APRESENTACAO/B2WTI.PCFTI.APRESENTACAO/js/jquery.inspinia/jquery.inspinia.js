@@ -1,6 +1,12 @@
 ﻿// Custom scripts
 $(document).ready(function () {
 
+
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
+
     // MetsiMenu
     $('#side-menu').metisMenu();
 
@@ -34,9 +40,9 @@ $(document).ready(function () {
     });
 
     // Append config box / Only for demo purpose
-    $.get("skin-config.html", function (data) {
-        $('body').append(data);
-    });
+    //$.get("skin-config.html", function (data) {
+    //    $('body').append(data);
+    //});
 
     // minimalize menu
     $('.navbar-minimalize').click(function () {

@@ -4,11 +4,18 @@ $(document).ready(function () {
     dataTablesComFixedColumnAndExport();
 });
 
+function iCheckBoxJquery() {
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
+}
+
 function GetURLParameter() {
     //var pathname = window.location.pathname; // Returns path only
     var url = window.location.host;
 
-    return url + "/js/jquery.generic/listTripa.txt";
+    return url;
     //alert(pathname);
     //alert(url + "/js/jquery.generic/listTripa.txt");
 };
@@ -38,117 +45,116 @@ function editDataTableElementInLine() {
 function dataTablesComFixedColumnAndExport() {
 
     table = $('.dataTables-example').dataTable({
-       
-        "sAjaxSource": GetURLParameter() + "/js/jquery.generic/listTripa.json",
-        "sAjaxDataProp": "",
-        "bProcessing": true,
-        "aoColumns": [
-                { "mData": "FORNECEDOR" },
-                { "mData": "NOME_FANTASIA" },
-                { "mData": "RESPONSAVEL" },
-                { "mData": "ANO" },
-                { "mData": "ATIVO" },
-                { "mData": "SERVICO" },
-                { "mData": "TIPO_BLOCO" },
-                { "mData": "BLOCO" },
-                { "mData": "ALTERADO" },
-                { "mData": "STATUS" },
-                { "mData": "TIPO_DE_PGTO" },
-                { "mData": "ORCADO_JANEIRO" },
-                { "mData": "BACKLOG_JANEIRO" },
-                { "mData": "CAIXA_JANEIRO" },
-                { "mData": "REAL_JANEIRO" },
-                { "mData": "ACUM_JANEIRO" },
-                { "mData": "ORCADO_FEVEREIRO" },
-                { "mData": "BACKLOG_FEVEREIRO" },
-                { "mData": "CAIXA_FEVEREIRO" },
-                { "mData": "REAL_FEVEREIRO" },
-                { "mData": "ACUM_FEVEREIRO" },
-                { "mData": "ORCADO_MARCO" },
-                { "mData": "BACKLOG_MARCO" },
-                { "mData": "CAIXA_MARCO" },
-                { "mData": "REAL_MARCO" },
-                { "mData": "ACUM_MARCO" },
-                { "mData": "ORCADO_1_TRIMESTRE" },
-                { "mData": "BACKLOG_1_TRIMESTRE" },
-                { "mData": "CAIXA_-_1_TRIMESTRE" },
-                { "mData": "REAL_1_TRIMESTRE" },
-                { "mData": "ACUM_-_1_TRI" },
-                { "mData": "ORCADO_ABRIL" },
-                { "mData": "BACKLOG_ABRIL" },
-                { "mData": "CAIXA_ABRIL" },
-                { "mData": "REAL_ABRIL" },
-                { "mData": "ACUM_ABRIL" },
-                { "mData": "ORCADO_MAIO" },
-                { "mData": "BACKLOG_MAIO" },
-                { "mData": "CAIXA_MAIO" },
-                { "mData": "REAL_MAIO" },
-                { "mData": "ACUM_MAIO" },
-                { "mData": "ORCADO_JUNHO" },
-                { "mData": "BACKLOG_JUNHO" },
-                { "mData": "CAIXA_JUNHO" },
-                { "mData": "REAL_JUNHO" },
-                { "mData": "ACUM_JUNHO" },
-                { "mData": "ORCADO_2_TRIMESTRE" },
-                { "mData": "BACKLOG_2_TRIMESTRE" },
-                { "mData": "CAIXA_-_2_TRIMESTRE" },
-                { "mData": "REAL_2_TRIMESTRE" },
-                { "mData": "ACUM_-_2_TRI" },
-                { "mData": "ORCADO_JULHO" },
-                { "mData": "BACKLOG_JULHO" },
-                { "mData": "CAIXA_JULHO" },
-                { "mData": "REAL_JULHO" },
-                { "mData": "ACUM_JULHO" },
-                { "mData": "ORCADO_AGOSTO" },
-                { "mData": "BACKLOG_AGOSTO" },
-                { "mData": "CAIXA_AGOSTO" },
-                { "mData": "REAL_AGOSTO" },
-                { "mData": "ACUM_AGOSTO" },
-                { "mData": "ORCADO_SETEMBRO" },
-                { "mData": "BACKLOG_SETEMBRO" },
-                { "mData": "CAIXA_SETEMBRO" },
-                { "mData": "REAL_SETEMBRO" },
-                { "mData": "ACUM_SETEMBRO" },
-                { "mData": "ORCADO_3_TRIMESTRE" },
-                { "mData": "BACKLOG_3_TRIMESTRE" },
-                { "mData": "CAIXA_-_3_TRIMESTRE" },
-                { "mData": "REAL_3_TRIMESTRE" },
-                { "mData": "ACUM_-_3_TRI" },
-                { "mData": "ORCADO_OUTUBRO" },
-                { "mData": "BACKLOG_OUTUBRO" },
-                { "mData": "CAIXA_OUTUBRO" },
-                { "mData": "REAL_OUTUBRO" },
-                { "mData": "ACUM_OUTUBRO" },
-                { "mData": "ORCADO_NOVEMBRO" },
-                { "mData": "BACKLOG_NOVEMBRO" },
-                { "mData": "CAIXA_NOVEMBRO" },
-                { "mData": "REAL_NOVEMBRO" },
-                { "mData": "ACUM_NOVEMBRO" },
-                { "mData": "ORCADO_DEZEMBRO" },
-                { "mData": "BACKLOG_DEZEMBRO" },
-                { "mData": "CAIXA_DEZEMBRO" },
-                { "mData": "REAL_DEZEMBRO" },
-                { "mData": "ACUM_DEZEMBRO" },
-                { "mData": "ORCADO_4_TRIMESTRE" },
-                { "mData": "BACKLOG_4_TRIMESTRE" },
-                { "mData": "CAIXA_-_4_TRIMESTRE" },
-                { "mData": "REAL_4_TRIMESTRE" },
-                { "mData": "ACUM_-_4_TRI" },
-                { "mData": "ORCADO_TOTAL" },
-                { "mData": "BACKLOG_TOTAL" },
-                { "mData": "CAIXA_TOTAL" },
-                { "mData": "REAL_TOTAL" },
-                { "mData": "ACUM_TOTAL" }
+        ajax: "/js/jquery.generic/listTripa.json",
+        columns: [
+                { data: "FORNECEDOR" },
+                { data: "NOME_FANTASIA" },
+                { data: "RESPONSAVEL" },
+                { data: "ANO" },
+                { data: "ATIVO" },
+                { data: "SERVICO" },
+                { data: "TIPO_BLOCO" },
+                { data: "BLOCO" },
+                { data: "ALTERADO" },
+                { data: "STATUS" },
+                { data: "TIPO_DE_PGTO" },
+                { data: "ORCADO_JANEIRO" },
+                { data: "BACKLOG_JANEIRO" },
+                { data: "CAIXA_JANEIRO" },
+                { data: "REAL_JANEIRO" },
+                { data: "ACUM_JANEIRO" },
+                { data: "ORCADO_FEVEREIRO" },
+                { data: "BACKLOG_FEVEREIRO" },
+                { data: "CAIXA_FEVEREIRO" },
+                { data: "REAL_FEVEREIRO" },
+                { data: "ACUM_FEVEREIRO" },
+                { data: "ORCADO_MARCO" },
+                { data: "BACKLOG_MARCO" },
+                { data: "CAIXA_MARCO" },
+                { data: "REAL_MARCO" },
+                { data: "ACUM_MARCO" },
+                { data: "ORCADO_1_TRIMESTRE" },
+                { data: "BACKLOG_1_TRIMESTRE" },
+                { data: "CAIXA_-_1_TRIMESTRE" },
+                { data: "REAL_1_TRIMESTRE" },
+                { data: "ACUM_-_1_TRI" },
+                { data: "ORCADO_ABRIL" },
+                { data: "BACKLOG_ABRIL" },
+                { data: "CAIXA_ABRIL" },
+                { data: "REAL_ABRIL" },
+                { data: "ACUM_ABRIL" },
+                { data: "ORCADO_MAIO" },
+                { data: "BACKLOG_MAIO" },
+                { data: "CAIXA_MAIO" },
+                { data: "REAL_MAIO" },
+                { data: "ACUM_MAIO" },
+                { data: "ORCADO_JUNHO" },
+                { data: "BACKLOG_JUNHO" },
+                { data: "CAIXA_JUNHO" },
+                { data: "REAL_JUNHO" },
+                { data: "ACUM_JUNHO" },
+                { data: "ORCADO_2_TRIMESTRE" },
+                { data: "BACKLOG_2_TRIMESTRE" },
+                { data: "CAIXA_-_2_TRIMESTRE" },
+                { data: "REAL_2_TRIMESTRE" },
+                { data: "ACUM_-_2_TRI" },
+                { data: "ORCADO_JULHO" },
+                { data: "BACKLOG_JULHO" },
+                { data: "CAIXA_JULHO" },
+                { data: "REAL_JULHO" },
+                { data: "ACUM_JULHO" },
+                { data: "ORCADO_AGOSTO" },
+                { data: "BACKLOG_AGOSTO" },
+                { data: "CAIXA_AGOSTO" },
+                { data: "REAL_AGOSTO" },
+                { data: "ACUM_AGOSTO" },
+                { data: "ORCADO_SETEMBRO" },
+                { data: "BACKLOG_SETEMBRO" },
+                { data: "CAIXA_SETEMBRO" },
+                { data: "REAL_SETEMBRO" },
+                { data: "ACUM_SETEMBRO" },
+                { data: "ORCADO_3_TRIMESTRE" },
+                { data: "BACKLOG_3_TRIMESTRE" },
+                { data: "CAIXA_-_3_TRIMESTRE" },
+                { data: "REAL_3_TRIMESTRE" },
+                { data: "ACUM_-_3_TRI" },
+                { data: "ORCADO_OUTUBRO" },
+                { data: "BACKLOG_OUTUBRO" },
+                { data: "CAIXA_OUTUBRO" },
+                { data: "REAL_OUTUBRO" },
+                { data: "ACUM_OUTUBRO" },
+                { data: "ORCADO_NOVEMBRO" },
+                { data: "BACKLOG_NOVEMBRO" },
+                { data: "CAIXA_NOVEMBRO" },
+                { data: "REAL_NOVEMBRO" },
+                { data: "ACUM_NOVEMBRO" },
+                { data: "ORCADO_DEZEMBRO" },
+                { data: "BACKLOG_DEZEMBRO" },
+                { data: "CAIXA_DEZEMBRO" },
+                { data: "REAL_DEZEMBRO" },
+                { data: "ACUM_DEZEMBRO" },
+                { data: "ORCADO_4_TRIMESTRE" },
+                { data: "BACKLOG_4_TRIMESTRE" },
+                { data: "CAIXA_-_4_TRIMESTRE" },
+                { data: "REAL_4_TRIMESTRE" },
+                { data: "ACUM_-_4_TRI" },
+                { data: "ORCADO_TOTAL" },
+                { data: "BACKLOG_TOTAL" },
+                { data: "CAIXA_TOTAL" },
+                { data: "REAL_TOTAL" },
+                { data: "ACUM_TOTAL" }
         ],
+        "sDom": 'C<"clear"><"H"lfr>t<"F"ip>',
         "bPaginate": true,
-        "bLengthChange": true,
+        "scrollY": "400px",
+        "scrollX": "auto",
+        "scrollCollapse": false,
         "bFilter": true,
         "bSort": false,
         "bInfo": true,
-        "bAutoWidth": true,
-        "bStateSave": true,
-        "scrollY": 300,
-        "scrollX": true,
+        iDisplayStart: 20,
+        "bAutoWidth": false,
+        "bStateSave": false,
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ à _END_ de _TOTAL_ registros",
@@ -171,17 +177,34 @@ function dataTablesComFixedColumnAndExport() {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
-        },
-        responsive: true
-        //"sDom": 'T<"clear">lfrtip',
-        //"dom": 'T<"clear">lfrtip',
-        //"tableTools": {
-        //    "sSwfPath": GetURLParameter() + "/js/jquery.datatables/swf/copy_csv_xls_pdf.swf"
-        //}
+        }
+        
     });
 
-    new $.fn.dataTable.FixedColumns(table);
-    new $.fn.dataTable.KeyTable(table);
+
+    new $.fn.dataTable.FixedColumns(table, {
+        leftColumns: 1,
+        //"iLeftWidth": 400 // pixels
+    });
+
+    //new $.fn.dataTable.KeyTable(table);
 }
 
 
+function calculoSubTotalColumns() {
+    
+    var sums = [];
+
+    $('.teste').each(function () {
+        var rowSum = 0;
+        $(this).find('.remaining-detail').each(function () {
+            rowSum += parseInt($(this).html().replace('R$', ''));
+        });
+        sums.push(rowSum);
+    });
+
+    $('#sum2').text("Biggest sum is in row " + (1 + sums.indexOf(Math.max.apply(Math, sums))));
+
+
+
+}
