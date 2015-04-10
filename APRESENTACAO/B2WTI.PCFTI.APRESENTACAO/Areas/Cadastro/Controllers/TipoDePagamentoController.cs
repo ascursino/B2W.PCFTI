@@ -43,5 +43,39 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Cadastro.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        // GET: Cadastro/TipoDePagamento/Editar
+        public ActionResult Editar(Guid Id)
+        {
+            TipoDePagamentoView item = TipoDePagamentoExecute.CarregarTipoDePagamento(Id);
+            return View("Editar", item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // POST: Cadastro/TipoDePagamento/Editar
+        public ActionResult Editar(TipoDePagamentoView tipoDePagamento)
+        {
+            tipoDePagamento = TipoDePagamentoExecute.EditarTipoDePagamento(tipoDePagamento,
+                User.Identity.Name.ToString(), DateTime.Now);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        // GET: Cadastro/Bloco/Excluir
+        public ActionResult Excluir(Guid Id)
+        {
+            TipoDePagamentoView item = TipoDePagamentoExecute.CarregarTipoDePagamento(Id);
+            return View("Excluir", item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // POST: Cadastro/Bloco/Excluir
+        public ActionResult Excluir(TipoDePagamentoView tipoDePagamento)
+        {
+            bool result = TipoDePagamentoExecute.ExcluirTipoDePagamento(tipoDePagamento, User.Identity.Name.ToString(), DateTime.Now);
+            return RedirectToAction("Index");
+        }
     }
 }

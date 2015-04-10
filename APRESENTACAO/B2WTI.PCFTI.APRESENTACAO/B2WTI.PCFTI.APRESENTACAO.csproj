@@ -193,6 +193,13 @@
     <Content Include="Areas\Cadastro\Views\TipoDePagamento\Excluir.cshtml" />
     <Content Include="Areas\Cadastro\Views\TipoDePagamento\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\TipoDePagamento\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Novo.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -341,7 +348,7 @@
     <Compile Include="Areas\Cadastro\Controllers\BlocoController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\FornecedorController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Cadastro\Controllers\PropriedadeController.cs" />
+    <Compile Include="Areas\Cadastro\Controllers\AnoCalendarioController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\ResponsavelController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\StatusController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\TipoBlocoController.cs" />
@@ -393,8 +400,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cadastro\Models\" />
     <Folder Include="Areas\Cadastro\Views\Fornecedor\" />
-    <Folder Include="Areas\Cadastro\Views\Propriedade\" />
-    <Folder Include="Areas\Cadastro\Views\Responsavel\" />
     <Folder Include="Areas\Orcamento\Models\" />
     <Folder Include="Areas\Sistema\Views\Shared\" />
     <Folder Include="Models\" />

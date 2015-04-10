@@ -40,14 +40,22 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return tipodepagamento;
         }
 
-        public static TipoDePagamentoView EditarTipoDePagamento(TipoDePagamentoView tipodepagamento)
+        public static TipoDePagamentoView EditarTipoDePagamento(TipoDePagamentoView tipodepagamento, string AlteradoPor, DateTime AlteradoEm)
         {
+            TipoDePagamento objdomin = tipodepagamento.DeViewParaDomin();
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
+
             tipodepagamento = Executar.Cadastro.TipoDePagamento.AtualizarTipoDePagamento(tipodepagamento.DeViewParaDomin()).DeDominParaView();
             return tipodepagamento;
         }
 
-        public static bool ExcluirTipoDePagamento(TipoDePagamentoView tipodepagamento)
+        public static bool ExcluirTipoDePagamento(TipoDePagamentoView tipodepagamento, string AlteradoPor, DateTime AlteradoEm)
         {
+            TipoDePagamento objdomin = tipodepagamento.DeViewParaDomin();
+            objdomin.AlteradoPor = AlteradoPor;
+            objdomin.AlteradoEm = AlteradoEm;
+            
             bool ret = Executar.Cadastro.TipoDePagamento.ExcluirTipoDePagamento(tipodepagamento.DeViewParaDomin());
             return ret;
         }

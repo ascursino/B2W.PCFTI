@@ -11,6 +11,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel
     public class AnoCalendarioView
     {
 
+        [DisplayName("Ano")]
         public int Ano { get; set; }
 
         public bool Ativo { get; set; }
