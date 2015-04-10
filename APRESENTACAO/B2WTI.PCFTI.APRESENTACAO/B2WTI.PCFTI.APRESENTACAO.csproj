@@ -200,6 +200,7 @@
     <Content Include="Areas\Cadastro\Views\AnoCalendario\Excluir.cshtml" />
     <Content Include="Areas\Cadastro\Views\AnoCalendario\Index.cshtml" />
     <Content Include="Areas\Cadastro\Views\AnoCalendario\Novo.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Lancamento\_Lancamento.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -301,7 +302,7 @@
     <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
     <Content Include="Areas\Orcamento\Views\Lancamento\Index.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Index.cshtml" />
-    <Content Include="Areas\Orcamento\Views\Visao\_Anual.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\Anual.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Semestral.cshtml" />
     <Content Include="js\jquery.editable\jquery.keytable.js" />
     <None Include="js\jquery.framework\_references.js" />

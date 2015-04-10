@@ -1,6 +1,7 @@
 {
     "data": [
         {
+            "DT_RowId": "row_1",
             "FORNECEDOR": "ACCESSTAGE TECNOLOGIA LTDA",
             "NOME_FANTASIA": "-",
             "RESPONSAVEL": "Valmir Andrade",
@@ -99,6 +100,7 @@
             "ACUM_TOTAL": " R$ -   "
         },
         {
+            "DT_RowId": "row_2",
             "FORNECEDOR": "ACCURATE SOFTWARE S/C LTDA",
             "NOME_FANTASIA": "-",
             "RESPONSAVEL": "Carlos Gatto",
@@ -197,6 +199,7 @@
             "ACUM_TOTAL": " R$ 337.732,00 "
         },
         {
+            "DT_RowId": "row_3",
             "FORNECEDOR": "ACIES",
             "NOME_FANTASIA": "-",
             "RESPONSAVEL": "Valmir Andrade",
@@ -295,6 +298,7 @@
             "ACUM_TOTAL": " R$ 152.000,00 "
         },
         {
+            "DT_RowId": "row_4",
             "FORNECEDOR": "AD DIALETO AGENCIA DE PUBLICIDADE LTDA.",
             "NOME_FANTASIA": "-",
             "RESPONSAVEL": "Rafael Catoto Dias",
