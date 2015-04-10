@@ -1,6 +1,7 @@
-﻿@model B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Sistema.ViewModel.UsuarioView
+﻿@model B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.TipoDePagamentoView
+
 @{
-    ViewBag.Title = "Novo";
+    ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,29 +9,25 @@
     <div class="wrapper wrapper-content animated fadeInUp">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>Criar novo Usuário</h5>
+                <h5>Editar o Status</h5>
             </div>
             <div class="ibox-content">
 
                 @using (Html.BeginForm())
                 {
-                    Html.EnableClientValidation(true);
+                    @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "col-sm-2 control-label" })
-                            <div class="col-sm-10">
-                                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <input type="hidden" id="TipoDePagamentoId" name="TipoDePagamentoId" value="@Model.TipoDePagamentoId" />
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "col-sm-2 control-label" })
                             <div class="col-sm-10">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
@@ -49,12 +46,14 @@
                             </div>
                         </div>
 
+
+
+
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i>Cadastrar o novo Usuario</button>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i>Salvar o Tipo de Pagamento</button>
                             </div>
                         </div>
-
                     </div>
                 }
 

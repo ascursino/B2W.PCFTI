@@ -1,7 +1,8 @@
 ﻿
 namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
 {
-    using B2WTI.PCFTI.APLICACAO.Operacao;
+    using APLICACAO.Operacao;
+    using DOMINIO.Model.Global;
     using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
     using Map;
     using System;
@@ -29,8 +30,12 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return tipodepagamento;
         }
 
-        public static TipoDePagamentoView CriarNovoTipoDePagamento(TipoDePagamentoView tipodepagamento)
+        public static TipoDePagamentoView CriarNovoTipoDePagamento(TipoDePagamentoView tipodepagamento, string CriadoPor,DateTime CriadoEm)
         {
+            TipoDePagamento objdomain = tipodepagamento.DeViewParaDomin();
+            objdomain.CriadoPor = CriadoPor;
+            objdomain.CriadoEm = CriadoEm;
+            
             tipodepagamento = Executar.Cadastro.TipoDePagamento.CriarNovoTipoDePagamento(tipodepagamento.DeViewParaDomin()).DeDominParaView();
             return tipodepagamento;
         }

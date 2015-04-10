@@ -185,6 +185,14 @@
     <Content Include="js\jquery.datatables\resources\examples.php" />
     <Content Include="js\jquery.datatables\resources\syntax\Syntax Highlighter license" />
     <Content Include="Areas\Sistema\Views\Usuario\Privilegios.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Novo.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -387,8 +395,6 @@
     <Folder Include="Areas\Cadastro\Views\Fornecedor\" />
     <Folder Include="Areas\Cadastro\Views\Propriedade\" />
     <Folder Include="Areas\Cadastro\Views\Responsavel\" />
-    <Folder Include="Areas\Cadastro\Views\Status\" />
-    <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
     <Folder Include="Areas\Orcamento\Models\" />
     <Folder Include="Areas\Sistema\Views\Shared\" />
     <Folder Include="Models\" />

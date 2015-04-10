@@ -1,0 +1,59 @@
+﻿@using B2WTI.PCFTI.DOMINIO.Model.Global
+@model List<B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.TipoDePagamentoView>
+@using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var vdfiltro = ViewData["filtro"];
+    string filtro = (vdfiltro != null) ? vdfiltro.ToString() : string.Empty;
+
+    int resultados = (Model == null) ? 0 : Model.Count(); 
+}
+
+
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>@Html.Raw((filtro != string.Empty) ? string.Format("Resultados para a pesquisa: \" {0} \", retornou {1} registro(s).", filtro, resultados) 
+                : (resultados > 1) ? string.Format("Todos os {0} Tipos de Pagamento", resultados) : (resultados == 1) ? "Um único Tipo de Pagamento foi localizado" : "Nenhum Tipo de Pagamento foi localizado")</h5>
+                <div class="ibox-tools">
+                    <a href="/Cadastro/TipoDePagamento/Novo" class="btn btn-primary btn-xs">Criar Novo Tipo de Pagamento</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="list">
+                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm" onclick="location.href = location.href;"><i class="fa fa-refresh"></i> Atualizar</button>
+                    @if (Model != null)
+                    {
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Ativo?</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (TipoDePagamentoView item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Descricao</td>
+                                        <td>@Html.Raw((item.Ativo) ? "<a href=\"#\"><i class=\"fa fa-check text-navy\"></i></a>" : "")</td>
+                                        <td><a href="/Cadastro/TipoDePagamento/Editar/@item.TipoDePagamentoId">Editar</a> | <a href="/Cadastro/TipoDePAgamento/Excluir/@item.TipoDePagamentoId">Excluir</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        @Html.Raw("Nenhum tipo de pagamento foi cadastrado.")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

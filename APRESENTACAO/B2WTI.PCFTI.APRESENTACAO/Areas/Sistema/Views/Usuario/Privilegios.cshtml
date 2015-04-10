@@ -17,7 +17,7 @@
                     {
 
                         @Html.AntiForgeryToken()
-                        
+
                         @Html.HiddenFor(model => model.Usuario.UsuarioId)
 
                         <div class="form-horizontal">
@@ -26,17 +26,30 @@
 
                             @foreach (var item in Model.Regras)
                             {
-
-                                <div>
-                                    @Html.Raw((Model.UsuarioRegras.Where(p => p.RegraId == item.RegraId && p.UsuarioId == Model.Usuario.UsuarioId).Count() > 0) ? string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" checked >", item.RegraId) : string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" >", item.RegraId))
-                                    @item.Nome
-                                    <br /><br />
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <div class="checkbox i-checks">
+                                            <label>
+                                                <div class="icheckbox_square-green" style="position: relative;">
+                                                    @Html.Raw((Model.UsuarioRegras.Where(p => p.RegraId == item.RegraId && p.UsuarioId == Model.Usuario.UsuarioId).Count() > 0) ?
+                                                        string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" checked >", item.RegraId) :
+                                                        string.Format("<input type=\"checkbox\" name=\"regras\" id=\"{0}\" value=\"{0}\" >", item.RegraId))
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins>
+                                                </div><i></i> @item.Nome
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
+                                <br/>
+                                <br />
 
                             }
 
                             <div class="col-sm-4 col-sm-offset-9">
-                                <button class="btn btn-primary" type="submit">Salvar Privilégios</button>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-check"></i>
+                                    Salvar Privilégios
+                                </button>
                             </div>
 
                             <br /><br />
