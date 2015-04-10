@@ -16,6 +16,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Sistema
         Usuario NovoUsuario(Usuario Usuario);
         IEnumerable<Usuario> ListarTodosOsUsuarios();
         IEnumerable<Usuario> BuscarUsuarios(string filtro);
+        IEnumerable<Usuario> CarregarUsuarioPeloLogin(string loginwindows);
     }
 
     public class UsuarioService : Service<Usuario>, IUsuarioService
@@ -46,6 +47,17 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Sistema
                    || item.Email.Contains(filtro)
                    || item.LoginWindows.Contains(filtro)
                    select item;
+        }
+
+        public IEnumerable<Usuario> CarregarUsuarioPeloLogin(string loginwindows)
+        {
+
+            var usuario = from user in _repository.Queryable()
+                          where user.LoginWindows.Equals(loginwindows)
+                          select user;
+
+            return usuario;
+
         }
     }
 }

@@ -2,6 +2,7 @@
 namespace B2WTI.PCFTI.APRESENTACAO
 {
     using B2WTI.PCFTI.APRESENTACAO.App_Start;
+    using B2WTI.PCFTI.APRESENTACAO.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -18,6 +19,12 @@ namespace B2WTI.PCFTI.APRESENTACAO
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Session_Start()
+        {
+            Aplicacao app = Aplicacao.Iniciar();
+            //Session["Aplication"] = ;
         }
     }
 }

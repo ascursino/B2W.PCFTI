@@ -64,7 +64,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 "dbo.AnoCalendario",
                 c => new
                     {
-                        Ano = c.Int(nullable: false),
+                        Ano = c.Int(nullable: false, identity: false),
                         Ativo = c.Boolean(nullable: false),
                         CriadoPor = c.String(maxLength: 250, unicode: false),
                         AlteradoPor = c.String(maxLength: 250, unicode: false),
@@ -208,11 +208,35 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 .PrimaryKey(t => t.UsuarioId);
             
             CreateTable(
+                "dbo.UsuarioRegra",
+                c => new
+                    {
+                        UsuarioId = c.Guid(nullable: false),
+                        RegraId = c.Guid(nullable: false),
+                        CriadoPor = c.String(maxLength: 250, unicode: false),
+                        AlteradoPor = c.String(maxLength: 250, unicode: false),
+                        CriadoEm = c.DateTime(),
+                        AlteradoEm = c.DateTime(),
+                        Descartado = c.Boolean(nullable: false),
+                        Regra_RegraId = c.Guid(),
+                        Usuario_UsuarioId = c.Guid(),
+                    })
+                .PrimaryKey(t => new { t.UsuarioId, t.RegraId })
+                .ForeignKey("dbo.Regra", t => t.Regra_RegraId)
+                .ForeignKey("dbo.Regra", t => t.RegraId)
+                .ForeignKey("dbo.Usuario", t => t.UsuarioId)
+                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
+                .Index(t => t.UsuarioId)
+                .Index(t => t.RegraId)
+                .Index(t => t.Regra_RegraId)
+                .Index(t => t.Usuario_UsuarioId);
+            
+            CreateTable(
                 "dbo.Regra",
                 c => new
                     {
                         RegraId = c.Guid(nullable: false),
-                        ResponsavelId = c.String(nullable: false, maxLength: 100, unicode: false),
+                        Nome = c.String(nullable: false, maxLength: 100, unicode: false),
                         CriadoPor = c.String(maxLength: 250, unicode: false),
                         AlteradoPor = c.String(maxLength: 250, unicode: false),
                         CriadoEm = c.DateTime(),
@@ -282,24 +306,6 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 .PrimaryKey(t => t.TipoServicoId);
             
             CreateTable(
-                "dbo.UsuarioRegra",
-                c => new
-                    {
-                        UsuarioId = c.Guid(nullable: false),
-                        RegraId = c.Guid(nullable: false),
-                        CriadoPor = c.String(maxLength: 250, unicode: false),
-                        AlteradoPor = c.String(maxLength: 250, unicode: false),
-                        CriadoEm = c.DateTime(),
-                        AlteradoEm = c.DateTime(),
-                        Descartado = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UsuarioId, t.RegraId })
-                .ForeignKey("dbo.Regra", t => t.RegraId)
-                .ForeignKey("dbo.Usuario", t => t.UsuarioId)
-                .Index(t => t.UsuarioId)
-                .Index(t => t.RegraId);
-            
-            CreateTable(
                 "dbo.Versao",
                 c => new
                     {
@@ -313,25 +319,10 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                     })
                 .PrimaryKey(t => t.VersaoId);
             
-            CreateTable(
-                "dbo.RegraUsuario",
-                c => new
-                    {
-                        Regra_RegraId = c.Guid(nullable: false),
-                        Usuario_UsuarioId = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Regra_RegraId, t.Usuario_UsuarioId })
-                .ForeignKey("dbo.Regra", t => t.Regra_RegraId)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
-                .Index(t => t.Regra_RegraId)
-                .Index(t => t.Usuario_UsuarioId);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.UsuarioRegra", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.UsuarioRegra", "RegraId", "dbo.Regra");
             DropForeignKey("dbo.Acumulado", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Lancamento", "TipoServicoId", "dbo.TipoServico");
             DropForeignKey("dbo.Lancamento", "TipoDePagamentoId", "dbo.TipoDePagamento");
@@ -339,8 +330,10 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropForeignKey("dbo.Lancamento", "StatusId", "dbo.Status");
             DropForeignKey("dbo.Lancamento", "ResponsavelId", "dbo.Responsavel");
             DropForeignKey("dbo.Responsavel", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.RegraUsuario", "Usuario_UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.RegraUsuario", "Regra_RegraId", "dbo.Regra");
+            DropForeignKey("dbo.UsuarioRegra", "Usuario_UsuarioId", "dbo.Usuario");
+            DropForeignKey("dbo.UsuarioRegra", "UsuarioId", "dbo.Usuario");
+            DropForeignKey("dbo.UsuarioRegra", "RegraId", "dbo.Regra");
+            DropForeignKey("dbo.UsuarioRegra", "Regra_RegraId", "dbo.Regra");
             DropForeignKey("dbo.Real", "Lancamento_LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Real", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Orcado", "Lancamento_LancamentoId", "dbo.Lancamento");
@@ -353,8 +346,8 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropForeignKey("dbo.Backlog", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Lancamento", "Ano", "dbo.AnoCalendario");
             DropForeignKey("dbo.Acumulado", "Lancamento_LancamentoId", "dbo.Lancamento");
-            DropIndex("dbo.RegraUsuario", new[] { "Usuario_UsuarioId" });
-            DropIndex("dbo.RegraUsuario", new[] { "Regra_RegraId" });
+            DropIndex("dbo.UsuarioRegra", new[] { "Usuario_UsuarioId" });
+            DropIndex("dbo.UsuarioRegra", new[] { "Regra_RegraId" });
             DropIndex("dbo.UsuarioRegra", new[] { "RegraId" });
             DropIndex("dbo.UsuarioRegra", new[] { "UsuarioId" });
             DropIndex("dbo.Responsavel", new[] { "UsuarioId" });
@@ -376,14 +369,13 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropIndex("dbo.Lancamento", new[] { "FornecedorId" });
             DropIndex("dbo.Acumulado", new[] { "Lancamento_LancamentoId" });
             DropIndex("dbo.Acumulado", new[] { "LancamentoId" });
-            DropTable("dbo.RegraUsuario");
             DropTable("dbo.Versao");
-            DropTable("dbo.UsuarioRegra");
             DropTable("dbo.TipoServico");
             DropTable("dbo.TipoDePagamento");
             DropTable("dbo.TipoBloco");
             DropTable("dbo.Status");
             DropTable("dbo.Regra");
+            DropTable("dbo.UsuarioRegra");
             DropTable("dbo.Usuario");
             DropTable("dbo.Responsavel");
             DropTable("dbo.Real");

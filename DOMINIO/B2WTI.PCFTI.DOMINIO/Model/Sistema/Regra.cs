@@ -9,8 +9,7 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Sistema
 
         public Guid RegraId { get; set; }
         public string Nome { get; set; }
-
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<UsuarioRegra> UsuariosRegra { get; set; }
 
     }
 }

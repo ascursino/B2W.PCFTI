@@ -66,15 +66,22 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
 
         public static UsuarioView DeDominParaView(this Usuario source)
         {
-            UsuarioView usuario = new UsuarioView()
+            UsuarioView usuario = null; 
+            if (source != null)
             {
-                UsuarioId = source.UsuarioId,
-                Nome = source.Nome,
-                LoginWindows = source.LoginWindows,
-                Email = source.Email,
-                Ativo = source.Ativo
-            };
+                usuario = new UsuarioView()
+                {
+                    UsuarioId = source.UsuarioId,
+                    Nome = source.Nome,
+                    LoginWindows = source.LoginWindows,
+                    Email = source.Email,
+                    Ativo = source.Ativo
+                };
 
+/*                if (source.UsuarioRegras != null)
+                    if (source.UsuarioRegras.Count() > 0)
+                        usuario.Regras = source.UsuarioRegras.DeDominParaView();*/
+            }
             return usuario;
         }
 

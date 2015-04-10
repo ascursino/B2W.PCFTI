@@ -12,7 +12,8 @@ namespace B2WTI.PCFTI.DOMINIO.Model.Sistema
         public string Nome { get; set; }
         public string Email { get; set; }
         public bool Ativo { get; set; }
-        public virtual ICollection<Regra> Regras { get; set; }
+
+        public virtual ICollection<UsuarioRegra> UsuarioRegras { get; set; }
 
     }
 }

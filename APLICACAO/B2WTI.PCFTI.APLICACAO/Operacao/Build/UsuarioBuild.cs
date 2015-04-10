@@ -11,6 +11,7 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Data.Entity;
     using System.Text;
     
     public class UsuarioBuild
@@ -116,6 +117,33 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 
                     ret = usuarioService.Find(UsuarioId);
                     unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public Usuario CarregarUsuario(string LoginWindows)
+        {
+            Usuario ret = null;
+            try
+            {
+                ret = new Usuario();
+                using (PCFTIDataContext context = new PCFTIDataContext())
+                {
+
+                    var usr = (from user in context.Usuario.Include("UsuarioRegras")
+                                where user.LoginWindows.Equals(LoginWindows)
+                                select user)
+                                .SingleOrDefault<Usuario>();
+
+
+                    
+
+                    ret = usr;
                 }
             }
             catch

@@ -31,6 +31,12 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe
             return usuario;
         }
 
+        public static UsuarioView CarregarUsuario(string LoginWindows)
+        {
+            UsuarioView usuario = Executar.Sistema.Usuario.CarregarUsuario(LoginWindows).DeDominParaView();
+            return usuario;
+        }
+
         public static UsuarioView CriarNovoUsuario(UsuarioView usuario, string CriadoPor, DateTime CriadoEm)
         {
             Usuario objdomin = usuario.DeViewParaDomin();

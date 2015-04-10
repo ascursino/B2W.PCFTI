@@ -61,5 +61,16 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
             return regra;
         }
 
+
+        public static List<RegraView> DeDominParaView(this ICollection<Regra> source)
+        {
+            List<RegraView> regrasview = new List<RegraView>();
+            Parallel.ForEach<Regra>(source, item =>
+            {
+                regrasview.Add(new RegraView() { RegraId = item.RegraId, Nome = item.Nome });
+            });
+            return regrasview;
+        }
+
     }
 }

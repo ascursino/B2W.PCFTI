@@ -21,6 +21,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
         public PCFTIDataContext()
             : base(ConnectionName)
         {
+            this.Configuration.LazyLoadingEnabled = false; 
         }
 
         //Cadastro
