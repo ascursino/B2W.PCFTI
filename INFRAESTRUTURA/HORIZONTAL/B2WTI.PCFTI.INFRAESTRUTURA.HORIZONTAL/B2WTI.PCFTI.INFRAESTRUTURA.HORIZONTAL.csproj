@@ -31,33 +31,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.Edm, Version=5.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Spatial, Version=5.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,9 +68,13 @@
     <Compile Include="DataMap\AnoCalendarioMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201504102034425_PCFTI0001.cs" />
-    <Compile Include="Migrations\201504102034425_PCFTI0001.Designer.cs">
-      <DependentUpon>201504102034425_PCFTI0001.cs</DependentUpon>
+    <Compile Include="Migrations\201504121452322_Seed.cs" />
+    <Compile Include="Migrations\201504121452322_Seed.Designer.cs">
+      <DependentUpon>201504121452322_Seed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504121509076_PCFTI0001.cs" />
+    <Compile Include="Migrations\201504121509076_PCFTI0001.Designer.cs">
+      <DependentUpon>201504121509076_PCFTI0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
@@ -105,7 +94,9 @@
     <Compile Include="Repositories\FornecedorRep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,8 +117,11 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504102034425_PCFTI0001.resx">
-      <DependentUpon>201504102034425_PCFTI0001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504121452322_Seed.resx">
+      <DependentUpon>201504121452322_Seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504121509076_PCFTI0001.resx">
+      <DependentUpon>201504121509076_PCFTI0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

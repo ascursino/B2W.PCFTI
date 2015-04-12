@@ -1,22 +1,21 @@
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
 {
-    using B2WTI.PCFTI.DOMINIO.Model.Sistema;
+    using DOMINIO.Model.Sistema;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.PCFTIDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PCFTIDataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.PCFTIDataContext context)
+        protected override void Seed(PCFTIDataContext context)
         {
-
             List<Regra> regras = new List<Regra>()
             {
                 new Regra() { RegraId = Guid.Parse("f1a89281-6c33-4be3-9424-fe8f72c33b60"), Nome = "SUPER-ADMINISTRADOR", Descartado = false, CriadoPor = @"LAB2W\fabio.braga", CriadoEm = DateTime.Now },
@@ -104,7 +103,6 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
 
             context.UsuarioRegra.AddRange(urBENEFICIARIO);
             context.SaveChanges();
-
         }
     }
 }

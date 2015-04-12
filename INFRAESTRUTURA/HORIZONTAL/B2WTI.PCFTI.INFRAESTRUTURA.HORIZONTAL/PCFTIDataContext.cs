@@ -1,21 +1,23 @@
 ﻿
 namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
 {
-    using B2WTI.PCFTI.DOMINIO.Model.Global;
-    using B2WTI.PCFTI.DOMINIO.Model.Orcamento;
-    using B2WTI.PCFTI.DOMINIO.Model.Sistema;
-    using B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DataContexts;
+    using DataMap;
+    using DOMINIO.Model.Global;
+    using DOMINIO.Model.Orcamento;
+    using DOMINIO.Model.Sistema;
+    using Migrations;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using TRANSVERSAL.DataContexts;
 
     public partial class PCFTIDataContext : DataContext
     {
         const string ConnectionName = "Name=PCFTIDB";
+        
         static PCFTIDataContext() 
         {
-            Database.SetInitializer<PCFTIDataContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PCFTIDataContext, Configuration>());
         }
 
         public PCFTIDataContext()
@@ -96,6 +98,10 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new RegraMap());
             modelBuilder.Configurations.Add(new UsuarioRegraMap());
+
+            //...........................
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }

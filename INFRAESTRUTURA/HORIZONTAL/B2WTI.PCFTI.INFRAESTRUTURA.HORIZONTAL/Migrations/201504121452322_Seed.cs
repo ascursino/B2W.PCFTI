@@ -3,7 +3,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PCFTI0001 : DbMigration
+    public partial class Seed : DbMigration
     {
         public override void Up()
         {
@@ -64,7 +64,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                 "dbo.AnoCalendario",
                 c => new
                     {
-                        Ano = c.Int(nullable: false, identity: false),
+                        Ano = c.Int(nullable: false),
                         Ativo = c.Boolean(nullable: false),
                         CriadoPor = c.String(maxLength: 250, unicode: false),
                         AlteradoPor = c.String(maxLength: 250, unicode: false),
