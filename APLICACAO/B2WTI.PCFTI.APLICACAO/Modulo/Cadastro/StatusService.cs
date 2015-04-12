@@ -15,6 +15,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     {
         Status NovoStatus(Status status);
         IEnumerable<Status> ListarTodosOsStatus();
+        IEnumerable<Status> BuscarStatus(string filtro);
     }
 
     public class StatusService : Service<Status>, IStatusService
@@ -36,6 +37,14 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)
+                   select item;
+        }
+
+        public IEnumerable<Status> BuscarStatus(string filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Descricao.Contains(filtro)
                    select item;
         }
     }

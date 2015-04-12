@@ -1,11 +1,11 @@
 ﻿
 using System.Security;
 
-namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Orcamento
+namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Orcamento.ViewModel
 {
     using System;
 
-    public class LancamentoDTO
+    public class LancamentoView
     {
         public Guid LancamentoId { get; set; }
 

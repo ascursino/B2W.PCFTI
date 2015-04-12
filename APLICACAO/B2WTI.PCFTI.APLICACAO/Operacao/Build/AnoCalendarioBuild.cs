@@ -1,4 +1,6 @@
 ﻿
+using System.Linq;
+
 namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 {
     using APLICACAO.Modulo.Cadastro;
@@ -144,6 +146,50 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     IAnoCalendarioService anocalendarioService = new AnoCalendarioService(anocalendarioRepository);
 
                     ret = anocalendarioService.Find(Ano);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<AnoCalendario> ListarAnoCalendarios()
+        {
+            List<AnoCalendario> list = null;
+            try
+            {
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<AnoCalendario> anocalendarioRepository = new Repository<AnoCalendario>(context, unitOfWork);
+                    IAnoCalendarioService anocalendarioService = new AnoCalendarioService(anocalendarioRepository);
+
+                    list = anocalendarioService.Queryable().ToList<AnoCalendario>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                list = null;
+            }
+            return list;
+        }
+
+        public List<AnoCalendario> BuscarAnoCalendarios(int filtro)
+        {
+            List<AnoCalendario> ret = null;
+            try
+            {
+                ret = new List<AnoCalendario>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<AnoCalendario> anocalendarioRepository = new Repository<AnoCalendario>(context, unitOfWork);
+                    IAnoCalendarioService anoCalendarioService = new AnoCalendarioService(anocalendarioRepository);
+                    ret = anoCalendarioService.BuscarAnoCalendarios(filtro).ToList<AnoCalendario>();
                     unitOfWork.Dispose();
                 }
             }

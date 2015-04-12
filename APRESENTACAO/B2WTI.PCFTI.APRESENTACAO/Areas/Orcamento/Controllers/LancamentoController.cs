@@ -16,5 +16,10 @@ namespace B2WTI.PCFTI.APRESENTACAO.Areas.Orcamento.Controllers
         {
             return View();
         }
+
+        public ActionResult Lancamento()
+        {
+            return View();
+        }
     }
 }

@@ -1,20 +1,9 @@
-﻿@using System.Web.Optimization
-@{
+﻿@{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+    Html.RenderPartial("_Widgets");
+}
 
-
-@Scripts.Render("~/bundles/EditTable")
-@Scripts.Render("~/bundles/DataTables")
-@Scripts.Render("~/js/jquery.generic/jquery.generic.inidatatablefixedcolumn.js")
-
-<style type="text/css">
-    table.dataTable {
-        width: 100%;
-    }
-
-    .dataTables_scrollHead {
-        background-color: #FFF;
-    }
-</style>

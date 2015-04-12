@@ -1,0 +1,63 @@
+﻿@model B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Cadastro.ViewModel.TipoDePagamentoView
+
+@{
+    ViewBag.Title = "Excluir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Excluir Tipo de Pagamento</h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <dl class="dl-horizontal">
+
+
+                    <dt>
+                        <h3>
+                            @Html.DisplayNameFor(model => model.Descricao):
+                        </h3>
+                    </dt>
+
+                    <dd>
+                        <h3>
+                            @Html.DisplayFor(model => model.Descricao)
+                        </h3>
+                    </dd>
+
+
+                </dl>
+
+                <p>Você pode desabilitar o status desmarcando o flag ativo. Isso evitará possiveis falhas.</p>
+                <br /><br />
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.TipoDePagamentoId)
+                    @Html.HiddenFor(model => model.Descricao)
+                    @Html.HiddenFor(model => model.Ativo)
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Tem certeza que deseja excluir este Tipo de Pagamento?" class="btn btn-danger" />
+                    </div>
+                }
+
+
+
+                <div>
+                    <br /><br /><br /><br /><br /><br />
+                    @Html.ActionLink("Voltar", "Index")
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

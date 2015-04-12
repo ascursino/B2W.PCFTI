@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exe\AnoCalendarioExecute.cs" />
+    <Compile Include="Exe\StatusExecute.cs" />
     <Compile Include="Exe\UsuarioRegraExecute.cs" />
     <Compile Include="Exe\RegraExecute.cs" />
     <Compile Include="Exe\UsuarioExecute.cs" />
@@ -47,6 +49,8 @@
     <Compile Include="Exe\TipoServicoExecute.cs" />
     <Compile Include="Exe\TipoBlocoExecute.cs" />
     <Compile Include="Exe\BlocoExecute.cs" />
+    <Compile Include="Map\AnoCalendarioMap.cs" />
+    <Compile Include="Map\StatusMap.cs" />
     <Compile Include="Map\RegraMap.cs" />
     <Compile Include="Map\UsuarioRegraMap.cs" />
     <Compile Include="Map\UsuarioMap.cs" />

@@ -185,6 +185,22 @@
     <Content Include="js\jquery.datatables\resources\examples.php" />
     <Content Include="js\jquery.datatables\resources\syntax\Syntax Highlighter license" />
     <Content Include="Areas\Sistema\Views\Usuario\Privilegios.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Status\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\TipoDePagamento\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Editar.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\Responsavel\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Excluir.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Index.cshtml" />
+    <Content Include="Areas\Cadastro\Views\AnoCalendario\Novo.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Lancamento\_Lancamento.cshtml" />
     <None Include="js\jquery.generic\listTripa.json" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -286,7 +302,7 @@
     <Content Include="Areas\Cadastro\Views\TipoServico\Novo.cshtml" />
     <Content Include="Areas\Orcamento\Views\Lancamento\Index.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Index.cshtml" />
-    <Content Include="Areas\Orcamento\Views\Visao\_Anual.cshtml" />
+    <Content Include="Areas\Orcamento\Views\Visao\Anual.cshtml" />
     <Content Include="Areas\Orcamento\Views\Visao\Semestral.cshtml" />
     <Content Include="js\jquery.editable\jquery.keytable.js" />
     <None Include="js\jquery.framework\_references.js" />
@@ -333,7 +349,7 @@
     <Compile Include="Areas\Cadastro\Controllers\BlocoController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\FornecedorController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Cadastro\Controllers\PropriedadeController.cs" />
+    <Compile Include="Areas\Cadastro\Controllers\AnoCalendarioController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\ResponsavelController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\StatusController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\TipoBlocoController.cs" />
@@ -387,10 +403,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cadastro\Models\" />
     <Folder Include="Areas\Cadastro\Views\Fornecedor\" />
-    <Folder Include="Areas\Cadastro\Views\Propriedade\" />
-    <Folder Include="Areas\Cadastro\Views\Responsavel\" />
-    <Folder Include="Areas\Cadastro\Views\Status\" />
-    <Folder Include="Areas\Cadastro\Views\TipoDePagamento\" />
     <Folder Include="Areas\Orcamento\Models\" />
     <Folder Include="Areas\Sistema\Views\Shared\" />
   </ItemGroup>

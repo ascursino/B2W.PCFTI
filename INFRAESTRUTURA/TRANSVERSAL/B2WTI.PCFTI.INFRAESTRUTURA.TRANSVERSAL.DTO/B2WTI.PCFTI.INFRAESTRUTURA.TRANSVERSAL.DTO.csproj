@@ -51,12 +51,10 @@
     <Compile Include="Modulo\Cadastro\ViewModel\TipoServicoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\TipoBlocoView.cs" />
     <Compile Include="Modulo\Cadastro\ViewModel\BlocoView.cs" />
-    <Compile Include="Modulo\Orcamento\LancamentoDTO.cs" />
+    <Compile Include="Modulo\Orcamento\ViewModel\LancamentoView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modulo\Orcamento\ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

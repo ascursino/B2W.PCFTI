@@ -15,6 +15,7 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
     {
         AnoCalendario NovoAnoCalendario(AnoCalendario Propriedade);
         IEnumerable<AnoCalendario> ListarTodasOsAnosCalendario();
+        IEnumerable<AnoCalendario> BuscarAnoCalendarios(int filtro);
     }
 
     public class AnoCalendarioService : Service<AnoCalendario>, IAnoCalendarioService
@@ -36,6 +37,14 @@ namespace B2WTI.PCFTI.APLICACAO.Modulo.Cadastro
         {
             return from item in _repository.Queryable()
                    where item.Ativo.Equals(true)
+                   select item;
+        }
+
+        public IEnumerable<AnoCalendario> BuscarAnoCalendarios(int filtro)
+        {
+            return from item in _repository.Queryable()
+                   where item.Ativo.Equals(true)
+                   && item.Ano.Equals(filtro)
                    select item;
         }
     }

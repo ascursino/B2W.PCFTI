@@ -1,6 +1,7 @@
 ﻿
 namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 {
+    using System.Linq;
     using APLICACAO.Modulo.Cadastro;
     using DOMINIO.Model.Global;
     using INFRAESTRUTURA.HORIZONTAL;
@@ -144,6 +145,50 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                     IStatusService statusService = new StatusService(statusRepository);
 
                     ret = statusService.Find(StatusId);
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<Status> ListarStatus()
+        {
+            List<Status> ret = null;
+            try
+            {
+                ret = new List<Status>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Status> statusRepository = new Repository<Status>(context, unitOfWork);
+                    IStatusService statusService = new StatusService(statusRepository);
+                    ret = statusService.ListarTodosOsStatus().ToList<Status>();
+                    unitOfWork.Dispose();
+                }
+            }
+            catch
+            {
+                ret = null;
+            }
+            return ret;
+        }
+
+        public List<Status> BuscarStatus(string filtro)
+        {
+            List<Status> ret = null;
+            try
+            {
+                ret = new List<Status>();
+                using (IDataContextAsync context = new PCFTIDataContext())
+                using (IUnitOfWorkAsync unitOfWork = new UnitOfWork(context))
+                {
+                    IRepositoryAsync<Status> statusRepository = new Repository<Status>(context, unitOfWork);
+                    IStatusService statusService = new StatusService(statusRepository);
+                    ret = statusService.BuscarStatus(filtro).ToList<Status>();
                     unitOfWork.Dispose();
                 }
             }
