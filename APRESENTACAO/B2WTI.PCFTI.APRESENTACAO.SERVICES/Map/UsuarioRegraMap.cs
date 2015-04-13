@@ -48,7 +48,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
                 {
                     UsuarioId = usuarioregra.UsuarioId,
                     RegraId = usuarioregra.RegraId,
-                    Regra = usuarioregra.Regra.DeDominParaView()
+                    Regra = (usuarioregra.Regra != null) ? usuarioregra.Regra.DeDominParaView() : null
 
                 });
             });

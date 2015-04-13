@@ -40,7 +40,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Models
             
             if (arrRegra != null)
                 if (arrRegra.Length > 0)
-                    Permitido(arrRegra.ToList());
+                    ret = Permitido(arrRegra.ToList());
                     
             return ret;
         }
@@ -57,9 +57,14 @@ namespace B2WTI.PCFTI.APRESENTACAO.Models
         public bool Permitido(string regra)
         {
             bool ret = false;
-            
-            if (regra != string.Empty)
-                ret = Usuario.Regras.Where(p => p.ToUpper().Equals(regra.ToUpper())).Count() > 0;
+
+            if (regra == string.Empty)
+                return ret;
+
+            if (regra.Contains(","))
+                ret = Permitido(regra.Split(new Char[] { ',' }));
+            else            
+                ret = Usuario.Regras.Where(p => p.ToUpper().Trim().Equals(regra.ToUpper().Trim())).Count() > 0;
             
             return ret;
         }
