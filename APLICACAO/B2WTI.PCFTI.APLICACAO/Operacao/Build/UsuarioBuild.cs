@@ -135,14 +135,13 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
                 using (PCFTIDataContext context = new PCFTIDataContext())
                 {
 
-                    var usr = (from user in context.Usuario.Include(p => p.UsuarioRegras).Include(p=> p.UsuarioRegras.Select(t=>t.Regra))
+                    var usr = (from user in context.Usuario
+                                   .Include(p => p.UsuarioRegras)
+                                   .Include(p=> p.UsuarioRegras.Select(t=>t.Regra))
                                 where user.LoginWindows.Equals(LoginWindows)
                                 select user)
                                 .SingleOrDefault<Usuario>();
-
-
                     
-
                     ret = usr;
                 }
             }

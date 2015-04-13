@@ -7,6 +7,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.Models
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using System.Web.SessionState;
 
     public class Aplicacao
     {
@@ -14,7 +15,9 @@ namespace B2WTI.PCFTI.APRESENTACAO.Models
         public Aplicacao()
         {
             UsuarioView usuario = null;
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            if (HttpContext.Current.Session["UsuarioView"] != null)
+                usuario = (UsuarioView)HttpContext.Current.Session["UsuarioView"];
+            else if (HttpContext.Current.User.Identity.IsAuthenticated)
                 usuario = UsuarioExecute.CarregarUsuario(HttpContext.Current.User.Identity.Name);
             
             if (usuario != null)

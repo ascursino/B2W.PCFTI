@@ -24,7 +24,6 @@ namespace B2WTI.PCFTI.APRESENTACAO
         protected void Session_Start()
         {
             Aplicacao app = Aplicacao.Iniciar();
-            //Session["Aplication"] = ;
         }
     }
 }

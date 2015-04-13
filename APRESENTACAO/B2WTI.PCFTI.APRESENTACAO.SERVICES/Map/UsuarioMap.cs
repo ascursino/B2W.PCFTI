@@ -67,6 +67,7 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
         public static UsuarioView DeDominParaView(this Usuario source)
         {
             UsuarioView usuario = null; 
+            List<UsuarioRegraView> lstUsuarioRegra = null;
             if (source != null)
             {
                 usuario = new UsuarioView()
@@ -78,12 +79,27 @@ namespace B2WTI.PCFTI.APRESENTACAO.SERVICES.Map
                     Ativo = source.Ativo
                 };
 
-/*                if (source.UsuarioRegras != null)
+                if (source.UsuarioRegras != null)
                     if (source.UsuarioRegras.Count() > 0)
-                        usuario.Regras = source.UsuarioRegras.DeDominParaView();*/
+                        lstUsuarioRegra = source.UsuarioRegras.ToList<UsuarioRegra>().DeDominParaView();
+
+                if (lstUsuarioRegra != null)
+                    if (lstUsuarioRegra.Count() > 0)
+                    {
+                        List<RegraView> regras = new List<RegraView>();
+                        Parallel.ForEach<UsuarioRegraView>(lstUsuarioRegra, item => regras.Add(item.Regra));
+                        usuario.Regras = regras;
+                    }
             }
             return usuario;
         }
+
+        //public static List<RegraView> DeDominParaView(this List<UsuarioRegra> source)
+        //{
+        //    List<RegraView> usuarioregras = null;
+
+        //    return usuarioregras;
+        //}
 
     }
 }
