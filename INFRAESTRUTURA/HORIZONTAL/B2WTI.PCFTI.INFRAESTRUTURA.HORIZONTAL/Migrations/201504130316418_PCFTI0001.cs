@@ -3,7 +3,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Seed : DbMigration
+    public partial class PCFTI0001 : DbMigration
     {
         public override void Up()
         {
@@ -218,18 +218,12 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
                         CriadoEm = c.DateTime(),
                         AlteradoEm = c.DateTime(),
                         Descartado = c.Boolean(nullable: false),
-                        Regra_RegraId = c.Guid(),
-                        Usuario_UsuarioId = c.Guid(),
                     })
                 .PrimaryKey(t => new { t.UsuarioId, t.RegraId })
-                .ForeignKey("dbo.Regra", t => t.Regra_RegraId)
                 .ForeignKey("dbo.Regra", t => t.RegraId)
                 .ForeignKey("dbo.Usuario", t => t.UsuarioId)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
                 .Index(t => t.UsuarioId)
-                .Index(t => t.RegraId)
-                .Index(t => t.Regra_RegraId)
-                .Index(t => t.Usuario_UsuarioId);
+                .Index(t => t.RegraId);
             
             CreateTable(
                 "dbo.Regra",
@@ -330,10 +324,8 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropForeignKey("dbo.Lancamento", "StatusId", "dbo.Status");
             DropForeignKey("dbo.Lancamento", "ResponsavelId", "dbo.Responsavel");
             DropForeignKey("dbo.Responsavel", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.UsuarioRegra", "Usuario_UsuarioId", "dbo.Usuario");
             DropForeignKey("dbo.UsuarioRegra", "UsuarioId", "dbo.Usuario");
             DropForeignKey("dbo.UsuarioRegra", "RegraId", "dbo.Regra");
-            DropForeignKey("dbo.UsuarioRegra", "Regra_RegraId", "dbo.Regra");
             DropForeignKey("dbo.Real", "Lancamento_LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Real", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Orcado", "Lancamento_LancamentoId", "dbo.Lancamento");
@@ -346,8 +338,6 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.Migrations
             DropForeignKey("dbo.Backlog", "LancamentoId", "dbo.Lancamento");
             DropForeignKey("dbo.Lancamento", "Ano", "dbo.AnoCalendario");
             DropForeignKey("dbo.Acumulado", "Lancamento_LancamentoId", "dbo.Lancamento");
-            DropIndex("dbo.UsuarioRegra", new[] { "Usuario_UsuarioId" });
-            DropIndex("dbo.UsuarioRegra", new[] { "Regra_RegraId" });
             DropIndex("dbo.UsuarioRegra", new[] { "RegraId" });
             DropIndex("dbo.UsuarioRegra", new[] { "UsuarioId" });
             DropIndex("dbo.Responsavel", new[] { "UsuarioId" });

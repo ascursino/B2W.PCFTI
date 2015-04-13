@@ -13,12 +13,12 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL.DataMap
             this.HasKey(t => new { t.UsuarioId, t.RegraId });
 
             this.HasRequired(t => t.Usuario)
-                .WithMany()
-                .HasForeignKey(t => t.UsuarioId);
+                .WithMany(i => i.UsuarioRegras)
+                .HasForeignKey(i => i.UsuarioId);
 
             this.HasRequired(t => t.Regra)
-                .WithMany()
-                .HasForeignKey(t => t.RegraId);
+                .WithMany(i=> i.UsuariosRegra)
+                .HasForeignKey(i => i.RegraId);
 
         }
 

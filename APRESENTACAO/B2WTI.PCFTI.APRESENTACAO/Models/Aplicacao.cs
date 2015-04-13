@@ -1,8 +1,8 @@
 ﻿
 namespace B2WTI.PCFTI.APRESENTACAO.Models
 {
-    using B2WTI.PCFTI.APRESENTACAO.SERVICES.Exe;
-    using B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Sistema.ViewModel;
+    using APRESENTACAO.SERVICES.Exe;
+    using INFRAESTRUTURA.TRANSVERSAL.DTO.Modulo.Sistema.ViewModel;
     using System;
     using System.Collections.Generic;
     using System.Linq;

@@ -7,7 +7,11 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
     using DOMINIO.Model.Sistema;
     using Migrations;
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
+    using System.Data.Entity.Core.Objects;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.ModelConfiguration;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using TRANSVERSAL.DataContexts;
 
@@ -17,13 +21,45 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.HORIZONTAL
         
         static PCFTIDataContext() 
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PCFTIDataContext, Configuration>());
         }
 
         public PCFTIDataContext()
             : base(ConnectionName)
         {
-            this.Configuration.LazyLoadingEnabled = false; 
+            //string cnn = this.Database.Connection.ConnectionString;
+            Database.SetInitializer<PCFTIDataContext>(new MigrateDatabaseToLatestVersion<PCFTIDataContext, Configuration>()); 
+        }
+
+        public ObjectContext ObjectContext
+        {
+            get
+            {
+                return ((IObjectContextAdapter)this).ObjectContext;
+            }
+        }
+
+        private static readonly Object syncObj = new Object();
+        public static bool InitializeDatabase()
+        {
+            lock (syncObj)
+            {
+                using (var temp = new PCFTIDataContext())
+                {
+                    if (temp.Database.Exists()) return true;
+
+                    var initializer = new MigrateDatabaseToLatestVersion<PCFTIDataContext, Configuration>();
+                    Database.SetInitializer(initializer);
+                    try
+                    {
+                        temp.Database.Initialize(true);
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
         }
 
         //Cadastro

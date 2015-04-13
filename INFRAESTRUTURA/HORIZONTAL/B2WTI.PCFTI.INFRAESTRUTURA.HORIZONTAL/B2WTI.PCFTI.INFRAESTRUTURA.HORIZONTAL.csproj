@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -68,13 +69,9 @@
     <Compile Include="DataMap\AnoCalendarioMap.cs" />
     <Compile Include="DataMap\ResponsavelMap.cs" />
     <Compile Include="DataMap\FornecedorMap.cs" />
-    <Compile Include="Migrations\201504121452322_Seed.cs" />
-    <Compile Include="Migrations\201504121452322_Seed.Designer.cs">
-      <DependentUpon>201504121452322_Seed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504121509076_PCFTI0001.cs" />
-    <Compile Include="Migrations\201504121509076_PCFTI0001.Designer.cs">
-      <DependentUpon>201504121509076_PCFTI0001.cs</DependentUpon>
+    <Compile Include="Migrations\201504130316418_PCFTI0001.cs" />
+    <Compile Include="Migrations\201504130316418_PCFTI0001.Designer.cs">
+      <DependentUpon>201504130316418_PCFTI0001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PCFTIDataContext.cs" />
@@ -117,11 +114,8 @@
     <Folder Include="Repositories\Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504121452322_Seed.resx">
-      <DependentUpon>201504121452322_Seed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504121509076_PCFTI0001.resx">
-      <DependentUpon>201504121509076_PCFTI0001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504130316418_PCFTI0001.resx">
+      <DependentUpon>201504130316418_PCFTI0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
