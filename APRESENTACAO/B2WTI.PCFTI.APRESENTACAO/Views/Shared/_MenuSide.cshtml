@@ -1,4 +1,7 @@
-﻿@{
+﻿@using B2WTI.PCFTI.APRESENTACAO.Models
+@{
+    Aplicacao APP = Aplicacao.Iniciar();
+            
     string _Area = string.Empty;
 
     if (ViewContext.RouteData.Values["area"] != null)
@@ -25,9 +28,9 @@
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">                        
                         <li><a href="/Orcamento">ORÇAMENTOS</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/Cadastro">CADASTROS</a></li>
-                        <li><a href="/Sistema">CONFIGURAÇÕES DO SISTEMA</a></li>
+                        @Html.Raw((APP.Permitido("SUPER-ADMINISTRADOR") || APP.Permitido("ADMINISTRADOR")) ? "<li class=\"divider\"></li>" : "")
+                        @Html.Raw((APP.Permitido("SUPER-ADMINISTRADOR") || APP.Permitido("ADMINISTRADOR")) ? "<li><a href=\"/Cadastro\">CADASTROS</a></li>" : "")
+                        @Html.Raw((APP.Permitido("SUPER-ADMINISTRADOR") || APP.Permitido("ADMINISTRADOR")) ? "<li><a href=\"/Sistema\">CONFIGURAÇÕES DO SISTEMA</a></li>" : "")
                     </ul>
                 </div>
                 @* End Sessão Módulos *@

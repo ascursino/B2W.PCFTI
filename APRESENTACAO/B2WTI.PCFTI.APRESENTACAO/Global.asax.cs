@@ -1,8 +1,8 @@
 ﻿
 namespace B2WTI.PCFTI.APRESENTACAO
 {
-    using B2WTI.PCFTI.APRESENTACAO.App_Start;
-    using B2WTI.PCFTI.APRESENTACAO.Models;
+    using APRESENTACAO.App_Start;
+    using APRESENTACAO.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
