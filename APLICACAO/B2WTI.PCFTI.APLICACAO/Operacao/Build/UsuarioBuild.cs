@@ -249,12 +249,12 @@ namespace B2WTI.PCFTI.APLICACAO.Operacao.Build
 
 
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine(string.Format("Prezado(a) {0};", usuario.Nome));
+                sb.AppendLine(string.Format("Prezado(a) {0},", usuario.Nome));
                 sb.AppendLine("<br/><br/>");
                 sb.AppendLine("Por favor, clique no link abaixo para ativar sua conta.");
                 sb.AppendLine("<br/><br/>");
-                sb.AppendLine(string.Format("<a href='http://app.portalti.b2w/pcfti/Sistema/Usuario/Ativar/{0}'>http://app.portalti.b2w/pcfti/Sistema/Usuario/Editar/{0}</a>", usuario.UsuarioId));
-                sb.AppendLine("<br/><br/>Agradecemos sua compreensão");
+                sb.AppendLine(string.Format("<a href='http://app.portalti.b2w/pcfti/Sistema/Usuario/Ativar/{0}'>http://app.portalti.b2w/pcfti/Sistema/Usuario/Ativar/{0}.</a> ", usuario.UsuarioId));
+                sb.AppendLine("<br/><br/>Obrigado");
                 
                 ret = MailProvider.EnviarEmail(emails, "PCFTI - Ativação de acesso ao sistema. ", sb.ToString());
 

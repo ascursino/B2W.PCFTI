@@ -43,7 +43,7 @@ namespace B2WTI.PCFTI.INFRAESTRUTURA.TRANSVERSAL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tecnologia.pmo.controle@b2wdigital.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("portal.pcfti@b2wdigital.com")]
         public string MAIL_FROM {
             get {
                 return ((string)(this["MAIL_FROM"]));

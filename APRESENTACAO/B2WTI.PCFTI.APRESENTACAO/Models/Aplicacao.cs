@@ -63,9 +63,11 @@ namespace B2WTI.PCFTI.APRESENTACAO.Models
 
             if (regra.Contains(","))
                 ret = Permitido(regra.Split(new Char[] { ',' }));
-            else            
+            else if (Usuario != null)
                 ret = Usuario.Regras.Where(p => p.ToUpper().Trim().Equals(regra.ToUpper().Trim())).Count() > 0;
-            
+            else
+                ret = false;
+
             return ret;
         }
 
